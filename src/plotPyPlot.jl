@@ -9,6 +9,7 @@ using PyCall
 @pyimport matplotlib.patches as patches
 @pyimport matplotlib.cm as cm               # colourmap
 @pyimport mpl_toolkits.axes_grid1 as ag1
+@pyimport mpl_toolkits.mplot3d as mp3
 
 ρ = 1.0                 # global scaling
 fig = nothing           # the figure
@@ -71,6 +72,7 @@ function getPaperSizes(paper::Symbol; margin = 1.0)
 end
 
 
+
 function adjustLineWidth(som::Som, lwd)
 
     defaultSize = 10
@@ -87,12 +89,12 @@ function drawBackGround(som)
         y = (-0.75, (som.ydim-1)*0.866+0.75)
         █[:set_xlim](x)
         █[:set_ylim](y)
-    elseif so,.topol == :spherical
+    elseif som.topol == :spherical
         minx, miny, minz = minimum(som.grid, 1)
         maxx, maxy, maxz = maximum(som.grid, 1)
         x = (minx - 0.5, maxx+0.5)
         y = (miny - 0.5, maxy+0.5)
-        x = (minz - 0.5, maxz+0.5)
+        z = (minz - 0.5, maxz+0.5)
         █[:set_xlim](x)
         █[:set_ylim](y)
         █[:set_zlim](z)

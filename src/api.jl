@@ -81,11 +81,14 @@ end
 """
     mapToSOM(som::Som, data)
 
-Map data onto a trained som.
+Return a DataFrame with X-, Y-indices and index of winner neuron for
+every row in data.
 
 Data must have the same number of dimensions as the training dataset.
-Returned value: DataFrame with X-, Y-indices and index of winner neuron for
-every row in data.
+
+# Arguments
+- `som`: a trained SOM
+- `data`: Array or DataFrame with training data.
 """
 function mapToSOM(som::Som, data)
 
