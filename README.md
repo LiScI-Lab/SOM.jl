@@ -1,4 +1,6 @@
-# SOM
+# SOM.jl - Kohonen's self-organising maps for Julia
+
+This package is currently under development and not yet ready for use!
 
 [![Build Status](https://travis-ci.org/andreasdominik/SOM.jl.svg?branch=master)](https://travis-ci.org/andreasdominik/SOM.jl)
 
