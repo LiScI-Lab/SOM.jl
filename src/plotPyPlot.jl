@@ -265,7 +265,7 @@ function drawDensity(som::Som, population, colourMap)
     end
 end
 
-function drawPieChart(x, y, freqs, colours, d)
+function drawPieChart(x, y, freqs, colours, lwd, d)
 
     r = d / 2
     classes = names(freqs)
@@ -282,7 +282,6 @@ function drawPieChart(x, y, freqs, colours, d)
         █[:add_artist](wedge)
     end
 
-    lwd = adjustLineWidth(som, 1)
     circle = patches.Circle((x*ρ,y*ρ), radius = r*ρ,
                             fill = false,
                             linewidth = lwd, edgecolor = "0.5")
@@ -305,7 +304,7 @@ function drawPieCharts(som::Som, frequencies::DataFrame, colours)
             r = sigmoidScale(frequencies[i, :Population], perc85)
             drawPieChart( som.grid[i,1], som.grid[i,2],
                           frequencies[i,5:end],
-                          colours, r)
+                          colours, adjustLineWidth(som, 1), r)
         end
     end
 end
