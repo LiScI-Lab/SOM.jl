@@ -1,24 +1,22 @@
 # SOM.jl - Kohonen's self-organising maps for Julia
- 
+
 Some text describing the package.
- 
+
+
 ## Self-organising maps
 
 Refer to T. Kohonen papers.
-
-## Concept
- 
 follows Kohonen's SOM_PAK.
- 
-## Tutorials
- 
+
+## Quick Start
+
 ```@contents
 Pages = [
-    "tutorials/firstTutorial.md",
+    "tutorials/firstTutorial.md"
     ]
 Depth = 2
 ```
- 
+
 ## API
 ```@contents
 Pages = [
@@ -28,9 +26,8 @@ Pages = [
     ]
 Depth = 2
 ```
- 
+
 ## Index
- 
+
 ```@index
 ```
-
