@@ -13,6 +13,7 @@ include("kernels.jl")
 include("soms.jl")
 include("api.jl")
 include("plotPyPlot.jl")
+include("plotSpheres.jl")
 
 export Som,
        initSom, trainSom, mapToSom,
