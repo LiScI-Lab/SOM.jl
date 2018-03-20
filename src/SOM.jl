@@ -1,5 +1,24 @@
+# __precompile__()
 module SOM
 
-# package code goes here
+using DataFrames
+using Distances
+using ProgressMeter
+using StatsBase
 
-end # module
+include("types.jl")
+include("helpers.jl")
+include("grids.jl")
+include("kernels.jl")
+include("soms.jl")
+include("api.jl")
+include("plotPyPlot.jl")
+
+export Som,
+       initSom, trainSom, mapToSom,
+       bubbleKernel, gaussianKernel,
+       classFrequencies,
+       plotDensity, plotClasses,
+       rowSample, prettyPrintArray
+
+end # of module SOM
