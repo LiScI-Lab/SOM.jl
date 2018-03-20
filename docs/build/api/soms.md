@@ -1,7 +1,7 @@
 
-<a id='SOM-training-1'></a>
+<a id='Training-1'></a>
 
-### SOM training
+# Training
 
 <a id='SOM.initSOM' href='#SOM.initSOM'>#</a>
 **`SOM.initSOM`** &mdash; *Function*.
@@ -24,7 +24,7 @@ Initialises a SOM.
   * `toroidal`: optional flag; if true, the SOM is toroidal.
 
 
-<a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/ccd9d532c4e3b763107b1c5177a06d91433bc70f/src/api.jl#L5-L20' class='documenter-source'>source</a><br>
+<a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/3ec925cb2c75a6af3bf9a16b2c328dc53b912898/src/api.jl#L5-L20' class='documenter-source'>source</a><br>
 
 <a id='SOM.trainSOM' href='#SOM.trainSOM'>#</a>
 **`SOM.trainSOM`** &mdash; *Function*.
@@ -51,5 +51,52 @@ Train an initialised or pre-trained SOM.
   * `ηDecay`: optional flag; if true, learning rate η decays to 0.0           during the training.
 
 
-<a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/ccd9d532c4e3b763107b1c5177a06d91433bc70f/src/api.jl#L45-L64' class='documenter-source'>source</a><br>
+<a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/3ec925cb2c75a6af3bf9a16b2c328dc53b912898/src/api.jl#L45-L64' class='documenter-source'>source</a><br>
+
+<a id='SOM.mapToSOM' href='#SOM.mapToSOM'>#</a>
+**`SOM.mapToSOM`** &mdash; *Function*.
+
+
+
+```
+mapToSOM(som::Som, data)
+```
+
+Return a DataFrame with X-, Y-indices and index of winner neuron for every row in data.
+
+Data must have the same number of dimensions as the training dataset.
+
+**Arguments**
+
+  * `som`: a trained SOM
+  * `data`: Array or DataFrame with training data.
+
+
+<a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/3ec925cb2c75a6af3bf9a16b2c328dc53b912898/src/api.jl#L81-L92' class='documenter-source'>source</a><br>
+
+<a id='SOM.classFrequencies' href='#SOM.classFrequencies'>#</a>
+**`SOM.classFrequencies`** &mdash; *Function*.
+
+
+
+```
+classFrequencies(som::Som, data, classes)
+```
+
+Return a DataFrame with class frequencies for all neurons.
+
+**Arguments:**
+
+  * `som`: a trained SOM
+  * `data`: data with row-wise samples and class information in each row
+  * `classes`: Name of column with class information.
+
+Data must have the same number of dimensions as the training dataset. The column with class labels is given as `classes` (name or index). Returned DataFrame has the columns:
+
+  * X-, Y-indices and index: of winner neuron for every row in data
+  * population: number of samples mapped to the neuron
+  * frequencies: one column for each class label.
+
+
+<a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/3ec925cb2c75a6af3bf9a16b2c328dc53b912898/src/api.jl#L110-L126' class='documenter-source'>source</a><br>
 

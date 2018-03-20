@@ -110,8 +110,7 @@ end
 """
     classFrequencies(som::Som, data, classes)
 
-Map data onto a trained som and return the class frequencies for
-all neurons.
+Return a DataFrame with class frequencies for all neurons.
 
 # Arguments:
 - `som`: a trained SOM
@@ -120,10 +119,10 @@ all neurons.
 
 Data must have the same number of dimensions as the training dataset.
 The column with class labels is given as `classes` (name or index).
-Returned value: DataFrame with
-- X-, Y-indices and index: of winner neuron for every row in data
-- population: number of samples mapped to the neuron
-- frequencies: one column for each class label.
+Returned DataFrame has the columns:
+* X-, Y-indices and index: of winner neuron for every row in data
+* population: number of samples mapped to the neuron
+* frequencies: one column for each class label.
 """
 function classFrequencies(som::Som, data, classes)
 

@@ -66,7 +66,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../tutorials/firstTutorial/">First Tutorial</a>
+        <a class="" href="../../tutorials/firstTutorial/">Quick Start Tutorial</a>
         
     </li>
 
@@ -151,7 +151,49 @@
             <div class="section">
               
                 <p><a id='Visualisation-1'></a></p>
-<h3 id="visualisation">Visualisation</h3>
+<h1 id="visualisation">Visualisation</h1>
+<p><a id='SOM.plotDensity' href='#SOM.plotDensity'>#</a>
+<strong><code>SOM.plotDensity</code></strong> &mdash; <em>Function</em>.</p>
+<div class="codehilite"><pre><span></span><span class="nt">plotDensity</span><span class="o">(</span><span class="nt">som</span><span class="p">::</span><span class="nd">Som</span><span class="o">;</span> <span class="nt">predict</span> <span class="o">=</span> <span class="nt">nothing</span><span class="o">,</span>
+            <span class="nt">title</span> <span class="o">=</span> <span class="s2">&quot;somPlot&quot;</span><span class="o">,</span> <span class="nt">paper</span> <span class="o">=</span> <span class="p">:</span><span class="nd">a4r</span><span class="o">,</span>
+            <span class="nt">colormap</span> <span class="o">=</span> <span class="s2">&quot;autumn_r&quot;</span><span class="o">,</span>
+            <span class="nt">device</span> <span class="o">=</span> <span class="p">:</span><span class="nd">display</span><span class="o">,</span> <span class="nt">fileName</span> <span class="o">=</span> <span class="s2">&quot;somplot&quot;</span><span class="o">)</span>
+</pre></div>
+
+
+<p>Plot the population of neurons as colours.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><code>som</code>: the som of type <code>Som</code>; som is the only mandatory argument</li>
+<li><code>predict</code>: DataFrame of mappings as outputed by winners()</li>
+<li><code>title</code>: main title of plot</li>
+<li><code>paper</code>: plot size; currentlx supported: <code>:a4, :a4r, :letter, :letterr</code></li>
+<li><code>colormap</code>: MatPlotLib colourmap (Python-style as string <code>"gray"</code> or             Julia-style as Symbol <code>:gray</code>)</li>
+<li><code>device</code>: one of <code>:display, :png, :svg, :pdf</code> or any file-type supported           by MatPlotLib; default is <code>:display</code></li>
+<li><code>fileName</code>: name of image file. File extention overrides the setting of             <code>device</code>.</li>
+</ul>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/3ec925cb2c75a6af3bf9a16b2c328dc53b912898/src/api.jl#L150-L169' class='documenter-source'>source</a><br></p>
+<p><a id='SOM.plotClasses' href='#SOM.plotClasses'>#</a>
+<strong><code>SOM.plotClasses</code></strong> &mdash; <em>Function</em>.</p>
+<div class="codehilite"><pre><span></span><span class="nt">plotClasses</span><span class="o">(</span><span class="nt">som</span><span class="p">::</span><span class="nd">Som</span><span class="o">,</span> <span class="nt">frequencies</span><span class="o">;</span>
+            <span class="nt">title</span> <span class="o">=</span> <span class="s2">&quot;somPlot&quot;</span><span class="o">,</span> <span class="nt">paper</span> <span class="o">=</span> <span class="p">:</span><span class="nd">a4r</span><span class="o">,</span>
+            <span class="nt">colormap</span> <span class="o">=</span> <span class="s2">&quot;rainbow&quot;</span><span class="o">,</span>
+            <span class="nt">device</span> <span class="o">=</span> <span class="p">:</span><span class="nd">display</span><span class="o">,</span> <span class="nt">fileName</span> <span class="o">=</span> <span class="s2">&quot;somplot&quot;</span><span class="o">)</span>
+</pre></div>
+
+
+<p>Plot the population of neurons as colours.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><code>som</code>: the som of type <code>Som</code>; som is the only mandatory argument</li>
+<li><code>frequencies</code>: DataFrame of frequencies as outputed by classFrequencies()</li>
+<li><code>title</code>: main title of plot</li>
+<li><code>paper</code>: plot size; currentlx supported: <code>:a4, :a4r, :letter, :letterr</code></li>
+<li><code>colors</code>: MatPlotLib colourmap (Python-style as string <code>"gray"</code> or             Julia-style as Symbol <code>:gray</code>) <em>or</em> dictionary with             classes as keys and colours as vals; default: <code>brg</code></li>
+<li><code>device</code>: one of <code>:display, :png, :svg, :pdf</code> or any file-type supported           by MatPlotLib; default is <code>:display</code></li>
+<li><code>fileName</code>: name of image file. File extention overrides the setting of             <code>device</code>.</li>
+</ul>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/3ec925cb2c75a6af3bf9a16b2c328dc53b912898/src/api.jl#L198-L218' class='documenter-source'>source</a><br></p>
               
             </div>
           </div>

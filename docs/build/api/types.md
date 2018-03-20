@@ -1,7 +1,7 @@
 
 <a id='Types-1'></a>
 
-### Types
+# Types
 
 <a id='SOM.Som' href='#SOM.Som'>#</a>
 **`SOM.Som`** &mdash; *Type*.
@@ -30,5 +30,5 @@ Stored data of a trained SOM.
   * `population`: 1D-array of numbers of training samples mapped to               each neuron.
 
 
-<a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/ccd9d532c4e3b763107b1c5177a06d91433bc70f/src/types.jl#L3-L26' class='documenter-source'>source</a><br>
+<a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/3ec925cb2c75a6af3bf9a16b2c328dc53b912898/src/types.jl#L3-L26' class='documenter-source'>source</a><br>
 

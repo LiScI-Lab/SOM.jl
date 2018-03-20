@@ -66,7 +66,7 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../tutorials/firstTutorial/">First Tutorial</a>
+        <a class="" href="../../tutorials/firstTutorial/">Quick Start Tutorial</a>
         
     </li>
 
@@ -92,7 +92,7 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#som-training">SOM training</a></li>
+                <li class="toctree-l3"><a href="#training">Training</a></li>
                 
             
             </ul>
@@ -150,8 +150,8 @@
           <div role="main">
             <div class="section">
               
-                <p><a id='SOM-training-1'></a></p>
-<h3 id="som-training">SOM training</h3>
+                <p><a id='Training-1'></a></p>
+<h1 id="training">Training</h1>
 <p><a id='SOM.initSOM' href='#SOM.initSOM'>#</a>
 <strong><code>SOM.initSOM</code></strong> &mdash; <em>Function</em>.</p>
 <div class="codehilite"><pre><span></span>initSOM(train, xdim, ydim = xdim;  norm = :zscore, topol = :hexagonal,
@@ -168,7 +168,7 @@
 <li><code>topol</code>: topology of the SOM; one of <code>:rectangular, :hexagonal or :spherical</code>.</li>
 <li><code>toroidal</code>: optional flag; if true, the SOM is toroidal.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/ccd9d532c4e3b763107b1c5177a06d91433bc70f/src/api.jl#L5-L20' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/3ec925cb2c75a6af3bf9a16b2c328dc53b912898/src/api.jl#L5-L20' class='documenter-source'>source</a><br></p>
 <p><a id='SOM.trainSOM' href='#SOM.trainSOM'>#</a>
 <strong><code>SOM.trainSOM</code></strong> &mdash; <em>Function</em>.</p>
 <div class="codehilite"><pre><span></span><span class="nt">trainSOM</span><span class="o">(</span><span class="nt">som</span><span class="p">::</span><span class="nd">Som</span><span class="o">,</span> <span class="nt">train</span><span class="p">::</span><span class="nd">Any</span><span class="o">,</span> <span class="nt">len</span><span class="o">;</span>
@@ -189,7 +189,41 @@
 <li><code>rDecay</code>: optional flag; if true, r decays to 0.0 during the training.</li>
 <li><code>ηDecay</code>: optional flag; if true, learning rate η decays to 0.0           during the training.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/ccd9d532c4e3b763107b1c5177a06d91433bc70f/src/api.jl#L45-L64' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/3ec925cb2c75a6af3bf9a16b2c328dc53b912898/src/api.jl#L45-L64' class='documenter-source'>source</a><br></p>
+<p><a id='SOM.mapToSOM' href='#SOM.mapToSOM'>#</a>
+<strong><code>SOM.mapToSOM</code></strong> &mdash; <em>Function</em>.</p>
+<div class="codehilite"><pre><span></span>mapToSOM(som::Som, data)
+</pre></div>
+
+
+<p>Return a DataFrame with X-, Y-indices and index of winner neuron for every row in data.</p>
+<p>Data must have the same number of dimensions as the training dataset.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>som</code>: a trained SOM</li>
+<li><code>data</code>: Array or DataFrame with training data.</li>
+</ul>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/3ec925cb2c75a6af3bf9a16b2c328dc53b912898/src/api.jl#L81-L92' class='documenter-source'>source</a><br></p>
+<p><a id='SOM.classFrequencies' href='#SOM.classFrequencies'>#</a>
+<strong><code>SOM.classFrequencies</code></strong> &mdash; <em>Function</em>.</p>
+<div class="codehilite"><pre><span></span><span class="n">classFrequencies</span>(<span class="n">som::Som</span>, <span class="n">data</span>, <span class="n">classes</span>)
+</pre></div>
+
+
+<p>Return a DataFrame with class frequencies for all neurons.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><code>som</code>: a trained SOM</li>
+<li><code>data</code>: data with row-wise samples and class information in each row</li>
+<li><code>classes</code>: Name of column with class information.</li>
+</ul>
+<p>Data must have the same number of dimensions as the training dataset. The column with class labels is given as <code>classes</code> (name or index). Returned DataFrame has the columns:</p>
+<ul>
+<li>X-, Y-indices and index: of winner neuron for every row in data</li>
+<li>population: number of samples mapped to the neuron</li>
+<li>frequencies: one column for each class label.</li>
+</ul>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/3ec925cb2c75a6af3bf9a16b2c328dc53b912898/src/api.jl#L110-L126' class='documenter-source'>source</a><br></p>
               
             </div>
           </div>

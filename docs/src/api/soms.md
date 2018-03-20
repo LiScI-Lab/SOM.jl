@@ -4,4 +4,5 @@
 initSOM
 trainSOM
 mapToSOM
+classFrequencies
 ```

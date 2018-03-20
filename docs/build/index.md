@@ -33,6 +33,9 @@ follows Kohonen's SOM_PAK.
 
 ## API
 
+- [Types](api/types.md#Types-1)
+- [Training](api/soms.md#Training-1)
+- [Visualisation](api/visualisations.md#Visualisation-1)
 
 
 <a id='Index-1'></a>
@@ -40,6 +43,10 @@ follows Kohonen's SOM_PAK.
 ## Index
 
 - [`SOM.Som`](api/types.md#SOM.Som)
+- [`SOM.classFrequencies`](api/soms.md#SOM.classFrequencies)
 - [`SOM.initSOM`](api/soms.md#SOM.initSOM)
+- [`SOM.mapToSOM`](api/soms.md#SOM.mapToSOM)
+- [`SOM.plotClasses`](api/visualisations.md#SOM.plotClasses)
+- [`SOM.plotDensity`](api/visualisations.md#SOM.plotDensity)
 - [`SOM.trainSOM`](api/soms.md#SOM.trainSOM)
 

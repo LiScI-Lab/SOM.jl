@@ -1,2 +1,6 @@
-### Visualisation
+# Visualisation
 
+```@docs
+plotDensity
+plotClasses
+```
