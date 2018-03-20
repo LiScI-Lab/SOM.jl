@@ -85,13 +85,23 @@ function drawBackGround(som)
     if som.topol == :hexagonal
         x = (-0.75, som.xdim+0.5)
         y = (-0.75, (som.ydim-1)*0.866+0.75)
+        █[:set_xlim](x)
+        █[:set_ylim](y)
+    elseif so,.topol == :spherical
+        minx, miny, minz = minimum(som.grid, 1)
+        maxx, maxy, maxz = maximum(som.grid, 1)
+        x = (minx - 0.5, maxx+0.5)
+        y = (miny - 0.5, maxy+0.5)
+        x = (minz - 0.5, maxz+0.5)
+        █[:set_xlim](x)
+        █[:set_ylim](y)
+        █[:set_zlim](z)
     else
         x = (-0.75, som.xdim+0.5)
         y = (-0.75, som.ydim-1+0.75)
+        █[:set_xlim](x)
+        █[:set_ylim](y)
     end
-
-    █[:set_xlim](x)
-    █[:set_ylim](y)
 
     █[:axis]("off")
     █[:set_aspect]("equal")
@@ -350,7 +360,8 @@ function drawPopulation(som::Som, population, title, paper, colourMap, device, f
     printToDevice(device, fName)
 end
 
-function drawFrequencies(som::Som, frequencies, title, paper, colours, device, fName)
+function drawFrequencies(som::Som, frequencies, title, paper,
+                         colours, device, fName)
 
     paperSize = getPaperSizes(paper)
     global fig = PyPlot.figure(figsize=paperSize)
@@ -372,9 +383,10 @@ function drawSpherePopulation(som::Som, population, detail, title, paper,
     paperSize = getPaperSizes(paper)
     global fig = PyPlot.figure(figsize=paperSize)
     global █ = fig[:add_subplot](1,1,1, projection="3d")
-    █[:axis]("off")
-    █[:set_aspect]("equal")
-    fig[:patch][:set_facecolor]("white")
+    drawBackGround(som)
+    # █[:axis]("off")
+    # █[:set_aspect]("equal")
+    # fig[:patch][:set_facecolor]("white")
     drawTitle(title)
 
     drawSphereColour(som, population, detail,colourMap)
