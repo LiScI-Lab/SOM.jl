@@ -16,7 +16,7 @@ include("plotPyPlot.jl")
 include("plotSpheres.jl")
 
 export Som,
-       initSom, trainSom, mapToSom,
+       initSOM, trainSOM, mapToSOM,
        bubbleKernel, gaussianKernel,
        classFrequencies,
        plotDensity, plotClasses,
