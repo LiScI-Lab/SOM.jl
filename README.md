@@ -15,4 +15,11 @@ This package is currently under development and not yet ready for use!
 
 
 
- 
+ ## Installation
+
+ Because the package is not yet registered, it can be installed from the
+ Julia REPL with:
+
+ ````Julia
+ Pkg.clone("https://github.com/andreasdominik/SOM.jl.git")
+ ````
