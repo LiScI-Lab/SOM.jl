@@ -1,5 +1,6 @@
 *.jl.cov
 *.jl.*.cov
 *.jl.mem
-docs/build
-docs/serve
+docs/build/
+docs/serve/
+docs/site/
