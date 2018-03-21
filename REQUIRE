@@ -1,1 +1,7 @@
 julia 0.6
+DataFrames
+Distances
+ProgressMeter
+StatsBase
+PyPlot
+PyCall
