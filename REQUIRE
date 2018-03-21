@@ -1,6 +1,7 @@
 julia 0.6
 DataFrames
 Distances
+Distributions
 ProgressMeter
 StatsBase
 PyPlot
