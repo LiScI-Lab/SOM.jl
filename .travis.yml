@@ -35,6 +35,5 @@ after_success:
   # push coverage results to Codecov
   # - julia -e 'cd(Pkg.dir("SOM")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
   # Documentation only:
-  - ENV["PYTHON"]=""; Pkg.build("PyCall"); using PyPlot;
   - julia -e julia -e 'Pkg.add("Documenter")'
-  - julia -e 'cd(Pkg.dir("SOM")); include(joinpath("docs", "make.jl"))'
+  - julia -e 'ENV["PYTHON"]=""; Pkg.build("PyCall"); using PyPlot; cd(Pkg.dir("SOM")); include(joinpath("docs", "make.jl"))'
