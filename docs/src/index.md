@@ -9,6 +9,7 @@ Visualisation is implemented by using Python's MatPlotLib.
 
 
 ## Self-organising maps
+
 Self-organising maps (also referred to as SOMs or *Kohonen* maps) are
 artificial neural networks introduced by Teuvo Kohonen in the 1980s.
 Despite of their age SOMs are still widely used as an easy and robust
@@ -36,7 +37,7 @@ technical report:
 
 ## Installation
 
-Bacause the package is not yet registered, it can be installed from the
+Because the package is not yet registered, it can be installed from the
 Julia REPL with:
 
 ````Julia
