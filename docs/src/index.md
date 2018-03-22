@@ -20,8 +20,7 @@ the target grid is two-dimensional, resulting into  intuitively interpretable ma
 
 For more details see Kohonen's papers, such as
 
-> Teuvo Kohonen, *Biological Cybernetics,* **43** (1982) p. 59-69    
-
+> Teuvo Kohonen, *Biological Cybernetics,* **43** (1982) p. 59-69     
 > Teuvo Kohonen, *Biological Cybernetics,* **44** (1982) p. 135-140    
 
 Technical details and background can be found in Kohonen's still relevant
@@ -36,6 +35,14 @@ technical report:
 
 
 ## Installation
+
+<!--
+Because SOM.jl is a registered package, it can be installed from the
+Julia REPL with:
+
+````Julia
+Julia> Pkg.add("SOM.jl")
+```` -->
 
 Because of the package is not yet registered, it can be installed from the
 Julia REPL with:

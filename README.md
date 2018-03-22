@@ -26,4 +26,13 @@ Julia REPL with:
 ````Julia
 Pkg.clone("https://github.com/andreasdominik/SOM.jl.git")
 ````
+<!--
+Because SOM.jl is a registered package, it can be installed from the
+Julia REPL with:
+
+````Julia
+Julia> Pkg.add("SOM.jl")
+```` -->
+
+
 Please refer to the documentation for details!
