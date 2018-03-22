@@ -145,15 +145,15 @@
               
                 <p><a id='SOM.jl-Kohonen's-self-organising-maps-for-Julia-1'></a></p>
 <h1 id="somjl-kohonens-self-organising-maps-for-julia">SOM.jl - Kohonen's self-organising maps for Julia</h1>
-<p>The package provides training and visualisation functions for Kohonen's self-organising maps for Julia. Training functions are implemented in pure Julia, without calling external libraries.</p>
-<p>Visualisation is implemented by using Python's MatPlotLib.</p>
+<p>The package provides training and visualisation functions for Kohonen's self-organising maps for Julia. Training functions are implemented in pure Julia, without calling external libraries.     Visualisation is implemented by using Python's MatPlotLib.</p>
 <p><a id='Self-organising-maps-1'></a></p>
 <h2 id="self-organising-maps">Self-organising maps</h2>
-<p>Self-organising maps (also referred to as SOMs or <em>Kohonen</em> maps) are artificial neural networks introduced by Teuvo Kohonen in the 1980s. Despite of their age SOMs are still widely used as an easy and robust unsupervised learning algorithm for analysis and visualisation of high-dimensional data.</p>
+<p>Self-organising maps (also referred to as SOMs or <em>Kohonen</em> maps) are artificial neural networks introduced by Teuvo Kohonen in the 1980s. Despite of their age, SOMs are still widely used as an easy and robust unsupervised learning technique for analysis and visualisation of high-dimensional data.</p>
 <p>The SOM algorithm maps high-dimensional vectors into a lower-dimensional grid. Most often the target grid is two-dimensional, resulting into  intuitively interpretable maps.</p>
 <p>For more details see Kohonen's papers, such as</p>
 <blockquote>
-<p>Teuvo Kohonen, <em>Biological Cybernetics,</em> <strong>43</strong> (1982) p. 59-69 Teuvo Kohonen, <em>Biological Cybernetics,</em> <strong>44</strong> (1982) p. 135-140</p>
+<p>Teuvo Kohonen, <em>Biological Cybernetics,</em> <strong>43</strong> (1982) p. 59-69</p>
+<p>Teuvo Kohonen, <em>Biological Cybernetics,</em> <strong>44</strong> (1982) p. 135-140</p>
 </blockquote>
 <p>Technical details and background can be found in Kohonen's still relevant technical report:</p>
 <blockquote>
@@ -161,11 +161,11 @@
 </blockquote>
 <p><a id='Installation-1'></a></p>
 <h2 id="installation">Installation</h2>
-<p>Because the package is not yet registered, it can be installed from the Julia REPL with:</p>
+<p>Because of the package is not yet registered, it can be installed from the Julia REPL with:</p>
 <pre class="codehilite"><code class="language-Julia">Pkg.clone(&quot;https://github.com/andreasdominik/SOM.jl.git&quot;)</code></pre>
 
 
-<p>The package requires <code>DataFrames, Distances, Distributions, ProgressMeter, StatsBase, PyPlot,</code> and <code>PyCall</code> with the Python package <code>matplotlib</code> to be installed. The requirements will be installed automatically by package manager. Sometimes <code>matplotlib</code> causes problems. The easiest way of manual installation is from within Julia into the default Julia-Python environment via:</p>
+<p>The package requires <code>DataFrames, Distances, Distributions, ProgressMeter, StatsBase, PyPlot,</code> and <code>PyCall</code> with the Python package <code>matplotlib</code> to be installed. The requirements will be installed automatically by the package manager. Sometimes <code>matplotlib</code> causes problems. The easiest way of manual installation is from the Julia REPL into the default Julia-Python environment via:</p>
 <pre class="codehilite"><code class="language-Julia">ENV[&quot;PYTHON&quot;]=&quot;&quot;
 Pkg.add(&quot;Conda&quot;)
 using Conda
@@ -256,5 +256,5 @@ Pkg.add(&quot;PyPlot&quot;);</code></pre>
 
 <!--
 MkDocs version : 0.17.3
-Build Date UTC : 2018-03-22 14:47:18
+Build Date UTC : 2018-03-22 15:29:41
 -->

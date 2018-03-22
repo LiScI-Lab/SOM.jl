@@ -72,6 +72,8 @@
         
             <li><a class="toctree-l4" href="#training">Training</a></li>
         
+            <li><a class="toctree-l4" href="#mapping-of-samples-to-the-som">Mapping of samples to the Som</a></li>
+        
             <li><a class="toctree-l4" href="#visualisation">Visualisation</a></li>
         
             <li><a class="toctree-l4" href="#supported-topologies">Supported topologies</a></li>
@@ -149,7 +151,7 @@
               
                 <p><a id='Quick-start:-a-first-tutorial-1'></a></p>
 <h1 id="quick-start-a-first-tutorial">Quick start: a first tutorial</h1>
-<p>The concept of SOM.jl follows Kohonen's SOM_PAK software by doing a 3-step approach:</p>
+<p>The concept of SOM.jl follows Kohonen's SOM_PAK software with a a 3-step approach:</p>
 <ol>
 <li>initialise the SOM by defining topology, dimensions and random inital codebook vectors</li>
 <li>train the SOM in one or more rounds with different training parameters</li>
@@ -184,12 +186,12 @@ train = iris[:,1:4]</code></pre>
 <p><a id='SOM-initialisation-1'></a></p>
 <h4 id="som-initialisation">SOM initialisation</h4>
 <p>Initialisation sets the parameters of the SOM, such as dimensions, topology and normalisation as well as initial values of the codebook vectors.</p>
-<p>Called with the minimal set of arguments topology defaults to <em>hexagonal</em> and <em>not toroidal</em> and normalisation to <em>z-score normalisation</em> with μ = 0.0 and σ = 1.0. In the example, the SOM will have</p>
+<p>Called with the minimal set of arguments, topology defaults to <em>hexagonal</em> and <em>not toroidal</em> and normalisation to <em>z-score normalisation</em> with μ = 0.0 and σ = 1.0. In the example, the SOM will have</p>
 <ul>
-<li>an hexagonal grid with edges of size 10 × 8</li>
-<li>training data z-score normalised.</li>
+<li>an hexagonal grid of size 10 × 8 with edges</li>
+<li>z-score normalised training data.</li>
 </ul>
-<p>The training data must be provided to derive normalisation parameters and to initialise the codes to random values within the attribute space of the dataset:</p>
+<p>The training data must be provided for initialisation to derive normalisation parameters and to initialise the codes to random values within the attribute space of the dataset:</p>
 <pre class="codehilite"><code class="language-Julia">som = initSOM(train, 10, 8)</code></pre>
 
 
@@ -200,19 +202,37 @@ train = iris[:,1:4]</code></pre>
 som = trainSOM(som, train, 10000, r = 3)</code></pre>
 
 
+<p><a id='Mapping-of-samples-to-the-Som-1'></a></p>
+<h4 id="mapping-of-samples-to-the-som">Mapping of samples to the Som</h4>
+<p>Unkonwn samples can be mapped to the SOM with the mapping function (analoguous to Kohonen's <code>visual</code>). As result a vector with ID and index of the winner neuron for each sample is returned:</p>
+<pre class="codehilite"><code class="language-Julia">winners = mapToSOM(som, train[1:5,:])
+
+5×3 DataFrames.DataFrame
+│ Row │ X  │ Y │ index │
+├─────┼────┼───┼───────┤
+│ 1   │ 10 │ 4 │ 40    │
+│ 2   │ 8  │ 2 │ 18    │
+│ 3   │ 10 │ 2 │ 20    │
+│ 4   │ 9  │ 2 │ 19    │
+│ 5   │ 10 │ 4 │ 40    │</code></pre>
+
+
 <p><a id='Visualisation-1'></a></p>
 <h4 id="visualisation">Visualisation</h4>
-<p>Visualisations include a density plot that displays the number of training samples mapped to each neuron and a classes plot that shows the class labels of training samples for every neuron as a pie chart:</p>
+<p>Visualisations include a density plot that displays the number of training samples mapped to each neuron and a classes plot that shows the class labels of training samples for every neuron as a pie chart.</p>
+<p>Called without specification of a device or filename, an interactive MatPlotLib-window will be opened. If a filename is specified, a file with the respective format will be created.</p>
 <pre class="codehilite"><code class="language-Julia">plotDensity(som)
 
 freqs = classFrequencies(som, iris, :Species)
-plotClasses(som, freqs)</code></pre>
+plotClasses(som, freqs)
+
+plotClasses(som, freqs, fileName = &quot;mychart.png&quot;)</code></pre>
 
 
 <p><a id='Supported-topologies-1'></a></p>
 <h4 id="supported-topologies">Supported topologies</h4>
 <p>Default topology is a hexagonal grid with borders. By specifying <code>topol = :rectangular</code> a rectangular grid is uses instead. For both grids an edge-less toroidal topology can be defined with <code>toroidal = true</code>. In this case neurons on the edge of the SOM will neighbour the neurons on the opposite edge (simply spoken: the left is connected to the right and the top is connected with the bottom).</p>
-<p>In addition spherical SOMs are possible.</p>
+<p>In addition spherical SOMs are possible (<code>topol = :spherical</code>).</p>
 <p>Training and visualisations work for all supported topologies. Please refer to the API documentation for details.</p>
               
             </div>

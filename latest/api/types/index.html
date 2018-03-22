@@ -140,23 +140,23 @@
 <pre class="codehilite"><code>struct Som</code></pre>
 
 
-<p>Stored data of a trained SOM.</p>
+<p>Structure to hold all data of a trained SOM.</p>
 <p><strong>Fields:</strong></p>
 <ul>
-<li><code>codes</code>: 2D-array of codebook vectors. One vector per row</li>
-<li><code>colNames</code>: names of the attribute with which the SOM is trained</li>
-<li><code>normParams</code>: DataFrame with normalisation parameters for each column               of training data. Column headers corresponds with               colNames.</li>
-<li><code>norm</code>: normalisation of training data; one of <code>:none, :minmax, :zscore</code></li>
-<li><code>xdim</code>: number of neurons in x-direction</li>
-<li><code>ydim</code>: number of neurons in y-direction</li>
-<li><code>nCodes</code>: total number of neurons</li>
-<li><code>grid</code>: 2D-array of coordinates of neurons on the map         (2 columns (x,y)] for rectangular and hexagonal maps          3 columns (x,y,z) for spherical maps)</li>
-<li><code>indices</code>: 2D-array of indices of the neurons</li>
-<li><code>topol</code>: topology of the SOM; one of <code>:rectangular, :hexagonal, :spherical</code></li>
-<li><code>toroidal</code>: if <code>true</code>, the SOM is toroidal (no edges)</li>
-<li><code>population</code>: 1D-array of numbers of training samples mapped to               each neuron.</li>
+<li><code>codes::Array{Float64,2}</code>: 2D-array of codebook vectors. One vector per row</li>
+<li><code>colNames::Array{String,1}</code>: names of the attribute with which the SOM is trained</li>
+<li><code>normParams::DataFrame</code>: normalisation parameters for each column               of training data. Column headers corresponds with               colNames.</li>
+<li><code>norm::Symbol</code>: normalisation type; one of <code>:none, :minmax, :zscore</code></li>
+<li><code>xdim::Int</code>: number of neurons in x-direction</li>
+<li><code>ydim::Int</code>: number of neurons in y-direction</li>
+<li><code>nCodes::Int</code>: total number of neurons</li>
+<li><code>grid::Array{Float64,2}</code>: 2D-array of coordinates of neurons on the map         (2 columns (x,y)] for rectangular and hexagonal maps          3 columns (x,y,z) for spherical maps)</li>
+<li><code>indices::DataFrame</code>: X-, Y-indices of the neurons</li>
+<li><code>topol::Symbol</code>: topology of the SOM; one of <code>:rectangular, :hexagonal, :spherical</code></li>
+<li><code>toroidal::Bool</code>: if <code>true</code>, the SOM is toroidal (has no edges)</li>
+<li><code>population::Array{Int,1}</code>: 1D-array of numbers of training samples mapped to               each neuron.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/b5b0d0ab7dafb54490c63f20baf2cc0332197273/src/types.jl#L3-L26' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/bf2acb112368418e890c877a8fcaa976e08e6d26/src/types.jl#L3-L26' class='documenter-source'>source</a><br></p>
               
             </div>
           </div>
