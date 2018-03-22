@@ -52,13 +52,16 @@ and normalisation as well as initial values of the codebook vectors.
 Called with the minimal set of arguments topology defaults to *hexagonal*
 and *not toroidal* and normalisation to *z-score normalisation* with μ = 0.0
 and σ = 1.0.
+In the example, the SOM will have
+* an hexagonal grid with edges of size 10 × 8
+* training data z-score normalised.
 
 The training data must be provided to derive normalisation parameters and
 to initialise the codes to random values within the attribute space
 of the dataset:
 
 ````Julia
-som = initSOM(train, 10,8)
+som = initSOM(train, 10, 8)
 ````
 
 
@@ -92,10 +95,10 @@ plotClasses(som, freqs)
 #### Supported topologies
 Default topology is a hexagonal grid with borders. By specifying
 `topol = :rectangular` a rectangular grid is uses instead. For both
-grids an edge-less toroidal topology can be used with `toroidal = true`.
+grids an edge-less toroidal topology can be defined with `toroidal = true`.
 In this case neurons on the edge of the SOM will neighbour the neurons
-on the opposite edge (simply spoken: the left edge is connected to
-the right edge and the top is connected with the bottom).
+on the opposite edge (simply spoken: the left is connected to
+the right and the top is connected with the bottom).
 
 In addition spherical SOMs are possible.
 

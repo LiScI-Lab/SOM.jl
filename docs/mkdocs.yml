@@ -28,3 +28,4 @@ pages:
       - Types: api/types.md
       - Training: api/soms.md
       - Visualisation: api/visualisations.md
+  - License: LICENSE.md
