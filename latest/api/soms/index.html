@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
-  <link href="../../assets/Documenter.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -153,7 +152,7 @@
 <li><code>topol</code>: topology of the SOM; one of <code>:rectangular, :hexagonal or :spherical</code>.</li>
 <li><code>toroidal</code>: optional flag; if true, the SOM is toroidal.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/5abe441dc4fe2d59d355ffc15d07d99d8f55559c/src/api.jl#L5-L20' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/27449644cfdbc8d8ebe2b604afa817d4531a5ef3/src/api.jl#L5-L20' class='documenter-source'>source</a><br></p>
 <p><a id='SOM.trainSOM' href='#SOM.trainSOM'>#</a>
 <strong><code>SOM.trainSOM</code></strong> &mdash; <em>Function</em>.</p>
 <pre class="codehilite"><code>trainSOM(som::Som, train::Any, len;
@@ -173,7 +172,7 @@
 <li><code>rDecay</code>: optional flag; if true, r decays to 0.0 during the training.</li>
 <li><code>ηDecay</code>: optional flag; if true, learning rate η decays to 0.0           during the training.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/5abe441dc4fe2d59d355ffc15d07d99d8f55559c/src/api.jl#L45-L64' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/27449644cfdbc8d8ebe2b604afa817d4531a5ef3/src/api.jl#L45-L64' class='documenter-source'>source</a><br></p>
 <p><a id='SOM.mapToSOM' href='#SOM.mapToSOM'>#</a>
 <strong><code>SOM.mapToSOM</code></strong> &mdash; <em>Function</em>.</p>
 <pre class="codehilite"><code>mapToSOM(som::Som, data)</code></pre>
@@ -186,7 +185,7 @@
 <li><code>som</code>: a trained SOM</li>
 <li><code>data</code>: Array or DataFrame with training data.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/5abe441dc4fe2d59d355ffc15d07d99d8f55559c/src/api.jl#L81-L92' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/27449644cfdbc8d8ebe2b604afa817d4531a5ef3/src/api.jl#L81-L92' class='documenter-source'>source</a><br></p>
 <p><a id='SOM.classFrequencies' href='#SOM.classFrequencies'>#</a>
 <strong><code>SOM.classFrequencies</code></strong> &mdash; <em>Function</em>.</p>
 <pre class="codehilite"><code>classFrequencies(som::Som, data, classes)</code></pre>
@@ -205,7 +204,7 @@
 <li>population: number of samples mapped to the neuron</li>
 <li>frequencies: one column for each class label.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/5abe441dc4fe2d59d355ffc15d07d99d8f55559c/src/api.jl#L110-L126' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/27449644cfdbc8d8ebe2b604afa817d4531a5ef3/src/api.jl#L110-L126' class='documenter-source'>source</a><br></p>
 <p><a id='Kernel-functions-1'></a></p>
 <h1 id="kernel-functions">Kernel functions</h1>
 <p><a id='SOM.bubbleKernel' href='#SOM.bubbleKernel'>#</a>
@@ -214,14 +213,14 @@
 
 
 <p>Return 1.0 if dist &lt;= r, else 0.0.</p>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/5abe441dc4fe2d59d355ffc15d07d99d8f55559c/src/kernels.jl#L4-L8' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/27449644cfdbc8d8ebe2b604afa817d4531a5ef3/src/kernels.jl#L4-L8' class='documenter-source'>source</a><br></p>
 <p><a id='SOM.gaussianKernel' href='#SOM.gaussianKernel'>#</a>
 <strong><code>SOM.gaussianKernel</code></strong> &mdash; <em>Function</em>.</p>
 <pre class="codehilite"><code>gaussianKernel(x, r)</code></pre>
 
 
 <p>Return the Gaussian for x  and σ = r/3.</p>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/5abe441dc4fe2d59d355ffc15d07d99d8f55559c/src/kernels.jl#L14-L18' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/27449644cfdbc8d8ebe2b604afa817d4531a5ef3/src/kernels.jl#L14-L18' class='documenter-source'>source</a><br></p>
               
             </div>
           </div>
