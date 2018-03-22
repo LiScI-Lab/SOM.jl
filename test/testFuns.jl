@@ -78,7 +78,7 @@ function testOtherDensityPlot(tr, pred)
     ydim = 10
     fName = "density.png"
 
-    som = initSOM(tr, xdim, ydim, topol = topol)
+    som = initSOM(tr, xdim, ydim)
     som = trainSOM(som, tr, 10000)
 
     vis = mapToSOM(som, pred)
