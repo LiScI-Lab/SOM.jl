@@ -152,12 +152,12 @@ end
 #
 #
 """
-plotDensity(som::Som; predict = nothing,
-            title = "Density of Self-Organising Map",
-            paper = :a4r,
-            colormap = "autumn_r",
-            detail = 45,
-            device = :display, fileName = "somplot")
+    plotDensity(som::Som; predict = nothing,
+                title = "Density of Self-Organising Map",
+                paper = :a4r,
+                colormap = "autumn_r",
+                detail = 45,
+                device = :display, fileName = "somplot")
 
 Plot the population of neurons as colours.
 
@@ -167,6 +167,8 @@ Plot the population of neurons as colours.
 - `title`: main title of plot
 - `paper`: plot size; currentlx supported: `:a4, :a4r, :letter, :letterr`
 - `colormap`: MatPlotLib colourmap (Python-style strings; e.g. `"Greys"`).
+- `detail`: only relevant for 3D-plotting of spherical SOMs: higher
+            values result in smoother display of the 3D-sphere
 - `device`: one of `:display, :png, :svg, :pdf` or any file-type supported
             by MatPlotLib; default is `:display`
 - `fileName`: name of image file. File extention overrides the setting of
@@ -219,7 +221,7 @@ Plot the population of neurons as colours.
               Julia-style as Symbol `:gray`) *or* dictionary with
               classes as keys and colours as vals; default: `brg`
 - `detail`: only relevant for 3D-plotting of spherical SOMs: higher
-            values for detail result in smoother display of the 3D-sphere
+            values result in smoother display of the 3D-sphere
 - `device`: one of `:display, :png, :svg, :pdf` or any file-type supported
             by MatPlotLib; default is `:display`
 - `fileName`: name of image file. File extention overrides the setting of

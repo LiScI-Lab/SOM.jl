@@ -20,7 +20,7 @@ the target grid is two-dimensional, resulting into  intuitively interpretable ma
 
 For more details see Kohonen's papers, such as
 
-> Teuvo Kohonen, *Biological Cybernetics,* **43** (1982) p. 59-69     
+> Teuvo Kohonen, *Biological Cybernetics,* **43** (1982) p. 59-69 and
 > Teuvo Kohonen, *Biological Cybernetics,* **44** (1982) p. 135-140    
 
 Technical details and background can be found in Kohonen's still relevant
