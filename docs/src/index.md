@@ -52,7 +52,7 @@ ProgressMeter,
 StatsBase,
 PyPlot,` and `PyCall` with the Python package `matplotlib` to be installed.
 The requirements will be installed automatically by package manager.
-Sometimes `matplotlib` causes problems. The easiest way of manually installation is
+Sometimes `matplotlib` causes problems. The easiest way of manual installation is
 from within Julia into the default Julia-Python environment via:
 
 ````Julia
