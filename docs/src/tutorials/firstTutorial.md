@@ -1,6 +1,6 @@
 # Quick start: a first tutorial
 
-The concept of SOM.jl follows Kohonen's SOM_PAK software by doing
+The concept of SOM.jl follows Kohonen's SOM_PAK software with a
 a 3-step approach:
 
 1) initialise the SOM by defining topology, dimensions and random inital
@@ -49,14 +49,14 @@ train = iris[:,1:4]
 Initialisation sets the parameters of the SOM, such as dimensions, topology
 and normalisation as well as initial values of the codebook vectors.
 
-Called with the minimal set of arguments topology defaults to *hexagonal*
+Called with the minimal set of arguments, topology defaults to *hexagonal*
 and *not toroidal* and normalisation to *z-score normalisation* with μ = 0.0
 and σ = 1.0.
 In the example, the SOM will have
-* an hexagonal grid with edges of size 10 × 8
-* training data z-score normalised.
+* an hexagonal grid of size 10 × 8 with edges
+* z-score normalised training data.
 
-The training data must be provided to derive normalisation parameters and
+The training data must be provided for initialisation to derive normalisation parameters and
 to initialise the codes to random values within the attribute space
 of the dataset:
 
@@ -80,16 +80,41 @@ som = trainSOM(som, train, 10000, r = 3)
 ````
 
 
+#### Mapping of samples to the Som
+Unkonwn samples can be mapped to the SOM with the mapping function
+(analoguous to Kohonen's `visual`). As result a vector with ID and index of
+the winner neuron for each sample is returned:
+
+````Julia
+winners = mapToSOM(som, train[1:5,:])
+
+5×3 DataFrames.DataFrame
+│ Row │ X  │ Y │ index │
+├─────┼────┼───┼───────┤
+│ 1   │ 10 │ 4 │ 40    │
+│ 2   │ 8  │ 2 │ 18    │
+│ 3   │ 10 │ 2 │ 20    │
+│ 4   │ 9  │ 2 │ 19    │
+│ 5   │ 10 │ 4 │ 40    │
+````
+
+
 #### Visualisation
 Visualisations include a density plot that displays the number of training
 samples mapped to each neuron and a classes plot that shows the class labels
-of training samples for every neuron as a pie chart:
+of training samples for every neuron as a pie chart.
+
+Called without specification of a device or filename, an interactive
+MatPlotLib-window will be opened. If a filename is specified, a file with
+the respective format will be created.
 
 ````Julia
 plotDensity(som)
 
 freqs = classFrequencies(som, iris, :Species)
 plotClasses(som, freqs)
+
+plotClasses(som, freqs, fileName = "mychart.png")
 ````
 
 #### Supported topologies
@@ -100,7 +125,7 @@ In this case neurons on the edge of the SOM will neighbour the neurons
 on the opposite edge (simply spoken: the left is connected to
 the right and the top is connected with the bottom).
 
-In addition spherical SOMs are possible.
+In addition spherical SOMs are possible (`topol = :spherical`).
 
 Training and visualisations work for all supported topologies.
 Please refer to the API documentation for details.
