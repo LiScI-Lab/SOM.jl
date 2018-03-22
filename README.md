@@ -10,10 +10,13 @@ This package is currently under development and not yet ready for use!
 
 ## Build status
 [![Build Status](https://travis-ci.org/andreasdominik/SOM.jl.svg?branch=master)](https://travis-ci.org/andreasdominik/SOM.jl)
-
 [![Coverage Status](https://coveralls.io/repos/andreasdominik/SOM.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/andreasdominik/SOM.jl?branch=master)
-
 [![codecov.io](http://codecov.io/github/andreasdominik/SOM.jl/coverage.svg?branch=master)](http://codecov.io/github/andreasdominik/SOM.jl?branch=master)
+
+The package provides training and visualisation functions
+for Kohonen's self-organising maps for Julia.
+Training functions are implemented in pure Julia, without calling
+external libraries.    
 
 ## Installation
 
@@ -23,26 +26,4 @@ Julia REPL with:
 ````Julia
 Pkg.clone("https://github.com/andreasdominik/SOM.jl.git")
 ````
-
-The package requires
-`DataFrames,
-Distances,
-Distributions,
-ProgressMeter,
-StatsBase,
-PyPlot,` and `PyCall` with the Python package `matplotlib` to be installed.
-The requirements will be installed automatically by package manager.
-Sometimes `matplotlib` causes problems. The easiest way of manual installation is
-from within Julia into the default Julia-Python environment via:
-
-````Julia
-ENV["PYTHON"]=""
-Pkg.add("Conda")
-using Conda
-Conda.update()
-
-Conda.add("matplotlib")
-Pkg.add("PyCall")
-Pkg.build("PyCall")
-Pkg.add("PyPlot");
-````
+Please refer to the documentation for details!
