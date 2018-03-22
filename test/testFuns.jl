@@ -1,4 +1,4 @@
-function testTrain(train, topol, toroidal)
+function testTrain(train, topol; toroidal = false)
 
     xdim = 8
     ydim = 10
@@ -16,7 +16,7 @@ end
 
 
 
-function testVisual(train, topol, toroidal)
+function testVisual(train, topol)
 
     xdim = 8
     ydim = 10
@@ -25,7 +25,7 @@ function testVisual(train, topol, toroidal)
     val = train[51:100,:]
 
     som = initSOM(tr, xdim, ydim, norm = :zscore,
-    topol = topol, toroidal = toroidal)
+    topol = topol, toroidal = false)
     som = trainSOM(som, tr, 10000)
 
     vis = mapToSOM(som, tr)

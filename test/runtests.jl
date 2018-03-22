@@ -23,7 +23,7 @@ include("testFuns.jl")
 
 # test visual:
 #
-@test testVisual(train, :rectangular, toroidal = false)
+@test testVisual(train, :rectangular)
 
 # test frequencies:
 #
