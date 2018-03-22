@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Andreas Dominik">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Visualisation - SOM</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../assets/Documenter.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Visualisation";
+    var mkdocs_page_input_path = "api/visualisations.md";
+    var mkdocs_page_url = "/api/visualisations/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SOM</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Introduction</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutorials</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../tutorials/firstTutorial/">Quick Start</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../types/">Types</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../soms/">Training</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Visualisation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#visualisation">Visualisation</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../LICENSE/">License</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SOM</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>API &raquo;</li>
+        
+      
+    
+    <li>Visualisation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/andreasdominik/SOM.jl.git/edit/master/docs/api/visualisations.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><a id='Visualisation-1'></a></p>
+<h1 id="visualisation">Visualisation</h1>
+<p><a id='SOM.plotDensity' href='#SOM.plotDensity'>#</a>
+<strong><code>SOM.plotDensity</code></strong> &mdash; <em>Function</em>.</p>
+<p>plotDensity(som::Som; predict = nothing,             title = "Density of Self-Organising Map",             paper = :a4r,             colormap = "autumn_r",             detail = 45,             device = :display, fileName = "somplot")</p>
+<p>Plot the population of neurons as colours.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><code>som</code>: the som of type <code>Som</code>; som is the only mandatory argument</li>
+<li><code>predict</code>: DataFrame of mappings as outputed by <code>mapToSOM()</code></li>
+<li><code>title</code>: main title of plot</li>
+<li><code>paper</code>: plot size; currentlx supported: <code>:a4, :a4r, :letter, :letterr</code></li>
+<li><code>colormap</code>: MatPlotLib colourmap (Python-style strings; e.g. <code>"Greys"</code>).</li>
+<li><code>device</code>: one of <code>:display, :png, :svg, :pdf</code> or any file-type supported           by MatPlotLib; default is <code>:display</code></li>
+<li><code>fileName</code>: name of image file. File extention overrides the setting of             <code>device</code>.</li>
+</ul>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/2d771f63588c305a507a5dc13350fa34e606ab6d/src/api.jl#L154-L174' class='documenter-source'>source</a><br></p>
+<p><a id='SOM.plotClasses' href='#SOM.plotClasses'>#</a>
+<strong><code>SOM.plotClasses</code></strong> &mdash; <em>Function</em>.</p>
+<pre class="codehilite"><code>plotClasses(som::Som, frequencies;
+            title = &quot;Class Frequencies of Self-Organising Map&quot;,
+            paper = :a4r,
+            colors = &quot;brg&quot;,
+            detail = 45,
+            device = :display, fileName = &quot;somplot&quot;)</code></pre>
+
+
+<p>Plot the population of neurons as colours.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><code>som</code>: the som of type <code>Som</code>; som is the only mandatory argument</li>
+<li><code>frequencies</code>: DataFrame of frequencies as outputed by classFrequencies()</li>
+<li><code>title</code>: main title of plot</li>
+<li><code>paper</code>: plot size; currentlx supported: <code>:a4, :a4r, :letter, :letterr</code></li>
+<li><code>colors</code>: MatPlotLib colourmap (Python-style as string <code>"gray"</code> or             Julia-style as Symbol <code>:gray</code>) <em>or</em> dictionary with             classes as keys and colours as vals; default: <code>brg</code></li>
+<li><code>detail</code>: only relevant for 3D-plotting of spherical SOMs: higher           values for detail result in smoother display of the 3D-sphere</li>
+<li><code>device</code>: one of <code>:display, :png, :svg, :pdf</code> or any file-type supported           by MatPlotLib; default is <code>:display</code></li>
+<li><code>fileName</code>: name of image file. File extention overrides the setting of             <code>device</code>.</li>
+</ul>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/2d771f63588c305a507a5dc13350fa34e606ab6d/src/api.jl#L203-L227' class='documenter-source'>source</a><br></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../LICENSE/" class="btn btn-neutral float-right" title="License">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../soms/" class="btn btn-neutral" title="Training"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/andreasdominik/SOM.jl.git/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../soms/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../LICENSE/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      <script src="../../assets/mathjaxhelper.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>
