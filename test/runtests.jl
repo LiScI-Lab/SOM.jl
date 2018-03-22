@@ -28,3 +28,9 @@ include("testTrain.jl")
 # test frequencies:
 #
 @test testFreqs(train, iris, :Species)
+
+# test plots:
+#
+@test testDensityPlot(train, :rectangular)
+@test testDensityPlot(train, :hexagonal)
+@test testDensityPlot(train, :spherical)

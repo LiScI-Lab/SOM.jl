@@ -26,6 +26,7 @@ function testVisual(train, topol, toroidal)
 
     som = initSOM(tr, xdim, ydim, norm = :zscore,
     topol = topol, toroidal = toroidal)
+    som = trainSOM(som, tr, 10000)
 
     vis = mapToSOM(som, tr)
 
@@ -41,8 +42,8 @@ function testFreqs(train, wClasses, classes)
     xdim = 8
     ydim = 10
 
-    som = initSOM(train, xdim, ydim, norm = :zscore,
-    topol = topol, toroidal = toroidal)
+    som = initSOM(train, xdim, ydim)
+    som = trainSOM(som, train, 10000)
 
     f = classFrequencies(som, wClasses, classes)
 
@@ -50,4 +51,23 @@ function testFreqs(train, wClasses, classes)
     ori = sort(unique(iris[:Species]))
 
     return res == ori
+end
+
+
+
+
+function testDensityPlot(train)
+
+    xdim = 8
+    ydim = 10
+    fName = "density.png"
+
+    som = initSOM(train, xdim, ydim)
+    som = trainSOM(som, train, 10000)
+
+    plotDensity(som, fileName = fName)
+
+    ok = isfile(fName)
+
+    return ok
 end
