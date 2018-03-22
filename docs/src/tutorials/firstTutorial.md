@@ -20,7 +20,7 @@ of petals and sepals of the blossoms of iris flowers of species
 *Iris viginica*, *Iris setosa* and *Iris versicolor*.
 The dataset includes the 4 attributes and the correct species for 150 flowers:
 ````
-julia> iris
+iris
 150×5 DataFrames.DataFrame
 │ Row │ SepalLength │ SepalWidth │ PetalLength │ PetalWidth │ Species   │
 ├─────┼─────────────┼────────────┼─────────────┼────────────┼───────────┤

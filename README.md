@@ -16,7 +16,7 @@ This package is currently under development and not yet ready for use!
 The package provides training and visualisation functions
 for Kohonen's self-organising maps for Julia.
 Training functions are implemented in pure Julia, without calling
-external libraries.    
+binary libraries.    
 
 ## Installation
 
