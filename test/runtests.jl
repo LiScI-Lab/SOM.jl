@@ -24,3 +24,7 @@ include("testTrain.jl")
 # test visual:
 #
 @test testVisual(train, :rectangular, toroidal = false)
+
+# test frequencies:
+#
+@test testFreqs(train, iris, :Species)

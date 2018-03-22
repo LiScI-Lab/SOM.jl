@@ -36,7 +36,7 @@ function testVisual(train, topol, toroidal)
 end
 
 
-function testFreqs(train, topol, toroidal)
+function testFreqs(train, wClasses, classes)
 
     xdim = 8
     ydim = 10
@@ -44,10 +44,10 @@ function testFreqs(train, topol, toroidal)
     som = initSOM(train, xdim, ydim, norm = :zscore,
     topol = topol, toroidal = toroidal)
 
-    vis = mapToSOM(som, tr)
+    f = classFrequencies(som, wClasses, classes)
 
-    ntr    = nrow(tr)
-    npopul = nrow(vis)
+    res = sort( convert(Array{String}, names(f)[5:end]))
+    ori = sort(unique(iris[:Species]))
 
-    return ntr == npopul
+    return res == ori
 end
