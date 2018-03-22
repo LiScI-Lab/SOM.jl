@@ -3,8 +3,7 @@
 The package provides training and visualisation functions
 for Kohonen's self-organising maps for Julia.
 Training functions are implemented in pure Julia, without calling
-external libraries.
-
+external libraries.    
 Visualisation is implemented by using Python's MatPlotLib.
 
 
@@ -12,8 +11,8 @@ Visualisation is implemented by using Python's MatPlotLib.
 
 Self-organising maps (also referred to as SOMs or *Kohonen* maps) are
 artificial neural networks introduced by Teuvo Kohonen in the 1980s.
-Despite of their age SOMs are still widely used as an easy and robust
-unsupervised learning algorithm
+Despite of their age, SOMs are still widely used as an easy and robust
+unsupervised learning technique
 for analysis and visualisation of high-dimensional data.
 
 The SOM algorithm maps high-dimensional vectors into a lower-dimensional grid. Most often
@@ -21,7 +20,8 @@ the target grid is two-dimensional, resulting into  intuitively interpretable ma
 
 For more details see Kohonen's papers, such as
 
-> Teuvo Kohonen, *Biological Cybernetics,* **43** (1982) p. 59-69
+> Teuvo Kohonen, *Biological Cybernetics,* **43** (1982) p. 59-69    
+
 > Teuvo Kohonen, *Biological Cybernetics,* **44** (1982) p. 135-140    
 
 Technical details and background can be found in Kohonen's still relevant
@@ -37,7 +37,7 @@ technical report:
 
 ## Installation
 
-Because the package is not yet registered, it can be installed from the
+Because of the package is not yet registered, it can be installed from the
 Julia REPL with:
 
 ````Julia
@@ -51,9 +51,9 @@ Distributions,
 ProgressMeter,
 StatsBase,
 PyPlot,` and `PyCall` with the Python package `matplotlib` to be installed.
-The requirements will be installed automatically by package manager.
+The requirements will be installed automatically by the package manager.
 Sometimes `matplotlib` causes problems. The easiest way of manual installation is
-from within Julia into the default Julia-Python environment via:
+from the Julia REPL into the default Julia-Python environment via:
 
 ````Julia
 ENV["PYTHON"]=""
