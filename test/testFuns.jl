@@ -14,6 +14,8 @@ function testTrain(train, topol, toroidal)
 end
 
 
+
+
 function testVisual(train, topol, toroidal)
 
     xdim = 8
@@ -25,8 +27,10 @@ function testVisual(train, topol, toroidal)
     som = initSOM(train, xdim, ydim, norm = :zscore,
     topol = topol, toroidal = toroidal)
 
+    vis = mapToSOM(som, tr)
+
     ntr    = nrow(tr)
-    npopul = sum(som.population)
+    npopul = nrow(vis)
 
     return ntr == npopul
 end
