@@ -103,6 +103,11 @@
     </ul>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../../LICENSE/">License</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -179,9 +184,13 @@ train = iris[:,1:4]</code></pre>
 <p><a id='SOM-initialisation-1'></a></p>
 <h4 id="som-initialisation">SOM initialisation</h4>
 <p>Initialisation sets the parameters of the SOM, such as dimensions, topology and normalisation as well as initial values of the codebook vectors.</p>
-<p>Called with the minimal set of arguments topology defaults to <em>hexagonal</em> and <em>not toroidal</em> and normalisation to <em>z-score normalisation</em> with μ = 0.0 and σ = 1.0.</p>
+<p>Called with the minimal set of arguments topology defaults to <em>hexagonal</em> and <em>not toroidal</em> and normalisation to <em>z-score normalisation</em> with μ = 0.0 and σ = 1.0. In the example, the SOM will have</p>
+<ul>
+<li>an hexagonal grid with edges of size 10 × 8</li>
+<li>training data z-score normalised.</li>
+</ul>
 <p>The training data must be provided to derive normalisation parameters and to initialise the codes to random values within the attribute space of the dataset:</p>
-<pre class="codehilite"><code class="language-Julia">som = initSOM(train, 10,8)</code></pre>
+<pre class="codehilite"><code class="language-Julia">som = initSOM(train, 10, 8)</code></pre>
 
 
 <p><a id='Training-1'></a></p>
@@ -202,7 +211,7 @@ plotClasses(som, freqs)</code></pre>
 
 <p><a id='Supported-topologies-1'></a></p>
 <h4 id="supported-topologies">Supported topologies</h4>
-<p>Default topology is a hexagonal grid with borders. By specifying <code>topol = :rectangular</code> a rectangular grid is uses instead. For both grids an edge-less toroidal topology can be used with <code>toroidal = true</code>. In this case neurons on the edge of the SOM will neighbour the neurons on the opposite edge (simply spoken: the left edge is connected to the right edge and the top is connected with the bottom).</p>
+<p>Default topology is a hexagonal grid with borders. By specifying <code>topol = :rectangular</code> a rectangular grid is uses instead. For both grids an edge-less toroidal topology can be defined with <code>toroidal = true</code>. In this case neurons on the edge of the SOM will neighbour the neurons on the opposite edge (simply spoken: the left is connected to the right and the top is connected with the bottom).</p>
 <p>In addition spherical SOMs are possible.</p>
 <p>Training and visualisations work for all supported topologies. Please refer to the API documentation for details.</p>
               
