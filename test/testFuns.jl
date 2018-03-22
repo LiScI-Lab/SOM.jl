@@ -72,6 +72,25 @@ function testDensityPlot(train, topol)
     return ok
 end
 
+function testOtherDensityPlot(tr, pred)
+
+    xdim = 8
+    ydim = 10
+    fName = "density.png"
+
+    som = initSOM(tr, xdim, ydim, topol = topol)
+    som = trainSOM(som, tr, 10000)
+
+    vis = mapToSOM(som, pred)
+
+    plotDensity(som, predict = vis, fileName = fName)
+
+    ok = isfile(fName)
+
+    return ok
+end
+
+
 
 function testClassesPlot(train, wClasses, topol)
 
