@@ -44,6 +44,30 @@ Julia REPL with:
 Pkg.clone("https://github.com/andreasdominik/SOM.jl.git")
 ````
 
+The package requires
+`DataFrames,
+Distances,
+Distributions,
+ProgressMeter,
+StatsBase,
+PyPlot,` and `PyCall` with the Python package `matplotlib` to be installed.
+The requirements will be installed automatically by package manager.
+Sometimes `matplotlib` causes problems. The easiest way of manually installation is
+from within Julia into the default Julia-Python environment via:
+
+````Julia
+ENV["PYTHON"]=""
+Pkg.add("Conda")
+using Conda
+Conda.update()
+
+Conda.add("matplotlib")
+Pkg.add("PyCall")
+Pkg.build("PyCall")
+Pkg.add("PyPlot");
+````
+
+
 ## Quick Start
 
 ```@contents
