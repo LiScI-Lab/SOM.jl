@@ -28,11 +28,11 @@ Technical details and background can be found in Kohonen's still relevant
 technical report:
 
 > Teuvo Kohonen, Jussi Hynninen, Jari Kangas, and Jorma Laaksonen.
-  *SOM_PAK: The Self-Organizing Map Program Package.*
-  Technical Report A31, Helsinki University of Technology,
-  Laboratory of Computer and Information Science,
-  FIN-02150 Espoo, Finland, 1996.
-  (`http://www.cis.hut.fi/research/papers/som_tr96.ps.Z`)
+> *SOM_PAK: The Self-Organizing Map Program Package.*
+> Technical Report A31, Helsinki University of Technology,
+> Laboratory of Computer and Information Science,
+> FIN-02150 Espoo, Finland, 1996.
+> <http://www.cis.hut.fi/research/papers/som_tr96.ps.Z>
 
 
 ## Installation
