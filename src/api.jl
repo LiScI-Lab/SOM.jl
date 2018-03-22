@@ -9,7 +9,7 @@
 Initialises a SOM.
 
 # Arguments:
-- `train`: training data, must be convertable to Array{Float64,2}.
+- `train`: training data
 - `xdim, ydim`: geometry of the SOM
            If DataFrame, the column names will be used as attribute names.
            Codebook vectors will be sampled from the training data.
@@ -51,16 +51,19 @@ Train an initialised or pre-trained SOM.
 
 # Arguments:
 - `som`: object of type Som with a trained som
-- `train`: training DataType
-- `len`: number of training steps (*not* epochs)
-- `η`: learning rate. η decays to 0.0 during the training
-- `kernel`: optional distance kernel; one of (`bubbleKernel, gaussianKernel`)
+- `train`: training data
+- `len`: number of single training steps (*not* epochs)
+- `η`: learning rate
+- `kernel::function`: optional distance kernel; one of (`bubbleKernel, gaussianKernel`)
             default is `gaussianKernel`
 - `r`: optional training radius.
        If r is not specified, it defaults to √(xdim^2 + ydim^2) / 2
 - `rDecay`: optional flag; if true, r decays to 0.0 during the training.
 - `ηDecay`: optional flag; if true, learning rate η decays to 0.0
             during the training.
+
+Training data must be convertable to Array{Float64,2} with
+`convert()`. Training samples are row-wise; one sample per row.
 """
 function trainSOM(som::Som, train::Any, len;
                      η = 0.2, kernelFun::Function = gaussianKernel, r = 0.0,
@@ -84,11 +87,12 @@ end
 Return a DataFrame with X-, Y-indices and index of winner neuron for
 every row in data.
 
-Data must have the same number of dimensions as the training dataset.
-
 # Arguments
 - `som`: a trained SOM
 - `data`: Array or DataFrame with training data.
+
+Data must have the same number of dimensions as the training dataset
+and will be normalised with the same parameters.
 """
 function mapToSOM(som::Som, data)
 
@@ -148,20 +152,21 @@ end
 #
 #
 """
-    plotDensity(som::Som; predict = nothing,
-                title = "somPlot", paper = :a4r,
-                colormap = "autumn_r",
-                device = :display, fileName = "somplot")
+plotDensity(som::Som; predict = nothing,
+            title = "Density of Self-Organising Map",
+            paper = :a4r,
+            colormap = "autumn_r",
+            detail = 45,
+            device = :display, fileName = "somplot")
 
 Plot the population of neurons as colours.
 
 # Arguments:
 - `som`: the som of type `Som`; som is the only mandatory argument
-- `predict`: DataFrame of mappings as outputed by winners()
+- `predict`: DataFrame of mappings as outputed by `mapToSOM()`
 - `title`: main title of plot
 - `paper`: plot size; currentlx supported: `:a4, :a4r, :letter, :letterr`
-- `colormap`: MatPlotLib colourmap (Python-style as string `"gray"` or
-              Julia-style as Symbol `:gray`)
+- `colormap`: MatPlotLib colourmap (Python-style strings; e.g. `"Greys"`).
 - `device`: one of `:display, :png, :svg, :pdf` or any file-type supported
             by MatPlotLib; default is `:display`
 - `fileName`: name of image file. File extention overrides the setting of
@@ -197,8 +202,10 @@ end
 
 """
     plotClasses(som::Som, frequencies;
-                title = "somPlot", paper = :a4r,
-                colormap = "rainbow",
+                title = "Class Frequencies of Self-Organising Map",
+                paper = :a4r,
+                colors = "brg",
+                detail = 45,
                 device = :display, fileName = "somplot")
 
 Plot the population of neurons as colours.
@@ -211,6 +218,8 @@ Plot the population of neurons as colours.
 - `colors`: MatPlotLib colourmap (Python-style as string `"gray"` or
               Julia-style as Symbol `:gray`) *or* dictionary with
               classes as keys and colours as vals; default: `brg`
+- `detail`: only relevant for 3D-plotting of spherical SOMs: higher
+            values for detail result in smoother display of the 3D-sphere
 - `device`: one of `:display, :png, :svg, :pdf` or any file-type supported
             by MatPlotLib; default is `:display`
 - `fileName`: name of image file. File extention overrides the setting of
