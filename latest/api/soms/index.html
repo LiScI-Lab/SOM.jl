@@ -147,13 +147,13 @@
 <p>Initialises a SOM.</p>
 <p><strong>Arguments:</strong></p>
 <ul>
-<li><code>train</code>: training data, must be convertable to Array{Float64,2}.</li>
+<li><code>train</code>: training data</li>
 <li><code>xdim, ydim</code>: geometry of the SOM          If DataFrame, the column names will be used as attribute names.          Codebook vectors will be sampled from the training data.          for spherical SOMs ydim can be omitted.</li>
 <li><code>norm</code>: optional normalisation; one of :<code>minmax, :zscore or :none</code></li>
 <li><code>topol</code>: topology of the SOM; one of <code>:rectangular, :hexagonal or :spherical</code>.</li>
 <li><code>toroidal</code>: optional flag; if true, the SOM is toroidal.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/bf2acb112368418e890c877a8fcaa976e08e6d26/src/api.jl#L5-L20' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/2d771f63588c305a507a5dc13350fa34e606ab6d/src/api.jl#L5-L20' class='documenter-source'>source</a><br></p>
 <p><a id='SOM.trainSOM' href='#SOM.trainSOM'>#</a>
 <strong><code>SOM.trainSOM</code></strong> &mdash; <em>Function</em>.</p>
 <pre class="codehilite"><code>trainSOM(som::Som, train::Any, len;
@@ -165,28 +165,29 @@
 <p><strong>Arguments:</strong></p>
 <ul>
 <li><code>som</code>: object of type Som with a trained som</li>
-<li><code>train</code>: training DataType</li>
-<li><code>len</code>: number of training steps (<em>not</em> epochs)</li>
-<li><code>η</code>: learning rate. η decays to 0.0 during the training</li>
-<li><code>kernel</code>: optional distance kernel; one of (<code>bubbleKernel, gaussianKernel</code>)           default is <code>gaussianKernel</code></li>
+<li><code>train</code>: training data</li>
+<li><code>len</code>: number of single training steps (<em>not</em> epochs)</li>
+<li><code>η</code>: learning rate</li>
+<li><code>kernel::function</code>: optional distance kernel; one of (<code>bubbleKernel, gaussianKernel</code>)           default is <code>gaussianKernel</code></li>
 <li><code>r</code>: optional training radius.      If r is not specified, it defaults to √(xdim^2 + ydim^2) / 2</li>
 <li><code>rDecay</code>: optional flag; if true, r decays to 0.0 during the training.</li>
 <li><code>ηDecay</code>: optional flag; if true, learning rate η decays to 0.0           during the training.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/bf2acb112368418e890c877a8fcaa976e08e6d26/src/api.jl#L45-L64' class='documenter-source'>source</a><br></p>
+<p>Training data must be convertable to Array{Float64,2} with <code>convert()</code>. Training samples are row-wise; one sample per row.</p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/2d771f63588c305a507a5dc13350fa34e606ab6d/src/api.jl#L45-L67' class='documenter-source'>source</a><br></p>
 <p><a id='SOM.mapToSOM' href='#SOM.mapToSOM'>#</a>
 <strong><code>SOM.mapToSOM</code></strong> &mdash; <em>Function</em>.</p>
 <pre class="codehilite"><code>mapToSOM(som::Som, data)</code></pre>
 
 
 <p>Return a DataFrame with X-, Y-indices and index of winner neuron for every row in data.</p>
-<p>Data must have the same number of dimensions as the training dataset.</p>
 <p><strong>Arguments</strong></p>
 <ul>
 <li><code>som</code>: a trained SOM</li>
 <li><code>data</code>: Array or DataFrame with training data.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/bf2acb112368418e890c877a8fcaa976e08e6d26/src/api.jl#L81-L92' class='documenter-source'>source</a><br></p>
+<p>Data must have the same number of dimensions as the training dataset and will be normalised with the same parameters.</p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/2d771f63588c305a507a5dc13350fa34e606ab6d/src/api.jl#L84-L96' class='documenter-source'>source</a><br></p>
 <p><a id='SOM.classFrequencies' href='#SOM.classFrequencies'>#</a>
 <strong><code>SOM.classFrequencies</code></strong> &mdash; <em>Function</em>.</p>
 <pre class="codehilite"><code>classFrequencies(som::Som, data, classes)</code></pre>
@@ -205,7 +206,7 @@
 <li>population: number of samples mapped to the neuron</li>
 <li>frequencies: one column for each class label.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/bf2acb112368418e890c877a8fcaa976e08e6d26/src/api.jl#L110-L126' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/2d771f63588c305a507a5dc13350fa34e606ab6d/src/api.jl#L114-L130' class='documenter-source'>source</a><br></p>
 <p><a id='Kernel-functions-1'></a></p>
 <h1 id="kernel-functions">Kernel functions</h1>
 <p><a id='SOM.bubbleKernel' href='#SOM.bubbleKernel'>#</a>
@@ -213,15 +214,15 @@
 <pre class="codehilite"><code>bubbleKernel(x, r)</code></pre>
 
 
-<p>Return 1.0 if dist &lt;= r, else 0.0.</p>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/bf2acb112368418e890c877a8fcaa976e08e6d26/src/kernels.jl#L4-L8' class='documenter-source'>source</a><br></p>
+<p>Return 1.0 if dist &lt;= r, otherwise 0.0.</p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/2d771f63588c305a507a5dc13350fa34e606ab6d/src/kernels.jl#L4-L8' class='documenter-source'>source</a><br></p>
 <p><a id='SOM.gaussianKernel' href='#SOM.gaussianKernel'>#</a>
 <strong><code>SOM.gaussianKernel</code></strong> &mdash; <em>Function</em>.</p>
 <pre class="codehilite"><code>gaussianKernel(x, r)</code></pre>
 
 
-<p>Return the Gaussian for x  and σ = r/3.</p>
-<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/bf2acb112368418e890c877a8fcaa976e08e6d26/src/kernels.jl#L14-L18' class='documenter-source'>source</a><br></p>
+<p>Return Gaussian(x) for μ=0.0 and σ = r/3.</p>
+<p><a target='_blank' href='https://github.com/andreasdominik/SOM.jl/blob/2d771f63588c305a507a5dc13350fa34e606ab6d/src/kernels.jl#L14-L18' class='documenter-source'>source</a><br></p>
               
             </div>
           </div>
