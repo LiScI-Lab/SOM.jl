@@ -8,7 +8,7 @@ using RDatasets
 iris = dataset("datasets", "iris")
 train = iris[:,1:4]
 
-include("testTrain.jl")
+include("testFuns.jl")
 
 
 # test hexagonal, rectangular and spherical training:
@@ -34,3 +34,7 @@ include("testTrain.jl")
 @test testDensityPlot(train, :rectangular)
 @test testDensityPlot(train, :hexagonal)
 @test testDensityPlot(train, :spherical)
+
+@test testClassesPlot(train, iris, :rectangular)
+@test testClassesPlot(train, iris, :hexagonal)
+@test testClassesPlot(train, iris, :spherical)

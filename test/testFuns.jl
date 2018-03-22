@@ -56,16 +56,34 @@ end
 
 
 
-function testDensityPlot(train)
+function testDensityPlot(train, topol)
 
     xdim = 8
     ydim = 10
     fName = "density.png"
 
-    som = initSOM(train, xdim, ydim)
+    som = initSOM(train, xdim, ydim, topol = topol)
     som = trainSOM(som, train, 10000)
 
     plotDensity(som, fileName = fName)
+
+    ok = isfile(fName)
+
+    return ok
+end
+
+
+function testClassesPlot(train, wClasses, topol)
+
+    xdim = 8
+    ydim = 10
+    fName = "classes.png"
+
+    som = initSOM(train, xdim, ydim, topol = topol)
+    som = trainSOM(som, train, 10000)
+
+    freqs = classFrequencies(som, wClasses, :Species)
+    plotClasses(som, freqs, fileName = fName)
 
     ok = isfile(fName)
 
