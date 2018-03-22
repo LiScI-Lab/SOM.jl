@@ -2,7 +2,7 @@ site_name:           SOM
 repo_url:            https://github.com/andreasdominik/SOM.jl.git
 site_description:    Description
 site_author:         Andreas Dominik
-theme:               mkdocs
+theme:               readthedocs
 
 markdown_extensions:
     - codehilite
