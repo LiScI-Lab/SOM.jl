@@ -1,6 +1,10 @@
 using SOM
 using Base.Test
 
+# set LD_LIBRARY_PATH for matplotlib:
+#
+ENV["LD_LIBRARY_PATH"] = "\$HOME/.julia/v0.6/Conda/deps/usr/lib:\$LD_LIBRARY_PATH"
+
 # Tests are using Iris dataset:
 #
 Pkg.add("RDatasets")
