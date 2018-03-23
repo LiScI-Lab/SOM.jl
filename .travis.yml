@@ -41,9 +41,9 @@ before_install:
 
 ## uncomment the following lines to override the default test script
 script:
-   # Work around (part 2/2) matplotlib backend error leading to "matplotlib.pyplot could not be found by pyimport": point LD_LIBRARY_PATH to Conda libs.
-   # - export LD_LIBRARY_PATH=$HOME/.julia/v0.6/Conda/deps/usr/lib; julia -e 'Pkg.clone(pwd()); Pkg.build("SOM"); Pkg.test("SOM"; coverage=true)'
-   - julia -e 'Pkg.clone(pwd()); Pkg.build("SOM"); Pkg.test("SOM"; coverage=true)'
+  # Work around (part 2/2) matplotlib backend error leading to "matplotlib.pyplot could not be found by pyimport": point LD_LIBRARY_PATH to Conda libs.
+  - export LD_LIBRARY_PATH=$HOME/.julia/v0.6/Conda/deps/usr/lib; julia -e 'Pkg.clone(pwd()); Pkg.build("SOM"); Pkg.test("SOM"; coverage=true)'
+  # - julia -e 'Pkg.clone(pwd()); Pkg.build("SOM"); Pkg.test("SOM"; coverage=true)'
 after_success:
   # push coverage results to Coveralls
   - julia -e 'cd(Pkg.dir("SOM")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
