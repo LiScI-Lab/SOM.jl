@@ -1,8 +1,8 @@
 # set LD_LIBRARY_PATH for matplotlib:
 #
 # ENV["LD_LIBRARY_PATH"] = "\$HOME/.julia/v0.6/Conda/deps/usr/lib:\$LD_LIBRARY_PATH"
-ENV["LD_LIBRARY_PATH"] = Pkg.dir() * "/Conda/deps/usr/lib"
-println("LD_LIBRARY_PATH: $(ENV["LD_LIBRARY_PATH"])")
+# ENV["LD_LIBRARY_PATH"] = Pkg.dir() * "/Conda/deps/usr/lib"
+println("Begin testing: LD_LIBRARY_PATH: $(ENV["LD_LIBRARY_PATH"])")
 
 using SOM
 using Base.Test
@@ -38,12 +38,17 @@ include("testFuns.jl")
 
 # test plots:
 #
-@test testDensityPlot(train, :rectangular)
-@test testDensityPlot(train, :hexagonal)
-@test testDensityPlot(train, :spherical)
+ld_path = ENV["LD_LIBRARY_PATH"]
+println("Plots testing: LD_LIBRARY_PATH: $ld_path")
 
-@test testOtherDensityPlot(train[1:100,:], train[101:150,:])
+if contains(ld_path, "Conda")
+    @test testDensityPlot(train, :rectangular)
+    @test testDensityPlot(train, :hexagonal)
+    @test testDensityPlot(train, :spherical)
 
-@test testClassesPlot(train, iris, :rectangular)
-@test testClassesPlot(train, iris, :hexagonal)
-@test testClassesPlot(train, iris, :spherical)
+    @test testOtherDensityPlot(train[1:100,:], train[101:150,:])
+
+    @test testClassesPlot(train, iris, :rectangular)
+    @test testClassesPlot(train, iris, :hexagonal)
+    @test testClassesPlot(train, iris, :spherical)
+end
