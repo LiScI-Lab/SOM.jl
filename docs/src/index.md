@@ -36,31 +36,21 @@ technical report:
 
 ## Installation
 
-<!--
-Because SOM.jl is a registered package, it can be installed from the
-Julia REPL with:
+For installation please refer to the README @github:
+```
+https://github.com/andreasdominik/SOM.jl
+```
 
-````Julia
-Julia> Pkg.add("SOM.jl")
-```` -->
+Common installation problems arise from a known incompatibility between matplotlib and Julia. If the error message contains a line compareble to:
 
-Because of the package is not yet registered, it can be installed from the
-Julia REPL with:
+```
+mportError("/lib/x86_64-linux-gnu/libz.so.1: version `ZLIB_*.*.*' not found
+```
 
-````Julia
-Pkg.clone("https://github.com/andreasdominik/SOM.jl.git")
-````
+then most probably matplotlib fails to find a required library.   
 
-The package requires
-`DataFrames,
-Distances,
-Distributions,
-ProgressMeter,
-StatsBase,
-PyPlot,` and `PyCall` with the Python package `matplotlib` to be installed.
-The requirements will be installed automatically by the package manager.
-Sometimes `matplotlib` causes problems. The easiest way of manual installation is
-from the Julia REPL into the default Julia-Python environment via:
+A first attempt could be to reinstall matplotlib into the Python
+environment of Julia via:
 
 ````Julia
 ENV["PYTHON"]=""
@@ -74,6 +64,20 @@ Pkg.build("PyCall")
 Pkg.add("PyPlot");
 ````
 
+A second solution (or second step) is to tell matplotlib the path to the correct
+library, which is provided by Conda.
+Temporarily this can be achieved by starting Julia as
+
+````sh
+export LD_LIBRARY_PATH=$HOME/.julia/v0.6/Conda/deps/usr/lib; julia
+````
+
+To specify the path permanently, the following line can be added to the file
+```.bashrc``` in the home directory:
+
+````bash
+LD_LIBRARY_PATH="$HOME/.julia/v0.6/Conda/deps/usr/lib:$LD_LIBRARY_PATH"
+````
 
 ## Quick Start
 
