@@ -6,6 +6,8 @@ using Distances
 using ProgressMeter
 using StatsBase
 
+include("errors.jl")
+
 include("types.jl")
 include("helpers.jl")
 include("grids.jl")
@@ -19,6 +21,9 @@ try
     include("plotSpheres.jl")
 catch e
     println("Error loading PyPlot $e")
+    println(" ")
+    println(SOM_ERRORS[:ERR_MPL])
+
     MPL_INSTALLED = false
 end
 
