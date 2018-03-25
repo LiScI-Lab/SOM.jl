@@ -13,13 +13,13 @@ include("kernels.jl")
 include("soms.jl")
 include("api.jl")
 
+MPL_INSTALLED = true
 try
-include("plotPyPlot.jl")
-include("plotSpheres.jl")
+    include("plotPyPlot.jl")
+    include("plotSpheres.jl")
 catch e
-    println("Error $e")
-finally
-    println("Bin noch da!")
+    println("Error loading PyPlot $e")
+    MPL_INSTALLED = false
 end
 
 export Som,
@@ -27,6 +27,7 @@ export Som,
        bubbleKernel, gaussianKernel,
        classFrequencies,
        plotDensity, plotClasses,
-       rowSample, prettyPrintArray
+       rowSample, prettyPrintArray,
+       MPL_INSTALLED
 
 end # of module SOM
