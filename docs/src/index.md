@@ -37,14 +37,15 @@ technical report:
 ## Installation
 
 For installation please refer to the README @github:
-```
-https://github.com/andreasdominik/SOM.jl
-```
+<https://github.com/andreasdominik/SOM.jl>
+
 
 Common installation problems arise from a known incompatibility between matplotlib and Julia. If the error message contains a line compareble to:
 
 ```
-mportError("/lib/x86_64-linux-gnu/libz.so.1: version `ZLIB_*.*.*' not found
+...
+importError("/lib/x86_64-linux-gnu/libz.so.1: version `ZLIB_*.*.*' not found
+...
 ```
 
 then most probably matplotlib fails to find a required library.   
