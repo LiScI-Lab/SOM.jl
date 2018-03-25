@@ -12,8 +12,15 @@ include("grids.jl")
 include("kernels.jl")
 include("soms.jl")
 include("api.jl")
+
+try
 include("plotPyPlot.jl")
 include("plotSpheres.jl")
+catch e
+    println("Error $e")
+finally
+    println("Bin noch da!")
+end
 
 export Som,
        initSOM, trainSOM, mapToSOM,
