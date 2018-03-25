@@ -160,17 +160,16 @@
 </blockquote>
 <p><a id='Installation-1'></a></p>
 <h2 id="installation">Installation</h2>
-<!– Because SOM.jl is a registered package, it can be installed from the Julia REPL with:
-
-<pre class="codehilite"><code class="language-Julia">Julia&gt; Pkg.add(&quot;SOM.jl&quot;)</code></pre>
-
-
-<p>–&gt;</p>
-<p>Because of the package is not yet registered, it can be installed from the Julia REPL with:</p>
-<pre class="codehilite"><code class="language-Julia">Pkg.clone(&quot;https://github.com/andreasdominik/SOM.jl.git&quot;)</code></pre>
+<p>For installation please refer to the README @github:</p>
+<pre class="codehilite"><code>https://github.com/andreasdominik/SOM.jl</code></pre>
 
 
-<p>The package requires <code>DataFrames, Distances, Distributions, ProgressMeter, StatsBase, PyPlot,</code> and <code>PyCall</code> with the Python package <code>matplotlib</code> to be installed. The requirements will be installed automatically by the package manager. Sometimes <code>matplotlib</code> causes problems. The easiest way of manual installation is from the Julia REPL into the default Julia-Python environment via:</p>
+<p>Common installation problems arise from a known incompatibility between matplotlib and Julia. If the error message contains a line compareble to:</p>
+<pre class="codehilite"><code>mportError(&quot;/lib/x86_64-linux-gnu/libz.so.1: version `ZLIB_*.*.*' not found</code></pre>
+
+
+<p>then most probably matplotlib fails to find a required library.   </p>
+<p>A first attempt could be to reinstall matplotlib into the Python environment of Julia via:</p>
 <pre class="codehilite"><code class="language-Julia">ENV[&quot;PYTHON&quot;]=&quot;&quot;
 Pkg.add(&quot;Conda&quot;)
 using Conda
@@ -180,6 +179,14 @@ Conda.add(&quot;matplotlib&quot;)
 Pkg.add(&quot;PyCall&quot;)
 Pkg.build(&quot;PyCall&quot;)
 Pkg.add(&quot;PyPlot&quot;);</code></pre>
+
+
+<p>A second solution (or second step) is to tell matplotlib the path to the correct library, which is provided by Conda. Temporarily this can be achieved by starting Julia as</p>
+<pre class="codehilite"><code class="language-sh">export LD_LIBRARY_PATH=$HOME/.julia/v0.6/Conda/deps/usr/lib; julia</code></pre>
+
+
+<p>To specify the path permanently, the following line can be added to the file <code>.bashrc</code> in the home directory:</p>
+<pre class="codehilite"><code class="language-bash">LD_LIBRARY_PATH=&quot;$HOME/.julia/v0.6/Conda/deps/usr/lib:$LD_LIBRARY_PATH&quot;</code></pre>
 
 
 <p><a id='Quick-Start-1'></a></p>
@@ -261,5 +268,5 @@ Pkg.add(&quot;PyPlot&quot;);</code></pre>
 
 <!--
 MkDocs version : 0.17.3
-Build Date UTC : 2018-03-25 16:20:25
+Build Date UTC : 2018-03-25 17:37:20
 -->
