@@ -56,6 +56,21 @@ include("testFuns.jl")
 #
 @test testTrain(train, :rectangular, toroidal = true)
 
+# test normalisation:
+#
+@test testTrain(train, :rectangular, norm = :minmax)
+@test testTrain(train, :rectangular, norm = :zscore)
+@test testTrain(train, :rectangular, norm = :none)
+
+# test convertTrainingData:
+#
+@test testTrain(convert(Array{Float64}, train), :rectangular)
+
+# test kernels:
+#
+@test testTrain(train, :rectangular, kernel = gaussianKernel)
+@test testTrain(train, :rectangular, kernel = bubbleKernel)
+
 # test visual:
 #
 @test testVisual(train, :rectangular)
@@ -66,13 +81,19 @@ include("testFuns.jl")
 
 # test plots:
 #
-@test testDensityPlot(train, :hexagonal)
-@test testDensityPlot(train, :spherical)
+if MPL_INSTALLED
+    @test testDensityPlot(train, :hexagonal)
+    @test testDensityPlot(train, :spherical)
 
-@test testOtherDensityPlot(train[1:100,:], train[101:150,:])
+    @test testOtherDensityPlot(train[1:100,:], train[101:150,:])
 
-@test testClassesPlot(train, iris, :rectangular)
-@test testClassesPlot(train, iris, :hexagonal)
-@test testClassesPlot(train, iris, :spherical)
+    @test testClassesPlot(train, iris, :rectangular)
+    @test testClassesPlot(train, iris, :hexagonal)
+    @test testClassesPlot(train, iris, :spherical)
+
+    # plot to file:
+    #
+    @test testClassesToFile(train, iris)
+end
 #
 #eof.

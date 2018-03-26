@@ -1,11 +1,12 @@
-function testTrain(train, topol; toroidal = false)
+function testTrain(train, topol; toroidal = false,
+                    norm = :zscore, kernel = gaussianKernel)
 
     xdim = 8
     ydim = 10
 
-    som = initSOM(train, xdim, ydim, norm = :zscore,
+    som = initSOM(train, xdim, ydim, norm = norm,
     topol = topol, toroidal = toroidal)
-    som = trainSOM(som, train, 10000)
+    som = trainSOM(som, train, 10000, kernelFun = kernel)
 
     ntrain = nrow(train)
     npopul = sum(som.population)
@@ -116,6 +117,28 @@ function testClassesPlot(train, wClasses, topol)
         ok = isfile(fName)
     else
         result = plotClasses(som, freqs, fileName = fName)
+
+        ok = typeof(result) == Symbol && result == :ERR_MPL
+    end
+
+    return ok
+end
+
+function testClassesToFile(train, wClasses)
+
+    xdim = 8
+    ydim = 10
+    fName = "classesfile"
+
+    som = initSOM(train, xdim, ydim)
+    som = trainSOM(som, train, 10000)
+
+    freqs = classFrequencies(som, wClasses, :Species)
+    if MPL_INSTALLED
+        plotClasses(som, freqs, device = :svg, fileName = fName)
+        ok = isfile(fName * ".svg")
+    else
+        result = plotClasses(som, freqs, device = :svg, fileName = fName)
 
         ok = typeof(result) == Symbol && result == :ERR_MPL
     end
