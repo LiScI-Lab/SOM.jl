@@ -20,14 +20,13 @@ the target grid is two-dimensional, resulting into  intuitively interpretable ma
 
 For more details see Kohonen's papers, such as
 
-1) Teuvo Kohonen, *Biological Cybernetics,* **43** (1982) p. 59-69 and
+1) Teuvo Kohonen, *Biological Cybernetics,* **43** (1982) p. 59-69
 2) Teuvo Kohonen, *Biological Cybernetics,* **44** (1982) p. 135-140    
 
 Technical details and background can be found in Kohonen's still relevant
 technical report:
 
-3) Teuvo Kohonen, Jussi Hynninen, Jari Kangas, and Jorma Laaksonen.
-  *SOM_PAK: The Self-Organizing Map Program Package.*
+3) Teuvo Kohonen, Jussi Hynninen, Jari Kangas, and Jorma Laaksonen. *SOM_PAK: The Self-Organizing Map Program Package.*
   Technical Report A31, Helsinki University of Technology,
   Laboratory of Computer and Information Science,
   FIN-02150 Espoo, Finland, 1996.
