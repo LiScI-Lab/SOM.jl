@@ -1,167 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="author" content="Andreas Dominik">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Quick Start - SOM</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
-  <link href="../../assets/Documenter.css" rel="stylesheet">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Quick Start";
-    var mkdocs_page_input_path = "tutorials/firstTutorial.md";
-    var mkdocs_page_url = "/tutorials/firstTutorial/";
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> SOM</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Introduction</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Tutorials</span>
-    <ul class="subnav">
-                <li class=" current">
-                    
-    <a class="current" href="./">Quick Start</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#quick-start-a-first-tutorial">Quick start: a first tutorial</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#training-data">Training data</a></li>
-        
-            <li><a class="toctree-l4" href="#som-initialisation">SOM initialisation</a></li>
-        
-            <li><a class="toctree-l4" href="#training">Training</a></li>
-        
-            <li><a class="toctree-l4" href="#mapping-of-samples-to-the-som">Mapping of samples to the Som</a></li>
-        
-            <li><a class="toctree-l4" href="#visualisation">Visualisation</a></li>
-        
-            <li><a class="toctree-l4" href="#supported-topologies">Supported topologies</a></li>
-        
-        </ul>
-    
-
-    </ul>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">API</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../api/types/">Types</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/soms/">Training</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../api/visualisations/">Visualisation</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../LICENSE/">License</a>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">SOM</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Tutorials &raquo;</li>
-        
-      
-    
-    <li>Quick Start</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/andreasdominik/SOM.jl.git/edit/master/docs/tutorials/firstTutorial.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <p><a id='Quick-start:-a-first-tutorial-1'></a></p>
-<h1 id="quick-start-a-first-tutorial">Quick start: a first tutorial</h1>
-<p>The concept of SOM.jl follows Kohonen's SOM_PAK software with a a 3-step approach:</p>
-<ol>
-<li>initialise the SOM by defining topology, dimensions and random inital codebook vectors</li>
-<li>train the SOM in one or more rounds with different training parameters</li>
-<li>map data into the Som and get visualisations.</li>
-</ol>
-<p>In the following example the functions are called with a minimum set of parameters. For a description of all possible arguments see the API documentation.</p>
-<p><a id='Training-data-1'></a></p>
-<h4 id="training-data">Training data</h4>
-<p>A first example uses the <em>Iris</em> dataset, that comprises lengths and widths of petals and sepals of the blossoms of iris flowers of species <em>Iris viginica</em>, <em>Iris setosa</em> and <em>Iris versicolor</em>. The dataset includes the 4 attributes and the correct species for 150 flowers:</p>
-<pre class="codehilite"><code>iris
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Quick Start · SOM.jl</title><link rel="canonical" href="https://andreasdominik.github.io/SOM.jl/stable/tutorials/firstTutorial/index.html"/><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/><link href="../../assets/favicon.ico" rel="icon" type="image/x-icon"/></head><body><nav class="toc"><a href="../../index.html"><img class="logo" src="../../assets/logo.png" alt="SOM.jl logo"/></a><h1>SOM.jl</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">Introduction</a></li><li><span class="toctext">Tutorials</span><ul><li class="current"><a class="toctext" href>Quick Start</a><ul class="internal"></ul></li></ul></li><li><span class="toctext">API</span><ul><li><a class="toctext" href="../../api/types/">Types</a></li><li><a class="toctext" href="../../api/soms/">Training</a></li><li><a class="toctext" href="../../api/visualisations/">Visualisation</a></li></ul></li><li><a class="toctext" href="../../LICENSE/">License</a></li></ul></nav><article id="docs"><header><nav><ul><li>Tutorials</li><li><a href>Quick Start</a></li></ul><a class="edit-page" href="https://github.com/andreasdominik/SOM.jl/blob/master/docs/src/tutorials/firstTutorial.md"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>Quick Start</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Quick-start:-a-first-tutorial-1" href="#Quick-start:-a-first-tutorial-1">Quick start: a first tutorial</a></h1><p>The concept of SOM.jl follows Kohonen&#39;s SOM_PAK software with a a 3-step approach:</p><ol><li><p>initialise the SOM by defining topology, dimensions and random inital codebook vectors</p></li><li><p>train the SOM in one or more rounds with different training parameters</p></li><li><p>map data into the Som and get visualisations.</p></li></ol><p>In the following example the functions are called with a minimum set of parameters. For a description of all possible arguments see the API documentation.</p><h4><a class="nav-anchor" id="Training-data-1" href="#Training-data-1">Training data</a></h4><p>A first example uses the <em>Iris</em> dataset, that comprises lengths and widths of petals and sepals of the blossoms of iris flowers of species <em>Iris viginica</em>, <em>Iris setosa</em> and <em>Iris versicolor</em>. The dataset includes the 4 attributes and the correct species for 150 flowers:</p><pre><code class="language-none">iris
 150×5 DataFrames.DataFrame
 │ Row │ SepalLength │ SepalWidth │ PetalLength │ PetalWidth │ Species   │
 ├─────┼─────────────┼────────────┼─────────────┼────────────┼───────────┤
@@ -172,40 +10,12 @@
 │ 5   │ 5.0         │ 3.6        │ 1.4         │ 0.2        │ setosa    │
 │ 6   │ 5.4         │ 3.9        │ 1.7         │ 0.4        │ setosa    │
 │ 7   │ 4.6         │ 3.4        │ 1.4         │ 0.3        │ setosa    │
-...</code></pre>
-
-
-<p>As the training of self-organising maps is unsupervised, the class label (<code>species</code>) must be removed for training:</p>
-<pre class="codehilite"><code class="language-Julia">using SOM
+...</code></pre><p>As the training of self-organising maps is unsupervised, the class label (<code>species</code>) must be removed for training:</p><pre><code class="language-Julia">using SOM
 using RDatasets
 
 iris = dataset(&quot;datasets&quot;, &quot;iris&quot;)
-train = iris[:,1:4]</code></pre>
-
-
-<p><a id='SOM-initialisation-1'></a></p>
-<h4 id="som-initialisation">SOM initialisation</h4>
-<p>Initialisation sets the parameters of the SOM, such as dimensions, topology and normalisation as well as initial values of the codebook vectors.</p>
-<p>Called with the minimal set of arguments, topology defaults to <em>hexagonal</em> and <em>not toroidal</em> and normalisation to <em>z-score normalisation</em> with μ = 0.0 and σ = 1.0. In the example, the SOM will have</p>
-<ul>
-<li>an hexagonal grid of size 10 × 8 with edges</li>
-<li>z-score normalised training data.</li>
-</ul>
-<p>The training data must be provided for initialisation to derive normalisation parameters and to initialise the codes to random values within the attribute space of the dataset:</p>
-<pre class="codehilite"><code class="language-Julia">som = initSOM(train, 10, 8)</code></pre>
-
-
-<p><a id='Training-1'></a></p>
-<h4 id="training">Training</h4>
-<p>Several training steps can be performed with different training parameters, such as training steps and training radius. Each step returns a <em>new</em> object of type Som, so that the progress of training can be analysed later. Although by default the radius decreases in the course of training, it is often advantageous to finalise the training with an additional round with small radius:</p>
-<pre class="codehilite"><code class="language-Julia">som = trainSOM(som, train, 10000)
-som = trainSOM(som, train, 10000, r = 3)</code></pre>
-
-
-<p><a id='Mapping-of-samples-to-the-Som-1'></a></p>
-<h4 id="mapping-of-samples-to-the-som">Mapping of samples to the Som</h4>
-<p>Unkonwn samples can be mapped to the SOM with the mapping function (analoguous to Kohonen's <code>visual</code>). As result a vector with ID and index of the winner neuron for each sample is returned:</p>
-<pre class="codehilite"><code class="language-Julia">winners = mapToSOM(som, train[1:5,:])
+train = iris[:,1:4]</code></pre><h4><a class="nav-anchor" id="SOM-initialisation-1" href="#SOM-initialisation-1">SOM initialisation</a></h4><p>Initialisation sets the parameters of the SOM, such as dimensions, topology and normalisation as well as initial values of the codebook vectors.</p><p>Called with the minimal set of arguments, topology defaults to <em>hexagonal</em> and <em>not toroidal</em> and normalisation to <em>z-score normalisation</em> with μ = 0.0 and σ = 1.0. In the example, the SOM will have</p><ul><li><p>an hexagonal grid of size 10 × 8 with edges</p></li><li><p>z-score normalised training data.</p></li></ul><p>The training data must be provided for initialisation to derive normalisation parameters and to initialise the codes to random values within the attribute space of the dataset:</p><pre><code class="language-Julia">som = initSOM(train, 10, 8)</code></pre><h4><a class="nav-anchor" id="Training-1" href="#Training-1">Training</a></h4><p>Several training steps can be performed with different training parameters, such as training steps and training radius. Each step returns a <em>new</em> object of type Som, so that the progress of training can be analysed later. Although by default the radius decreases in the course of training, it is often advantageous to finalise the training with an additional round with small radius:</p><pre><code class="language-Julia">som = trainSOM(som, train, 10000)
+som = trainSOM(som, train, 10000, r = 3)</code></pre><h4><a class="nav-anchor" id="Mapping-of-samples-to-the-Som-1" href="#Mapping-of-samples-to-the-Som-1">Mapping of samples to the Som</a></h4><p>Unkonwn samples can be mapped to the SOM with the mapping function (analoguous to Kohonen&#39;s <code>visual</code>). As result a vector with ID and index of the winner neuron for each sample is returned:</p><pre><code class="language-Julia">winners = mapToSOM(som, train[1:5,:])
 
 5×3 DataFrames.DataFrame
 │ Row │ X  │ Y │ index │
@@ -214,14 +24,7 @@ som = trainSOM(som, train, 10000, r = 3)</code></pre>
 │ 2   │ 8  │ 2 │ 18    │
 │ 3   │ 10 │ 2 │ 20    │
 │ 4   │ 9  │ 2 │ 19    │
-│ 5   │ 10 │ 4 │ 40    │</code></pre>
-
-
-<p><a id='Visualisation-1'></a></p>
-<h4 id="visualisation">Visualisation</h4>
-<p>Visualisations include a density plot that displays the number of training samples mapped to each neuron and a classes plot that shows the class labels of training samples for every neuron as a pie chart.</p>
-<p>Called without specification of a device or filename, an interactive MatPlotLib-window will be opened. If a filename is specified, a file with the respective format will be created.</p>
-<pre class="codehilite"><code class="language-Julia">plotDensity(som)
+│ 5   │ 10 │ 4 │ 40    │</code></pre><h4><a class="nav-anchor" id="Visualisation-1" href="#Visualisation-1">Visualisation</a></h4><p>Visualisations include a density plot that displays the number of training samples mapped to each neuron and a classes plot that shows the class labels of training samples for every neuron as a pie chart.</p><p>Called without specification of a device or filename, an interactive MatPlotLib-window will be opened. If a filename is specified, a file with the respective format will be created.</p><pre><code class="language-Julia">plotDensity(som)
 
 freqs = classFrequencies(som, iris, :Species)
 plotClasses(som, freqs)
@@ -247,65 +50,4 @@ freqs
 │ 77  │ 77    │ 7  │ 8 │ 3          │ 0.0    │ 1.0        │ 0.0       │
 │ 78  │ 78    │ 8  │ 8 │ 0          │ 0.0    │ 0.0        │ 0.0       │
 │ 79  │ 79    │ 9  │ 8 │ 2          │ 1.0    │ 0.0        │ 0.0       │
-│ 80  │ 80    │ 10 │ 8 │ 4          │ 1.0    │ 0.0        │ 0.0       │</code></pre>
-
-
-<p><a id='Supported-topologies-1'></a></p>
-<h4 id="supported-topologies">Supported topologies</h4>
-<p>Default topology is a hexagonal grid with borders. By specifying <code>topol = :rectangular</code> a rectangular grid is uses instead. For both grids an edge-less toroidal topology can be defined with <code>toroidal = true</code>. In this case neurons on the edge of the SOM will neighbour the neurons on the opposite edge (simply spoken: the left is connected to the right and the top is connected with the bottom).</p>
-<p>In addition spherical SOMs are possible (<code>topol = :spherical</code>).</p>
-<p>Training and visualisations work for all supported topologies. Please refer to the API documentation for details.</p>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../api/types/" class="btn btn-neutral float-right" title="Types">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../.." class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-  </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="https://github.com/andreasdominik/SOM.jl.git/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
-      
-      
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../../api/types/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js"></script>
-      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-      <script src="../../assets/mathjaxhelper.js"></script>
-      <script src="../../search/require.js"></script>
-      <script src="../../search/search.js"></script>
-
-</body>
-</html>
+│ 80  │ 80    │ 10 │ 8 │ 4          │ 1.0    │ 0.0        │ 0.0       │</code></pre><h4><a class="nav-anchor" id="Supported-topologies-1" href="#Supported-topologies-1">Supported topologies</a></h4><p>Default topology is a hexagonal grid with borders. By specifying <code>topol = :rectangular</code> a rectangular grid is uses instead. For both grids an edge-less toroidal topology can be defined with <code>toroidal = true</code>. In this case neurons on the edge of the SOM will neighbour the neurons on the opposite edge (simply spoken: the left is connected to the right and the top is connected with the bottom).</p><p>In addition spherical SOMs are possible (<code>topol = :spherical</code>).</p><p>Training and visualisations work for all supported topologies. Please refer to the API documentation for details.</p><footer><hr/><a class="previous" href="../../"><span class="direction">Previous</span><span class="title">Introduction</span></a><a class="next" href="../../api/types/"><span class="direction">Next</span><span class="title">Types</span></a></footer></article></body></html>
