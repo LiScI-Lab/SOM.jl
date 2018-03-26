@@ -64,6 +64,12 @@ Train an initialised or pre-trained SOM.
 
 Training data must be convertable to Array{Float64,2} with
 `convert()`. Training samples are row-wise; one sample per row.
+
+An alternative kernel function can be provided to modify the distance-dependent
+training. The function must fit to the signature fun(x, r) where
+x is an arbitrary distance and
+r is a parameter controlling the function and the return value is
+between 0.0 and 1.0.
 """
 function trainSOM(som::Som, train::Any, len;
                      η = 0.2, kernelFun::Function = gaussianKernel, r = 0.0,
@@ -133,8 +139,6 @@ function classFrequencies(som::Som, data, classes)
     if ncol(data) != ncol(som.codes) + 1
         error("Number of attribute columns of data ($(ncol(data)-1) does not match codes ($(ncol(codes)))")
     end
-
-    # TODO: classes in DFs and Arrrays: allow num and name.
 
     x = deepcopy(data)
     delete!(x, classes)

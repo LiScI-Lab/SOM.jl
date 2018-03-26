@@ -1,6 +1,6 @@
 # Quick start: a first tutorial
 
-The concept of SOM.jl follows Kohonen's SOM_PAK software with a
+The concept of SOM.jl follows Kohonen's SOM_PAK software with
 a 3-step approach:
 
 1) initialise the SOM by defining topology, dimensions and random inital
@@ -66,7 +66,7 @@ som = initSOM(train, 10, 8)
 
 
 #### Training
-Several training steps can be performed with different training parameters,
+Several rounds of training can be performed with different training parameters,
 such as training steps and training radius.
 Each step returns a *new* object of type Som, so that the progress of training
 can be analysed later.
@@ -82,7 +82,7 @@ som = trainSOM(som, train, 10000, r = 3)
 
 #### Mapping of samples to the Som
 Unkonwn samples can be mapped to the SOM with the mapping function
-(analoguous to Kohonen's `visual`). As result a vector with ID and index of
+(analoguous to Kohonen's `visual`). As result, a vector with ID and index of
 the winner neuron for each sample is returned:
 
 ````Julia
@@ -102,7 +102,7 @@ winners = mapToSOM(som, train[1:5,:])
 #### Visualisation
 Visualisations include a density plot that displays the number of training
 samples mapped to each neuron and a classes plot that shows the class labels
-of training samples for every neuron as a pie chart.
+of training samples for every neuron as pie charts.
 
 Called without specification of a device or filename, an interactive
 MatPlotLib-window will be opened. If a filename is specified, a file with

@@ -15,6 +15,8 @@ end
     gaussianKernel(x, r)
 
 Return Gaussian(x) for μ=0.0 and σ = r/3.
+(a value of σ = r/3 makes the training results comparable between different kernels
+for sample values or r).
 """
 function gaussianKernel(x, r)
     return Distributions.pdf.(Distributions.Normal(0.0,r/3), x)
