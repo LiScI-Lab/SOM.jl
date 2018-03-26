@@ -96,8 +96,6 @@ function testOtherDensityPlot(tr, pred)
         ok = typeof(result) == Symbol && result == :ERR_MPL
     end
 
-    ok = isfile(fName)
-
     return ok
 end
 
@@ -121,8 +119,6 @@ function testClassesPlot(train, wClasses, topol)
 
         ok = typeof(result) == Symbol && result == :ERR_MPL
     end
-
-    ok = isfile(fName)
 
     return ok
 end
