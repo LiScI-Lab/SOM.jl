@@ -12,7 +12,7 @@ using Documenter, SOM
 
 makedocs(modules=[SOM],
          clean = false,
-         format = :html,
+         format = :markdown,
          assets = ["assets/favicon.ico"],
          sitename = "SOM.jl",
          authors = "Andreas Dominik",
