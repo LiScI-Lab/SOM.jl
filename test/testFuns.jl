@@ -65,9 +65,13 @@ function testDensityPlot(train, topol)
     som = initSOM(train, xdim, ydim, topol = topol)
     som = trainSOM(som, train, 10000)
 
-    plotDensity(som, fileName = fName)
-
-    ok = isfile(fName)
+    if MPL_INSTALLED
+        plotDensity(som, fileName = fName)
+        ok = isfile(fName)
+    else
+        result = plotDensity(som, fileName = fName)
+        ok = typeof(result) == Symbol && result == :ERR_MPL
+    end
 
     return ok
 end
@@ -83,7 +87,14 @@ function testOtherDensityPlot(tr, pred)
 
     vis = mapToSOM(som, pred)
 
-    plotDensity(som, predict = vis, fileName = fName)
+    if MPL_INSTALLED
+        plotDensity(som, predict = vis, fileName = fName)
+        ok = isfile(fName)
+    else
+        result = plotDensity(som, predict = vis, fileName = fName)
+
+        ok = typeof(result) == Symbol && result == :ERR_MPL
+    end
 
     ok = isfile(fName)
 
@@ -102,7 +113,14 @@ function testClassesPlot(train, wClasses, topol)
     som = trainSOM(som, train, 10000)
 
     freqs = classFrequencies(som, wClasses, :Species)
-    plotClasses(som, freqs, fileName = fName)
+    if MPL_INSTALLED
+        plotClasses(som, freqs, fileName = fName)
+        ok = isfile(fName)
+    else
+        result = plotClasses(som, freqs, fileName = fName)
+
+        ok = typeof(result) == Symbol && result == :ERR_MPL
+    end
 
     ok = isfile(fName)
 

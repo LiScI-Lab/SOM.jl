@@ -21,13 +21,13 @@ Initialises a SOM.
 function initSOM( train, xdim, ydim = xdim;
              norm::Symbol = :none, topol = :hexagonal, toroidal = false)
 
-
     if typeof(train) == DataFrame
         colNames = convert(Array{String}, names(train))
     else
         colNames = ["x$i" for i in 1:ncol(train)]
     end
     train = convertTrainingData(train)
+
 
     if topol == :spherical
         toroidal = false
@@ -181,6 +181,12 @@ function plotDensity(som::Som; predict = nothing,
                      detail = 45,
                      device = :display, fileName = "somplot")
 
+    # do nothing, if matplotlib is not installed correctly:
+    #
+    if !MPL_INSTALLED
+        return :ERR_MPL
+    end
+
     # use population form the som itself, if no prediction is given as arg.
     #
     if predict == nothing
@@ -233,6 +239,12 @@ function plotClasses(som::Som, frequencies;
                      colors = "brg",
                      detail = 45,
                      device = :display, fileName = "somplot")
+
+    # do nothing, if matplotlib is not installed correctly:
+    #
+    if !MPL_INSTALLED
+        return :ERR_MPL
+    end
 
     # create dictionary of colours and classes if necessary:
     #

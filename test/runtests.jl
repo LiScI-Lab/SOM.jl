@@ -66,13 +66,13 @@ include("testFuns.jl")
 
 # test plots:
 #
-if MPL_INSTALLED
-    @test testDensityPlot(train, :hexagonal)
-    @test testDensityPlot(train, :spherical)
+@test testDensityPlot(train, :hexagonal)
+@test testDensityPlot(train, :spherical)
 
-    @test testOtherDensityPlot(train[1:100,:], train[101:150,:])
+@test testOtherDensityPlot(train[1:100,:], train[101:150,:])
 
-    @test testClassesPlot(train, iris, :rectangular)
-    @test testClassesPlot(train, iris, :hexagonal)
-    @test testClassesPlot(train, iris, :spherical)
-end
+@test testClassesPlot(train, iris, :rectangular)
+@test testClassesPlot(train, iris, :hexagonal)
+@test testClassesPlot(train, iris, :spherical)
+#
+#eof.
