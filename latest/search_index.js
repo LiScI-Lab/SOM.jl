@@ -69,7 +69,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Quick Start",
     "title": "Quick start: a first tutorial",
     "category": "section",
-    "text": "The concept of SOM.jl follows Kohonen\'s SOM_PAK software with a a 3-step approach:initialise the SOM by defining topology, dimensions and random inital codebook vectors\ntrain the SOM in one or more rounds with different training parameters\nmap data into the Som and get visualisations.In the following example the functions are called with a minimum set of parameters. For a description of all possible arguments see the API documentation."
+    "text": "The concept of SOM.jl follows Kohonen\'s SOM_PAK software with a 3-step approach:initialise the SOM by defining topology, dimensions and random inital codebook vectors\ntrain the SOM in one or more rounds with different training parameters\nmap data into the Som and get visualisations.In the following example the functions are called with a minimum set of parameters. For a description of all possible arguments see the API documentation."
 },
 
 {
@@ -93,7 +93,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Quick Start",
     "title": "Training",
     "category": "section",
-    "text": "Several training steps can be performed with different training parameters, such as training steps and training radius. Each step returns a new object of type Som, so that the progress of training can be analysed later. Although by default the radius decreases in the course of training, it is often advantageous to finalise the training with an additional round with small radius:som = trainSOM(som, train, 10000)\nsom = trainSOM(som, train, 10000, r = 3)"
+    "text": "Several rounds of training can be performed with different training parameters, such as training steps and training radius. Each step returns a new object of type Som, so that the progress of training can be analysed later. Although by default the radius decreases in the course of training, it is often advantageous to finalise the training with an additional round with small radius:som = trainSOM(som, train, 10000)\nsom = trainSOM(som, train, 10000, r = 3)"
 },
 
 {
@@ -101,7 +101,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Quick Start",
     "title": "Mapping of samples to the Som",
     "category": "section",
-    "text": "Unkonwn samples can be mapped to the SOM with the mapping function (analoguous to Kohonen\'s visual). As result a vector with ID and index of the winner neuron for each sample is returned:winners = mapToSOM(som, train[1:5,:])\n\n5×3 DataFrames.DataFrame\n│ Row │ X  │ Y │ index │\n├─────┼────┼───┼───────┤\n│ 1   │ 10 │ 4 │ 40    │\n│ 2   │ 8  │ 2 │ 18    │\n│ 3   │ 10 │ 2 │ 20    │\n│ 4   │ 9  │ 2 │ 19    │\n│ 5   │ 10 │ 4 │ 40    │"
+    "text": "Unkonwn samples can be mapped to the SOM with the mapping function (analoguous to Kohonen\'s visual). As result, a vector with ID and index of the winner neuron for each sample is returned:winners = mapToSOM(som, train[1:5,:])\n\n5×3 DataFrames.DataFrame\n│ Row │ X  │ Y │ index │\n├─────┼────┼───┼───────┤\n│ 1   │ 10 │ 4 │ 40    │\n│ 2   │ 8  │ 2 │ 18    │\n│ 3   │ 10 │ 2 │ 20    │\n│ 4   │ 9  │ 2 │ 19    │\n│ 5   │ 10 │ 4 │ 40    │"
 },
 
 {
@@ -109,7 +109,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Quick Start",
     "title": "Visualisation",
     "category": "section",
-    "text": "Visualisations include a density plot that displays the number of training samples mapped to each neuron and a classes plot that shows the class labels of training samples for every neuron as a pie chart.Called without specification of a device or filename, an interactive MatPlotLib-window will be opened. If a filename is specified, a file with the respective format will be created.plotDensity(som)\n\nfreqs = classFrequencies(som, iris, :Species)\nplotClasses(som, freqs)\n\nplotClasses(som, freqs, fileName = \"mychart.png\")\n\nfreqs\n80×7 DataFrames.DataFrame\n│ Row │ index │ X  │ Y │ Population │ setosa │ versicolor │ virginica │\n├─────┼───────┼────┼───┼────────────┼────────┼────────────┼───────────┤\n│ 1   │ 1     │ 1  │ 1 │ 5          │ 0.0    │ 0.0        │ 1.0       │\n│ 2   │ 2     │ 2  │ 1 │ 4          │ 0.0    │ 0.0        │ 1.0       │\n│ 3   │ 3     │ 3  │ 1 │ 1          │ 0.0    │ 0.0        │ 1.0       │\n│ 4   │ 4     │ 4  │ 1 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 5   │ 5     │ 5  │ 1 │ 4          │ 0.0    │ 1.0        │ 0.0       │\n│ 6   │ 6     │ 6  │ 1 │ 1          │ 0.0    │ 1.0        │ 0.0       │\n│ 7   │ 7     │ 7  │ 1 │ 0          │ 0.0    │ 0.0        │ 0.0       │\n⋮\n│ 73  │ 73    │ 3  │ 8 │ 2          │ 0.0    │ 0.5        │ 0.5       │\n│ 74  │ 74    │ 4  │ 8 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 75  │ 75    │ 5  │ 8 │ 1          │ 0.0    │ 0.0        │ 1.0       │\n│ 76  │ 76    │ 6  │ 8 │ 1          │ 0.0    │ 1.0        │ 0.0       │\n│ 77  │ 77    │ 7  │ 8 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 78  │ 78    │ 8  │ 8 │ 0          │ 0.0    │ 0.0        │ 0.0       │\n│ 79  │ 79    │ 9  │ 8 │ 2          │ 1.0    │ 0.0        │ 0.0       │\n│ 80  │ 80    │ 10 │ 8 │ 4          │ 1.0    │ 0.0        │ 0.0       │"
+    "text": "Visualisations include a density plot that displays the number of training samples mapped to each neuron and a classes plot that shows the class labels of training samples for every neuron as pie charts.Called without specification of a device or filename, an interactive MatPlotLib-window will be opened. If a filename is specified, a file with the respective format will be created.plotDensity(som)\n\nfreqs = classFrequencies(som, iris, :Species)\nplotClasses(som, freqs)\n\nplotClasses(som, freqs, fileName = \"mychart.png\")\n\nfreqs\n80×7 DataFrames.DataFrame\n│ Row │ index │ X  │ Y │ Population │ setosa │ versicolor │ virginica │\n├─────┼───────┼────┼───┼────────────┼────────┼────────────┼───────────┤\n│ 1   │ 1     │ 1  │ 1 │ 5          │ 0.0    │ 0.0        │ 1.0       │\n│ 2   │ 2     │ 2  │ 1 │ 4          │ 0.0    │ 0.0        │ 1.0       │\n│ 3   │ 3     │ 3  │ 1 │ 1          │ 0.0    │ 0.0        │ 1.0       │\n│ 4   │ 4     │ 4  │ 1 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 5   │ 5     │ 5  │ 1 │ 4          │ 0.0    │ 1.0        │ 0.0       │\n│ 6   │ 6     │ 6  │ 1 │ 1          │ 0.0    │ 1.0        │ 0.0       │\n│ 7   │ 7     │ 7  │ 1 │ 0          │ 0.0    │ 0.0        │ 0.0       │\n⋮\n│ 73  │ 73    │ 3  │ 8 │ 2          │ 0.0    │ 0.5        │ 0.5       │\n│ 74  │ 74    │ 4  │ 8 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 75  │ 75    │ 5  │ 8 │ 1          │ 0.0    │ 0.0        │ 1.0       │\n│ 76  │ 76    │ 6  │ 8 │ 1          │ 0.0    │ 1.0        │ 0.0       │\n│ 77  │ 77    │ 7  │ 8 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 78  │ 78    │ 8  │ 8 │ 0          │ 0.0    │ 0.0        │ 0.0       │\n│ 79  │ 79    │ 9  │ 8 │ 2          │ 1.0    │ 0.0        │ 0.0       │\n│ 80  │ 80    │ 10 │ 8 │ 4          │ 1.0    │ 0.0        │ 0.0       │"
 },
 
 {
@@ -165,7 +165,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Training",
     "title": "SOM.trainSOM",
     "category": "function",
-    "text": "trainSOM(som::Som, train::Any, len;\n         η = 0.2 kernel = gaussianKernel,\n         r = 0.0, rDecay = true, ηDecay = true)\n\nTrain an initialised or pre-trained SOM.\n\nArguments:\n\nsom: object of type Som with a trained som\ntrain: training data\nlen: number of single training steps (not epochs)\nη: learning rate\nkernel::function: optional distance kernel; one of (bubbleKernel, gaussianKernel)           default is gaussianKernel\nr: optional training radius.      If r is not specified, it defaults to √(xdim^2 + ydim^2) / 2\nrDecay: optional flag; if true, r decays to 0.0 during the training.\nηDecay: optional flag; if true, learning rate η decays to 0.0           during the training.\n\nTraining data must be convertable to Array{Float64,2} with convert(). Training samples are row-wise; one sample per row.\n\n\n\n"
+    "text": "trainSOM(som::Som, train::Any, len;\n         η = 0.2 kernel = gaussianKernel,\n         r = 0.0, rDecay = true, ηDecay = true)\n\nTrain an initialised or pre-trained SOM.\n\nArguments:\n\nsom: object of type Som with a trained som\ntrain: training data\nlen: number of single training steps (not epochs)\nη: learning rate\nkernel::function: optional distance kernel; one of (bubbleKernel, gaussianKernel)           default is gaussianKernel\nr: optional training radius.      If r is not specified, it defaults to √(xdim^2 + ydim^2) / 2\nrDecay: optional flag; if true, r decays to 0.0 during the training.\nηDecay: optional flag; if true, learning rate η decays to 0.0           during the training.\n\nTraining data must be convertable to Array{Float64,2} with convert(). Training samples are row-wise; one sample per row.\n\nAn alternative kernel function can be provided to modify the distance-dependent training. The function must fit to the signature fun(x, r) where x is an arbitrary distance and r is a parameter controlling the function and the return value is between 0.0 and 1.0.\n\n\n\n"
 },
 
 {
@@ -205,7 +205,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Training",
     "title": "SOM.gaussianKernel",
     "category": "function",
-    "text": "gaussianKernel(x, r)\n\nReturn Gaussian(x) for μ=0.0 and σ = r/3.\n\n\n\n"
+    "text": "gaussianKernel(x, r)\n\nReturn Gaussian(x) for μ=0.0 and σ = r/3. (a value of σ = r/3 makes the training results comparable between different kernels for sample values or r).\n\n\n\n"
 },
 
 {
