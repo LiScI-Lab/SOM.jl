@@ -25,4 +25,4 @@ Julia> Pkg.add("SOM")
 ````
 
 
-Please refer to the documentation for details!
+Please refer to the [documentation](https://andreasdominik.github.io/SOM.jl/stable) for details!

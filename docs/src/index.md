@@ -4,7 +4,7 @@ The package provides training and visualisation functions
 for Kohonen's self-organising maps for Julia.
 Training functions are implemented in pure Julia, without calling
 external libraries.    
-Visualisation is implemented by using Python's MatPlotLib.
+Visualisation is implemented by using Python's Matplotlib.
 
 
 ## Self-organising maps
@@ -26,11 +26,11 @@ For more details see Kohonen's papers, such as
 Technical details and background can be found in Kohonen's still relevant
 technical report:
 
-3) Teuvo Kohonen, Jussi Hynninen, Jari Kangas, and Jorma Laaksonen. *SOM_PAK: The Self-Organizing Map Program Package.*
-  Technical Report A31, Helsinki University of Technology,
-  Laboratory of Computer and Information Science,
-  FIN-02150 Espoo, Finland, 1996.
-  <http://www.cis.hut.fi/research/papers/som_tr96.ps.Z>
+3) Teuvo Kohonen, Jussi Hynninen, Jari Kangas, and Jorma Laaksonen, *SOM_PAK: The Self-Organizing Map Program Package.*
+Technical Report A31, Helsinki University of Technology,
+Laboratory of Computer and Information Science,
+FIN-02150 Espoo, Finland, 1996.
+<http://www.cis.hut.fi/research/papers/som_tr96.ps.Z>
 
 
 ## Installation
@@ -39,7 +39,7 @@ For installation please refer to the README @github:
 <https://github.com/andreasdominik/SOM.jl>
 
 
-Common installation problems arise from a known incompatibility between matplotlib and Julia. If the error message contains a line compareble to:
+Common installation problems arise from a known incompatibility between Matplotlib and Julia. If the error message contains a line comparable to:
 
 ```
 ...
@@ -47,9 +47,9 @@ importError("/lib/x86_64-linux-gnu/libz.so.1: version `ZLIB_*.*.*' not found
 ...
 ```
 
-then most probably matplotlib fails to find a required library.   
+then most probably Matplotlib fails to find a required library.   
 
-A first attempt could be to reinstall matplotlib into the Python
+A first attempt could be to reinstall Matplotlib into the Python
 environment of Julia via:
 
 ````Julia
@@ -64,7 +64,7 @@ Pkg.build("PyCall")
 Pkg.add("PyPlot");
 ````
 
-A second solution (or second step) is to tell matplotlib the path to the correct
+A second solution (or second step) is to tell Matplotlib the path to the correct
 library, which is provided by Conda.
 Temporarily this can be achieved by starting Julia as
 
@@ -78,6 +78,9 @@ To specify the path permanently, the following line can be added to the file
 ````bash
 LD_LIBRARY_PATH="$HOME/.julia/v0.6/Conda/deps/usr/lib:$LD_LIBRARY_PATH"
 ````
+
+For training of self-organising maps issues with Matplotlib installation can be ignored; the SOMs will work without Matplotlib. However, Matplotlib visualisations cannot be plotted without Matplotlib.
+
 
 ## Quick Start
 

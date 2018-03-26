@@ -1,9 +1,9 @@
 # Quick start: a first tutorial
 
-The concept of SOM.jl follows Kohonen's SOM_PAK software with
-a 3-step approach:
+The concept of SOM.jl follows Kohonen's `SOM_PAK` software
+by taking a 3-step approach:
 
-1) initialise the SOM by defining topology, dimensions and random inital
+1) initialise the SOM by defining topology, dimensions and random initial
    codebook vectors
 2) train the SOM in one or more rounds with different training parameters
 3) map data into the Som and get visualisations.
@@ -50,8 +50,8 @@ Initialisation sets the parameters of the SOM, such as dimensions, topology
 and normalisation as well as initial values of the codebook vectors.
 
 Called with the minimal set of arguments, topology defaults to *hexagonal*
-and *not toroidal* and normalisation to *z-score normalisation* with μ = 0.0
-and σ = 1.0.
+and *not toroidal* and normalisation to *z-score normalisation* with *μ = 0.0*
+and *σ = 1.0.*
 In the example, the SOM will have
 * an hexagonal grid of size 10 × 8 with edges
 * z-score normalised training data.
@@ -81,8 +81,8 @@ som = trainSOM(som, train, 10000, r = 3)
 
 
 #### Mapping of samples to the Som
-Unkonwn samples can be mapped to the SOM with the mapping function
-(analoguous to Kohonen's `visual`). As result, a vector with ID and index of
+Unknown samples can be mapped to the SOM with the mapping function
+(analogous to Kohonen's `visual`). As result, a vector with ID and index of
 the winner neuron for each sample is returned:
 
 ````Julia
@@ -104,8 +104,8 @@ Visualisations include a density plot that displays the number of training
 samples mapped to each neuron and a classes plot that shows the class labels
 of training samples for every neuron as pie charts.
 
-Called without specification of a device or filename, an interactive
-MatPlotLib-window will be opened. If a filename is specified, a file with
+Called without specification of a device or file name, an interactive
+Matlotlib-window will be opened. If a file name is specified, a file with
 the respective format will be created.
 
 ````Julia
