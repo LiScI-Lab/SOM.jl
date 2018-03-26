@@ -197,7 +197,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Training",
     "title": "SOM.bubbleKernel",
     "category": "function",
-    "text": "bubbleKernel(x, r)\n\nReturn 1.0 if dist <= r, otherwise 0.0.\n\n\n\n"
+    "text": "bubbleKernel(x::Float64, r::Float64)::Float64\n\nReturn 1.0 if dist <= r, otherwise 0.0.\n\n\n\n"
 },
 
 {
@@ -205,7 +205,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Training",
     "title": "SOM.gaussianKernel",
     "category": "function",
-    "text": "gaussianKernel(x, r)\n\nReturn Gaussian(x) for μ=0.0 and σ = r/3. (a value of σ = r/3 makes the training results comparable between different kernels for sample values or r).\n\n\n\n"
+    "text": "gaussianKernel(x::Float64, r::Float64)::Float64\n\nReturn Gaussian(x) for μ=0.0 and σ = r/3. (a value of σ = r/3 makes the training results comparable between different kernels for sample values or r).\n\n\n\n"
 },
 
 {
