@@ -23,6 +23,7 @@ function doSom(x::Array{Float64}, codes::Array{Float64},
              r::Number, toroidal::Bool, rDecay::Bool, ηDecay::Bool)
 
     # make Δs for linear decay of r and η:
+    r = Float64(r)
     if rDecay
         if r < 1.5
             Δr = 0.0
