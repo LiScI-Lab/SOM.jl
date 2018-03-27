@@ -76,7 +76,7 @@ to finalise the training with an additional round with small radius:
 
 ````Julia
 som = trainSOM(som, train, 10000)
-som = trainSOM(som, train, 10000, r = 3)
+som = trainSOM(som, train, 10000, r = 3.0)
 ````
 
 
