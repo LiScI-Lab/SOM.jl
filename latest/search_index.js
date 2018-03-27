@@ -93,7 +93,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Quick Start",
     "title": "Training",
     "category": "section",
-    "text": "Several rounds of training can be performed with different training parameters, such as training steps and training radius. Each step returns a new object of type Som, so that the progress of training can be analysed later. Although by default the radius decreases in the course of training, it is often advantageous to finalise the training with an additional round with small radius:som = trainSOM(som, train, 10000)\nsom = trainSOM(som, train, 10000, r = 3)"
+    "text": "Several rounds of training can be performed with different training parameters, such as training steps and training radius. Each step returns a new object of type Som, so that the progress of training can be analysed later. Although by default the radius decreases in the course of training, it is often advantageous to finalise the training with an additional round with small radius:som = trainSOM(som, train, 10000)\nsom = trainSOM(som, train, 10000, r = 3.0)"
 },
 
 {
