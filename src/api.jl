@@ -38,7 +38,7 @@ function initSOM( train, xdim, ydim = xdim;
 
     som = initAll(train, colNames, norm,
                  xdim, ydim, nCodes,
-                 topol, false)
+                 topol, toroidal)
     return som
 end
 
