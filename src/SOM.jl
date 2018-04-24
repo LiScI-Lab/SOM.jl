@@ -5,6 +5,7 @@ using DataFrames
 using Distances
 using ProgressMeter
 using StatsBase
+using Distributions
 
 include("errors.jl")
 
