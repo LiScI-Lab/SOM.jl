@@ -10,9 +10,13 @@
 <!--- [![Build Status](https://travis-ci.org/andreasdominik/SOM.jl.svg?branch=master)](https://travis-ci.org/andreasdominik/SOM.jl) -->
 [![Build Status](https://travis-ci.org/LiScI-Lab/SOM.jl.svg?branch=master)](https://travis-ci.org/LiScI-Lab/SOM.jl)
 
-
+<!--
 [![Coverage Status](https://coveralls.io/repos/andreasdominik/SOM.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/andreasdominik/SOM.jl?branch=master)
 [![codecov.io](http://codecov.io/github/andreasdominik/SOM.jl/coverage.svg?branch=master)](http://codecov.io/github/andreasdominik/SOM.jl?branch=master)
+-->
+[![Coverage Status](https://coveralls.io/repos/LiScI-Lab/SOM.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/LiScI-Lab/SOM.jl?branch=master)
+[![codecov.io](http://codecov.io/github/LiScI-Lab/SOM.jl/coverage.svg?branch=master)](http://codecov.io/github/LiScI-Lab/SOM.jl?branch=master)
+
 
 The package provides training and visualisation functions
 for Kohonen's self-organising maps for Julia.
