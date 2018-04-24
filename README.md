@@ -3,8 +3,8 @@
 
 ## Documentation
 
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://andreasdominik.github.io/SOM.jl/stable)
-[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://andreasdominik.github.io/SOM.jl/latest)
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://LiScI-Lab.github.io/SOM.jl/stable)
+[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://LiScI-Lab.github.io/SOM.jl/latest)
 
 ## Build status
 <!--- [![Build Status](https://travis-ci.org/andreasdominik/SOM.jl.svg?branch=master)](https://travis-ci.org/andreasdominik/SOM.jl) -->
