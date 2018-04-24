@@ -2,6 +2,7 @@
 SOME provides methods to train Kohonen's self-organising maps.
 The SOM.jl package is licensed under the MIT "Expat" License.
 
+
     Andreas Dominik
     Life Science Informaticvs Laboratory
     THM University of Applied Sciences
