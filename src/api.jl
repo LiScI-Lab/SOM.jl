@@ -188,6 +188,7 @@ function plotDensity(som::Som; predict = nothing,
     # do nothing, if matplotlib is not installed correctly:
     #
     if !MPL_INSTALLED
+        println(SOM_ERRORS[:ERR_MPL])
         return :ERR_MPL
     end
 
@@ -229,7 +230,10 @@ Plot the population of neurons as colours.
 - `paper`: plot size; currentlx supported: `:a4, :a4r, :letter, :letterr`
 - `colors`: MatPlotLib colourmap (Python-style as string `"gray"` or
               Julia-style as Symbol `:gray`) *or* dictionary with
-              classes as keys and colours as vals; default: `brg`
+              classes as keys and colours as vals;
+              keys can be provides as Strings or Symbols; colours must be
+              valid coulour definitions (such as RGB, names, etc).
+              Default: `brg`
 - `detail`: only relevant for 3D-plotting of spherical SOMs: higher
             values result in smoother display of the 3D-sphere
 - `device`: one of `:display, :png, :svg, :pdf` or any file-type supported
@@ -247,22 +251,31 @@ function plotClasses(som::Som, frequencies;
     # do nothing, if matplotlib is not installed correctly:
     #
     if !MPL_INSTALLED
+
+        println(SOM_ERRORS[:ERR_MPL])
         return :ERR_MPL
     end
 
     # create dictionary of colours and classes if necessary:
     #
-    if typeof(colors) == Symbol
+    if isa(colors, Symbol)
         colors = string(colors)
     end
-    if typeof(colors) == String
-
+    if isa(colors, String)
         numClasses = ncol(frequencies) - 4
         classes = sort(names(frequencies)[5:end])
         cmap = get_cmap(colors)
         coloursRGB = cmap.(linspace(0.0, 1.0, numClasses))
 
         colourDict = Dict((classes[i], coloursRGB[i]) for i in 1:numClasses)
+
+    # else create Dict of colours with Symbols as keys:
+    #
+    elseif isa(colors, Dict)
+        colourDict = Dict(Symbol(i) => colors[i] for i in keys(colors))
+    else
+        println(SOM_ERRORS[:ERR_COLOUR_DEF])
+        return :ERR_COLOUR_DEF
     end
 
     if som.topol == :spherical
