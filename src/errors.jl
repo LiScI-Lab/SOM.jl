@@ -22,6 +22,13 @@ SOM_ERRORS = Dict(
 
     Please provide a Dict of class lables and colours or
     a colour map name (as String or as Symbol).
+""",
+:ERR_COL_NUM =>
+"""
+    Wrong number of attributes!
+
+    Number of columns of data (i.e. attributes) does not match
+    number of dimensions of codes.
 """
 
 )

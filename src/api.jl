@@ -105,7 +105,8 @@ function mapToSOM(som::Som, data)
     data = convertTrainingData(data)
 
     if ncol(data) != ncol(som.codes)
-        error("Number of columns of data ($(ncol(data)) does not match codes ($(ncol(codes)))")
+        println("    data: $(ncol(data)), codes: $(ncol(som.codes))")
+        error(SOM_ERRORS[:ERR_COL_NUM])
     end
 
     vis = visual(som.codes, data)
@@ -137,7 +138,8 @@ Returned DataFrame has the columns:
 function classFrequencies(som::Som, data, classes)
 
     if ncol(data) != ncol(som.codes) + 1
-        error("Number of attribute columns of data ($(ncol(data)-1) does not match codes ($(ncol(codes)))")
+        println("    data: $(ncol(data)-1), codes: $(ncol(som.codes))")
+        error(SOM_ERRORS[:ERR_COL_NUM])
     end
 
     x = deepcopy(data)
@@ -188,8 +190,7 @@ function plotDensity(som::Som; predict = nothing,
     # do nothing, if matplotlib is not installed correctly:
     #
     if !MPL_INSTALLED
-        println(SOM_ERRORS[:ERR_MPL])
-        return :ERR_MPL
+        error(SOM_ERRORS[:ERR_MPL])
     end
 
     # use population form the som itself, if no prediction is given as arg.
@@ -251,9 +252,7 @@ function plotClasses(som::Som, frequencies;
     # do nothing, if matplotlib is not installed correctly:
     #
     if !MPL_INSTALLED
-
-        println(SOM_ERRORS[:ERR_MPL])
-        return :ERR_MPL
+        error(SOM_ERRORS[:ERR_MPL])
     end
 
     # create dictionary of colours and classes if necessary:
