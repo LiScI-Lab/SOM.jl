@@ -30,10 +30,10 @@ makedocs(modules=[SOM],
                   ],
                   # Use clean URLs, unless built as a "local" build
           html_prettyurls = !("local" in ARGS),
-          html_canonical = "https://andreasdominik.github.io/SOM.jl/stable/",
+          html_canonical = "https://LiScI-Lab.github.io/SOM.jl/stable/",
          )
 
-deploydocs(repo   = "github.com/andreasdominik/SOM.jl.git",
+deploydocs(repo   = "github.com/LiScI-Lab/SOM.jl.git",
            julia  = "0.6",
            osname = "linux",
            target = "build",

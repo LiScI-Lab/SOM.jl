@@ -1,5 +1,5 @@
 site_name:           SOM
-repo_url:            https://github.com/andreasdominik/SOM.jl.git
+repo_url:            https://github.com/LiScI-Lab/SOM.jl.git
 site_description:    Description
 site_author:         Andreas Dominik
 theme:               readthedocs
