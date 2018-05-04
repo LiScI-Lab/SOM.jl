@@ -44,7 +44,7 @@ end
 
 """
     trainSOM(som::Som, train::Any, len;
-             η = 0.2 kernel = gaussianKernel,
+             η = 0.2, kernelFun = gaussianKernel,
              r = 0.0, rDecay = true, ηDecay = true)
 
 Train an initialised or pre-trained SOM.
