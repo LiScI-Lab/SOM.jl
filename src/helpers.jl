@@ -72,7 +72,6 @@ end
 
 Return index of the winner neuron for sample sampl.
 """
-
 function findWinner(cod, sampl)
 
     dist = realmax()
