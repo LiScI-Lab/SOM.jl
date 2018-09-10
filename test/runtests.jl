@@ -36,7 +36,7 @@ Pkg.build("PyCall")
 Pkg.add("PyPlot");
 
 using SOM
-using Base.Test
+using Test
 
 # Tests are using Iris dataset:
 #
