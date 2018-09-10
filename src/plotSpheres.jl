@@ -34,11 +34,7 @@ function assignSphereColours(detail, x, y, z, grid, codeCols)
     for j in 1:detail
         for i in 1:detail
 
-<<<<<<< HEAD
             winner = findWinner(grid, [x[i,j], y[i,j], copy(transpose(z[i,j]))])
-=======
-            winner = findWinner(grid, [x[i,j], y[i,j], copy(transpose(z[i,j]])))
->>>>>>> c3e9b785a7ea7c465e826f437b3bffb0221790a6
             sphereCols[i, j, 1] = codeCols[winner][1]
             sphereCols[i, j, 2] = codeCols[winner][2]
             sphereCols[i, j, 3] = codeCols[winner][3]
