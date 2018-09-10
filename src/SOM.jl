@@ -37,7 +37,7 @@ catch e
     println(" ")
     println(SOM_ERRORS[:ERR_MPL])
 
-    MPL_INSTALLED = false
+    global MPL_INSTALLED = false
 end
 
 export Som,
