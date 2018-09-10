@@ -105,7 +105,7 @@ samples mapped to each neuron and a classes plot that shows the class labels
 of training samples for every neuron as pie charts.
 
 Called without specification of a device or file name, an interactive
-Matlotlib-window will be opened. If a file name is specified, a file with
+Matplotlib-window will be opened. If a file name is specified, a file with
 the respective format will be created.
 
 ````Julia
