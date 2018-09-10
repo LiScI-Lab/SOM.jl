@@ -334,7 +334,7 @@ function printToDevice(device, fName)
 
     # select device from filename, rather than from device:
     #
-    if ismatch(r"\.[a-zA-Z]{3}$", fName)
+    if occursin(r"\.[a-zA-Z]{3}$", fName)
         println("Writing plot to file $fName")
         PyPlot.savefig(fName)
     elseif device != :display
