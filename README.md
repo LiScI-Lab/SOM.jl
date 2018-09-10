@@ -26,4 +26,4 @@ Julia> Pkg.add("SOM")
 ````
 
 
-Please refer to the [documentation](https://andreasdominik.github.io/SOM.jl/stable) for details!
+Please refer to the [documentation](https://lisci-lab.github.io/SOM.jl/stable) for details!
