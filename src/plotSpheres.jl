@@ -10,10 +10,11 @@ function buildSphere(detail, r)
     α = collect(linspace(0, 2π, detail))
     ϕ = collect(linspace(0, π, detail))
 
-    # a .* b.' ist the tensor-product:
-    x = cos.(α) .* (sin.(ϕ)).'
-    y = sin.(α) .* (sin.(ϕ)).'
-    z = ones(length(α)) .* (cos.(ϕ)).'
+    # a .* b.' ist the tensor-product (deprecated)
+    # better with Tensor-Pkg \otimes
+    x = cos.(α) ⊗ sin.(ϕ)
+    y = sin.(α) ⊗ sin.(ϕ)
+    z = ones(length(α)) ⊗ cos.(ϕ)
 
     x = x .* r
     y = y .* r
@@ -33,7 +34,7 @@ function assignSphereColours(detail, x, y, z, grid, codeCols)
     for j in 1:detail
         for i in 1:detail
 
-            winner = findWinner(grid, [x[i,j], y[i,j], z[i,j]].')
+            winner = findWinner(grid, [x[i,j], y[i,j], copy(transpose(z[i,j]])))
             sphereCols[i, j, 1] = codeCols[winner][1]
             sphereCols[i, j, 2] = codeCols[winner][2]
             sphereCols[i, j, 3] = codeCols[winner][3]
