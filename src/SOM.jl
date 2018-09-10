@@ -25,7 +25,7 @@ include("kernels.jl")
 include("soms.jl")
 include("api.jl")
 
-MPL_INSTALLED = true
+global MPL_INSTALLED = true
 try
     include("plotPyPlot.jl")
     include("plotSpheres.jl")
