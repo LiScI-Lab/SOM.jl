@@ -28,7 +28,7 @@ tanh(1.5). Scaled values 0 < x < min are returned as min.
 """
 function sigmoidScale(num, perc, min = 0.1)
 
-    const TANH_ANCHOR = 1.5     # perc is mapped to 1.5 on tanh-scale
+    TANH_ANCHOR = 1.5     # perc is mapped to 1.5 on tanh-scale
 
 
     # keep precise 0:
