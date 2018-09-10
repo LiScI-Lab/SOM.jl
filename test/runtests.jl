@@ -24,6 +24,8 @@
 #if haskey(ENV, "LD_LIBRARY_PATH") && contains(ENV["LD_LIBRARY_PATH"], "Conda")
 
 ENV["PYTHON"]=""
+
+using Pkg
 Pkg.add("Conda")
 Pkg.update()
 using Conda
