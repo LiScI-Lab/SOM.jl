@@ -125,10 +125,10 @@ Return the distance matrix for a non-toroidal or toroidal SOM.
 """
 function distMatrix(grid::Array, toroidal::Bool)
 
-    const X = 1
-    const Y = 2
-    const xdim = maximum(grid[:,X]) - minimum(grid[:,X]) + 1.0
-    const ydim = maximum(grid[:,Y]) - minimum(grid[:,Y]) + 1.0
+    X = 1
+    Y = 2
+    xdim = maximum(grid[:,X]) - minimum(grid[:,X]) + 1.0
+    ydim = maximum(grid[:,Y]) - minimum(grid[:,Y]) + 1.0
 
     numNeurons = nrow(grid)
 
@@ -166,7 +166,7 @@ Return the distance matrix for a spherical SOM.
 """
 function distMatrixSphere(grid::Array)
 
-    const r = (maximum(grid) - minimum(grid)) / 2
+    r = (maximum(grid) - minimum(grid)) / 2
 
     numNeurons = nrow(grid)
 
