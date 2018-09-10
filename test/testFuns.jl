@@ -1,11 +1,11 @@
 function testTrain(train, topol; toroidal = false,
-                    norm = :zscore, kernel = gaussianKernel)
+                    normType = :zscore, kernel = gaussianKernel)
 
     xdim = 8
     ydim = 10
 
-    som = initSOM(train, xdim, ydim, norm = norm,
-    topol = topol, toroidal = toroidal)
+    som = initSOM(train, xdim, ydim, norm = normType,
+                  topol = topol, toroidal = toroidal)
     som = trainSOM(som, train, 10000, kernelFun = kernel)
 
     ntrain = nrow(train)

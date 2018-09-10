@@ -16,6 +16,7 @@ using ProgressMeter
 using StatsBase
 using Distributions
 using Tensors
+using LinearAlgebra
 
 include("errors.jl")
 
