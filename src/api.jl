@@ -22,7 +22,7 @@ function initSOM( train, xdim, ydim = xdim;
              norm::Symbol = :none, topol = :hexagonal, toroidal = false)
 
     if typeof(train) == DataFrame
-        colNames = convert(Array{String}, names(train))
+        colNames = [String(x) for x in names(train)]
     else
         colNames = ["x$i" for i in 1:ncol(train)]
     end
