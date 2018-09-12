@@ -1,3 +1,6 @@
+
+# @pyimport mpl_toolkits.mplot3d as mp3
+
 """
     buildSphere(detail, r)
 

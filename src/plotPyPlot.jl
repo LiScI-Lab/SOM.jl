@@ -4,20 +4,10 @@
 # Plots are always in a range of (0,0) to (100,100) with the legends
 # in the region between (100,0) and (150,100).
 #
-using PyPlot
-using PyCall
-@pyimport matplotlib.patches as patches
-@pyimport matplotlib.cm as cm               # colourmap
-@pyimport mpl_toolkits.axes_grid1 as ag1
-@pyimport mpl_toolkits.mplot3d as mp3
 
 ρ = 1.0                 # global scaling
 fig = nothing           # the figure
 █ = nothing             # \blockfull: the subplot into which everything is plotted
-
-
-
-
 
 
 """
