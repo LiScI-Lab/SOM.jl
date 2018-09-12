@@ -109,7 +109,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Quick Start",
     "title": "Visualisation",
     "category": "section",
-    "text": "Visualisations include a density plot that displays the number of training samples mapped to each neuron and a classes plot that shows the class labels of training samples for every neuron as pie charts.Called without specification of a device or file name, an interactive Matlotlib-window will be opened. If a file name is specified, a file with the respective format will be created.plotDensity(som)\n\nfreqs = classFrequencies(som, iris, :Species)\nplotClasses(som, freqs)\n\nplotClasses(som, freqs, fileName = \"mychart.png\")\n\nfreqs\n80×7 DataFrames.DataFrame\n│ Row │ index │ X  │ Y │ Population │ setosa │ versicolor │ virginica │\n├─────┼───────┼────┼───┼────────────┼────────┼────────────┼───────────┤\n│ 1   │ 1     │ 1  │ 1 │ 5          │ 0.0    │ 0.0        │ 1.0       │\n│ 2   │ 2     │ 2  │ 1 │ 4          │ 0.0    │ 0.0        │ 1.0       │\n│ 3   │ 3     │ 3  │ 1 │ 1          │ 0.0    │ 0.0        │ 1.0       │\n│ 4   │ 4     │ 4  │ 1 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 5   │ 5     │ 5  │ 1 │ 4          │ 0.0    │ 1.0        │ 0.0       │\n│ 6   │ 6     │ 6  │ 1 │ 1          │ 0.0    │ 1.0        │ 0.0       │\n│ 7   │ 7     │ 7  │ 1 │ 0          │ 0.0    │ 0.0        │ 0.0       │\n⋮\n│ 73  │ 73    │ 3  │ 8 │ 2          │ 0.0    │ 0.5        │ 0.5       │\n│ 74  │ 74    │ 4  │ 8 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 75  │ 75    │ 5  │ 8 │ 1          │ 0.0    │ 0.0        │ 1.0       │\n│ 76  │ 76    │ 6  │ 8 │ 1          │ 0.0    │ 1.0        │ 0.0       │\n│ 77  │ 77    │ 7  │ 8 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 78  │ 78    │ 8  │ 8 │ 0          │ 0.0    │ 0.0        │ 0.0       │\n│ 79  │ 79    │ 9  │ 8 │ 2          │ 1.0    │ 0.0        │ 0.0       │\n│ 80  │ 80    │ 10 │ 8 │ 4          │ 1.0    │ 0.0        │ 0.0       │"
+    "text": "Visualisations include a density plot that displays the number of training samples mapped to each neuron and a classes plot that shows the class labels of training samples for every neuron as pie charts.Called without specification of a device or file name, an interactive Matplotlib-window will be opened. If a file name is specified, a file with the respective format will be created.plotDensity(som)\n\nfreqs = classFrequencies(som, iris, :Species)\nplotClasses(som, freqs)\n\nplotClasses(som, freqs, fileName = \"mychart.png\")\n\nfreqs\n80×7 DataFrames.DataFrame\n│ Row │ index │ X  │ Y │ Population │ setosa │ versicolor │ virginica │\n├─────┼───────┼────┼───┼────────────┼────────┼────────────┼───────────┤\n│ 1   │ 1     │ 1  │ 1 │ 5          │ 0.0    │ 0.0        │ 1.0       │\n│ 2   │ 2     │ 2  │ 1 │ 4          │ 0.0    │ 0.0        │ 1.0       │\n│ 3   │ 3     │ 3  │ 1 │ 1          │ 0.0    │ 0.0        │ 1.0       │\n│ 4   │ 4     │ 4  │ 1 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 5   │ 5     │ 5  │ 1 │ 4          │ 0.0    │ 1.0        │ 0.0       │\n│ 6   │ 6     │ 6  │ 1 │ 1          │ 0.0    │ 1.0        │ 0.0       │\n│ 7   │ 7     │ 7  │ 1 │ 0          │ 0.0    │ 0.0        │ 0.0       │\n⋮\n│ 73  │ 73    │ 3  │ 8 │ 2          │ 0.0    │ 0.5        │ 0.5       │\n│ 74  │ 74    │ 4  │ 8 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 75  │ 75    │ 5  │ 8 │ 1          │ 0.0    │ 0.0        │ 1.0       │\n│ 76  │ 76    │ 6  │ 8 │ 1          │ 0.0    │ 1.0        │ 0.0       │\n│ 77  │ 77    │ 7  │ 8 │ 3          │ 0.0    │ 1.0        │ 0.0       │\n│ 78  │ 78    │ 8  │ 8 │ 0          │ 0.0    │ 0.0        │ 0.0       │\n│ 79  │ 79    │ 9  │ 8 │ 2          │ 1.0    │ 0.0        │ 0.0       │\n│ 80  │ 80    │ 10 │ 8 │ 4          │ 1.0    │ 0.0        │ 0.0       │"
 },
 
 {
@@ -133,7 +133,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Types",
     "title": "SOM.Som",
     "category": "type",
-    "text": "struct Som\n\nStructure to hold all data of a trained SOM.\n\nFields:\n\ncodes::Array{Float64,2}: 2D-array of codebook vectors. One vector per row\ncolNames::Array{String,1}: names of the attribute with which the SOM is trained\nnormParams::DataFrame: normalisation parameters for each column               of training data. Column headers corresponds with               colNames.\nnorm::Symbol: normalisation type; one of :none, :minmax, :zscore\nxdim::Int: number of neurons in x-direction\nydim::Int: number of neurons in y-direction\nnCodes::Int: total number of neurons\ngrid::Array{Float64,2}: 2D-array of coordinates of neurons on the map         (2 columns (x,y)] for rectangular and hexagonal maps          3 columns (x,y,z) for spherical maps)\nindices::DataFrame: X-, Y-indices of the neurons\ntopol::Symbol: topology of the SOM; one of :rectangular, :hexagonal, :spherical\ntoroidal::Bool: if true, the SOM is toroidal (has no edges)\npopulation::Array{Int,1}: 1D-array of numbers of training samples mapped to               each neuron.\n\n\n\n"
+    "text": "struct Som\n\nStructure to hold all data of a trained SOM.\n\nFields:\n\ncodes::Array{Float64,2}: 2D-array of codebook vectors. One vector per row\ncolNames::Array{String,1}: names of the attribute with which the SOM is trained\nnormParams::DataFrame: normalisation parameters for each column               of training data. Column headers corresponds with               colNames.\nnorm::Symbol: normalisation type; one of :none, :minmax, :zscore\nxdim::Int: number of neurons in x-direction\nydim::Int: number of neurons in y-direction\nnCodes::Int: total number of neurons\ngrid::Array{Float64,2}: 2D-array of coordinates of neurons on the map         (2 columns (x,y)] for rectangular and hexagonal maps          3 columns (x,y,z) for spherical maps)\nindices::DataFrame: X-, Y-indices of the neurons\ntopol::Symbol: topology of the SOM; one of :rectangular, :hexagonal, :spherical\ntoroidal::Bool: if true, the SOM is toroidal (has no edges)\npopulation::Array{Int,1}: 1D-array of numbers of training samples mapped to               each neuron.\n\n\n\n\n\n"
 },
 
 {
@@ -157,7 +157,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Training",
     "title": "SOM.initSOM",
     "category": "function",
-    "text": "initSOM(train, xdim, ydim = xdim;  norm = :zscore, topol = :hexagonal,\n        toroidal = false)\n\nInitialises a SOM.\n\nArguments:\n\ntrain: training data\nxdim, ydim: geometry of the SOM          If DataFrame, the column names will be used as attribute names.          Codebook vectors will be sampled from the training data.          for spherical SOMs ydim can be omitted.\nnorm: optional normalisation; one of :minmax, :zscore or :none\ntopol: topology of the SOM; one of :rectangular, :hexagonal or :spherical.\ntoroidal: optional flag; if true, the SOM is toroidal.\n\n\n\n"
+    "text": "initSOM(train, xdim, ydim = xdim;  norm = :zscore, topol = :hexagonal,\n        toroidal = false)\n\nInitialises a SOM.\n\nArguments:\n\ntrain: training data\nxdim, ydim: geometry of the SOM          If DataFrame, the column names will be used as attribute names.          Codebook vectors will be sampled from the training data.          for spherical SOMs ydim can be omitted.\nnorm: optional normalisation; one of :minmax, :zscore or :none\ntopol: topology of the SOM; one of :rectangular, :hexagonal or :spherical.\ntoroidal: optional flag; if true, the SOM is toroidal.\n\n\n\n\n\n"
 },
 
 {
@@ -165,7 +165,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Training",
     "title": "SOM.trainSOM",
     "category": "function",
-    "text": "trainSOM(som::Som, train::Any, len;\n         η = 0.2, kernelFun = gaussianKernel,\n         r = 0.0, rDecay = true, ηDecay = true)\n\nTrain an initialised or pre-trained SOM.\n\nArguments:\n\nsom: object of type Som with a trained som\ntrain: training data\nlen: number of single training steps (not epochs)\nη: learning rate\nkernel::function: optional distance kernel; one of (bubbleKernel, gaussianKernel)           default is gaussianKernel\nr: optional training radius.      If r is not specified, it defaults to √(xdim^2 + ydim^2) / 2\nrDecay: optional flag; if true, r decays to 0.0 during the training.\nηDecay: optional flag; if true, learning rate η decays to 0.0           during the training.\n\nTraining data must be convertable to Array{Float64,2} with convert(). Training samples are row-wise; one sample per row.\n\nAn alternative kernel function can be provided to modify the distance-dependent training. The function must fit to the signature fun(x, r) where x is an arbitrary distance and r is a parameter controlling the function and the return value is between 0.0 and 1.0.\n\n\n\n"
+    "text": "trainSOM(som::Som, train::Any, len;\n         η = 0.2, kernelFun = gaussianKernel,\n         r = 0.0, rDecay = true, ηDecay = true)\n\nTrain an initialised or pre-trained SOM.\n\nArguments:\n\nsom: object of type Som with a trained som\ntrain: training data\nlen: number of single training steps (not epochs)\nη: learning rate\nkernel::function: optional distance kernel; one of (bubbleKernel, gaussianKernel)           default is gaussianKernel\nr: optional training radius.      If r is not specified, it defaults to √(xdim^2 + ydim^2) / 2\nrDecay: optional flag; if true, r decays to 0.0 during the training.\nηDecay: optional flag; if true, learning rate η decays to 0.0           during the training.\n\nTraining data must be convertable to Array{Float64,2} with convert(). Training samples are row-wise; one sample per row.\n\nAn alternative kernel function can be provided to modify the distance-dependent training. The function must fit to the signature fun(x, r) where x is an arbitrary distance and r is a parameter controlling the function and the return value is between 0.0 and 1.0.\n\n\n\n\n\n"
 },
 
 {
@@ -173,7 +173,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Training",
     "title": "SOM.mapToSOM",
     "category": "function",
-    "text": "mapToSOM(som::Som, data)\n\nReturn a DataFrame with X-, Y-indices and index of winner neuron for every row in data.\n\nArguments\n\nsom: a trained SOM\ndata: Array or DataFrame with training data.\n\nData must have the same number of dimensions as the training dataset and will be normalised with the same parameters.\n\n\n\n"
+    "text": "mapToSOM(som::Som, data)\n\nReturn a DataFrame with X-, Y-indices and index of winner neuron for every row in data.\n\nArguments\n\nsom: a trained SOM\ndata: Array or DataFrame with training data.\n\nData must have the same number of dimensions as the training dataset and will be normalised with the same parameters.\n\n\n\n\n\n"
 },
 
 {
@@ -181,7 +181,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Training",
     "title": "SOM.classFrequencies",
     "category": "function",
-    "text": "classFrequencies(som::Som, data, classes)\n\nReturn a DataFrame with class frequencies for all neurons.\n\nArguments:\n\nsom: a trained SOM\ndata: data with row-wise samples and class information in each row\nclasses: Name of column with class information.\n\nData must have the same number of dimensions as the training dataset. The column with class labels is given as classes (name or index). Returned DataFrame has the columns:\n\nX-, Y-indices and index: of winner neuron for every row in data\npopulation: number of samples mapped to the neuron\nfrequencies: one column for each class label.\n\n\n\n"
+    "text": "classFrequencies(som::Som, data, classes)\n\nReturn a DataFrame with class frequencies for all neurons.\n\nArguments:\n\nsom: a trained SOM\ndata: data with row-wise samples and class information in each row\nclasses: Name of column with class information.\n\nData must have the same number of dimensions as the training dataset. The column with class labels is given as classes (name or index). Returned DataFrame has the columns:\n\nX-, Y-indices and index: of winner neuron for every row in data\npopulation: number of samples mapped to the neuron\nfrequencies: one column for each class label.\n\n\n\n\n\n"
 },
 
 {
@@ -197,7 +197,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Training",
     "title": "SOM.bubbleKernel",
     "category": "function",
-    "text": "bubbleKernel(x::Float64, r::Float64)::Float64\n\nReturn 1.0 if dist <= r, otherwise 0.0.\n\n\n\n"
+    "text": "bubbleKernel(x::Float64, r::Float64)::Float64\n\nReturn 1.0 if dist <= r, otherwise 0.0.\n\n\n\n\n\n"
 },
 
 {
@@ -205,7 +205,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Training",
     "title": "SOM.gaussianKernel",
     "category": "function",
-    "text": "gaussianKernel(x::Float64, r::Float64)::Float64\n\nReturn Gaussian(x) for μ=0.0 and σ = r/3. (a value of σ = r/3 makes the training results comparable between different kernels for sample values or r).\n\n\n\n"
+    "text": "gaussianKernel(x::Float64, r::Float64)::Float64\n\nReturn Gaussian(x) for μ=0.0 and σ = r/3. (a value of σ = r/3 makes the training results comparable between different kernels for sample values or r).\n\n\n\n\n\n"
 },
 
 {
@@ -229,7 +229,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Visualisation",
     "title": "SOM.plotDensity",
     "category": "function",
-    "text": "plotDensity(som::Som; predict = nothing,\n            title = \"Density of Self-Organising Map\",\n            paper = :a4r,\n            colormap = \"autumn_r\",\n            detail = 45,\n            device = :display, fileName = \"somplot\")\n\nPlot the population of neurons as colours.\n\nArguments:\n\nsom: the som of type Som; som is the only mandatory argument\npredict: DataFrame of mappings as outputed by mapToSOM()\ntitle: main title of plot\npaper: plot size; currentlx supported: :a4, :a4r, :letter, :letterr\ncolormap: MatPlotLib colourmap (Python-style strings; e.g. \"Greys\").\ndetail: only relevant for 3D-plotting of spherical SOMs: higher           values result in smoother display of the 3D-sphere\ndevice: one of :display, :png, :svg, :pdf or any file-type supported           by MatPlotLib; default is :display\nfileName: name of image file. File extention overrides the setting of             device.\n\n\n\n"
+    "text": "plotDensity(som::Som; predict = nothing,\n            title = \"Density of Self-Organising Map\",\n            paper = :a4r,\n            colormap = \"autumn_r\",\n            detail = 45,\n            device = :display, fileName = \"somplot\")\n\nPlot the population of neurons as colours.\n\nArguments:\n\nsom: the som of type Som; som is the only mandatory argument\npredict: DataFrame of mappings as outputed by mapToSOM()\ntitle: main title of plot\npaper: plot size; currentlx supported: :a4, :a4r, :letter, :letterr\ncolormap: MatPlotLib colourmap (Python-style strings; e.g. \"Greys\").\ndetail: only relevant for 3D-plotting of spherical SOMs: higher           values result in smoother display of the 3D-sphere\ndevice: one of :display, :png, :svg, :pdf or any file-type supported           by MatPlotLib; default is :display\nfileName: name of image file. File extention overrides the setting of             device.\n\n\n\n\n\n"
 },
 
 {
@@ -237,7 +237,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Visualisation",
     "title": "SOM.plotClasses",
     "category": "function",
-    "text": "plotClasses(som::Som, frequencies;\n            title = \"Class Frequencies of Self-Organising Map\",\n            paper = :a4r,\n            colors = \"brg\",\n            detail = 45,\n            device = :display, fileName = \"somplot\")\n\nPlot the population of neurons as colours.\n\nArguments:\n\nsom: the som of type Som; som is the only mandatory argument\nfrequencies: DataFrame of frequencies as outputed by classFrequencies()\ntitle: main title of plot\npaper: plot size; currentlx supported: :a4, :a4r, :letter, :letterr\ncolors: MatPlotLib colourmap (Python-style as string \"gray\" or             Julia-style as Symbol :gray) or dictionary with             classes as keys and colours as vals;             keys can be provides as Strings or Symbols; colours must be             valid coulour definitions (such as RGB, names, etc).             Default: brg\ndetail: only relevant for 3D-plotting of spherical SOMs: higher           values result in smoother display of the 3D-sphere\ndevice: one of :display, :png, :svg, :pdf or any file-type supported           by MatPlotLib; default is :display\nfileName: name of image file. File extention overrides the setting of             device.\n\n\n\n"
+    "text": "plotClasses(som::Som, frequencies;\n            title = \"Class Frequencies of Self-Organising Map\",\n            paper = :a4r,\n            colors = \"brg\",\n            detail = 45,\n            device = :display, fileName = \"somplot\")\n\nPlot the population of neurons as colours.\n\nArguments:\n\nsom: the som of type Som; som is the only mandatory argument\nfrequencies: DataFrame of frequencies as outputed by classFrequencies()\ntitle: main title of plot\npaper: plot size; currentlx supported: :a4, :a4r, :letter, :letterr\ncolors: MatPlotLib colourmap (Python-style as string \"gray\" or             Julia-style as Symbol :gray) or dictionary with             classes as keys and colours as vals;             keys can be provides as Strings or Symbols; colours must be             valid coulour definitions (such as RGB, names, etc).             Default: brg\ndetail: only relevant for 3D-plotting of spherical SOMs: higher           values result in smoother display of the 3D-sphere\ndevice: one of :display, :png, :svg, :pdf or any file-type supported           by MatPlotLib; default is :display\nfileName: name of image file. File extention overrides the setting of             device.\n\n\n\n\n\n"
 },
 
 {
