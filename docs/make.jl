@@ -34,7 +34,7 @@ makedocs(modules=[SOM],
          )
 
 deploydocs(repo   = "github.com/LiScI-Lab/SOM.jl.git",
-           julia  = "0.6",
+           julia  = "0.7",
            osname = "linux",
            target = "build",
            deps = nothing,
