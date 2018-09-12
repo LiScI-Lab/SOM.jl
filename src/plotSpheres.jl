@@ -10,8 +10,8 @@
 """
 function buildSphere(detail, r)
 
-    α = collect(linspace(0, 2π, detail))
-    ϕ = collect(linspace(0, π, detail))
+    α = collect(range(start = 0, stop = 2π, length = detail))
+    ϕ = collect(range(start = 0, stop = π, length = detail))
 
     # a .* b.' ist the tensor-product (deprecated)
     # better with Tensor-Pkg \otimes
