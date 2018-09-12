@@ -10,11 +10,11 @@
 """
 function buildSphere(detail, r)
 
-    α = collect(range(start = 0, stop = 2π, length = detail))
-    ϕ = collect(range(start = 0, stop = π, length = detail))
+    α = collect(range(0, stop = 2π, length = detail))
+    ϕ = collect(range(0, stop = π, length = detail))
 
     # a .* b.' ist the tensor-product (deprecated)
-    # better with Tensor-Pkg \otimes
+    # better with Tensors-Pkg \otimes
     x = cos.(α) ⊗ sin.(ϕ)
     y = sin.(α) ⊗ sin.(ϕ)
     z = ones(length(α)) ⊗ cos.(ϕ)
