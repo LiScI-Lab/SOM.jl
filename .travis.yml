@@ -41,7 +41,7 @@ before_install:
 script:
   # Work around (part 2/2) matplotlib backend error leading to "matplotlib.pyplot could not be found by pyimport": point LD_LIBRARY_PATH to Conda libs.
   # - export LD_LIBRARY_PATH=$HOME/.julia/v0.7/Conda/deps/usr/lib; julia -e 'using Pkg; Pkg.add("SOM#master"); Pkg.build("SOM"); Pkg.test("SOM"; coverage=true)'
-  - export LD_LIBRARY_PATH=$HOME/.julia/v0.7/Conda/deps/usr/lib; julia -e 'using Pkg; Pkg.build(); Pkg.test()'
+  - julia -e 'using Pkg; Pkg.build(); Pkg.test()'
   # - julia -e 'Pkg.clone(pwd()); Pkg.build("SOM"); Pkg.test("SOM"; coverage=true)'
 after_success:
   # push coverage results to Coveralls
