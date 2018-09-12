@@ -264,7 +264,7 @@ function plotClasses(som::Som, frequencies;
         numClasses = ncol(frequencies) - 4
         classes = sort(names(frequencies)[5:end])
         cmap = get_cmap(colors)
-        coloursRGB = cmap.(linspace(0.0, 1.0, numClasses))
+        coloursRGB = cmap.(range(0.0, 1.0, numClasses))
 
         colourDict = Dict((classes[i], coloursRGB[i]) for i in 1:numClasses)
 
