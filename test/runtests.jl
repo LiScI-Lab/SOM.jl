@@ -60,9 +60,9 @@ include("testFuns.jl")
 
 # test normalisation:
 #
-@test testTrain(train, :rectangular, norm = :minmax)
-@test testTrain(train, :rectangular, norm = :zscore)
-@test testTrain(train, :rectangular, norm = :none)
+@test testTrain(train, :rectangular, normType = :minmax)
+@test testTrain(train, :rectangular, normType = :zscore)
+@test testTrain(train, :rectangular, normType = :none)
 
 # test convertTrainingData:
 #
