@@ -40,8 +40,9 @@ using Test
 
 # Tests are using Iris dataset:
 #
-Pkg.add("RDatasets")
+using Pkg
 using RDatasets
+
 iris = dataset("datasets", "iris")
 train = iris[:,1:4]
 
