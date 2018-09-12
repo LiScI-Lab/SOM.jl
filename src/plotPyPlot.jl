@@ -123,7 +123,7 @@ function drawColorBar(som, population, colourMap)
 
     # Generate fake ScalarMappable for colorbar:
     #
-    sm = cm.ScalarMappable(cmap=colourMap)
+    sm = cm[:ScalarMappable](cmap=colourMap)
     sm[:set_array]([])
 
     # # make new axws for colorbar (for better positioning, punt colourbar
@@ -135,7 +135,7 @@ function drawColorBar(som, population, colourMap)
     # # cbar = PyPlot.colorbar(sm)
     # cbar[:set_label]("Population of neurons")
 
-    divider = ag1.make_axes_locatable(█)
+    divider = ag1[:make_axes_locatable](█)
     cax = divider[:append_axes]("right", size=0.25, pad=0.05)
     cbar = PyPlot.colorbar(sm, cax=cax)
     #cax[:axis]("off")
