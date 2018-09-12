@@ -40,7 +40,6 @@ using Test
 
 # Tests are using Iris dataset:
 #
-using Pkg
 using RDatasets
 
 iris = dataset("datasets", "iris")

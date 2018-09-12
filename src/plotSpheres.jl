@@ -87,7 +87,7 @@ end
 """
     drawSphereClasses(som::Som, frequencies, detail, colours)
 
-Draw the neurons  on a sphere with colour of class with highest count
+Draw the neurons on a sphere with colour of class with highest count
 in each neuron.
 """
 function drawSphereClasses(som::Som, frequencies, detail, colours)
@@ -98,7 +98,7 @@ function drawSphereClasses(som::Som, frequencies, detail, colours)
 
     for i in 1:som.nCodes
 
-        maxVal, idx = findmax(convert(Array, freqs[i,:]))
+        maxVal, idx = findmax([freqs[i,c] for c in 1:ncol(freqs)])
         if maxVal == 0
             col = (1.0, 1.0, 1.0, 1.0)
         else
