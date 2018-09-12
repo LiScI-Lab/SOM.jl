@@ -8,7 +8,6 @@
 
 ## Build status
 [![Build Status](https://travis-ci.org/LiScI-Lab/SOM.jl.svg?branch=master)](https://travis-ci.org/LiScI-Lab/SOM.jl)
-
 [![Coverage Status](https://coveralls.io/repos/github/LiScI-Lab/SOM.jl/badge.svg?branch=master)](https://coveralls.io/github/LiScI-Lab/SOM.jl?branch=master)
 [![codecov.io](http://codecov.io/github/LiScI-Lab/SOM.jl/coverage.svg?branch=master)](http://codecov.io/github/LiScI-Lab/SOM.jl?branch=master)
 
