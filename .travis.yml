@@ -48,7 +48,7 @@ after_success:
   # push coverage results to Coveralls
   #- julia -e 'using Pkg; import SOM; cd(dirname(pathof(SOM))); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
   - julia -e 'using Pkg; Pkg.add("Coverage")'
-  - julia -e 'println("My Path=$(pwd())"); "Coveralls=$(Coveralls.process_folder()))"; using Coverage; Coveralls.submit(Coveralls.process_folder())'
+  - julia -e 'println("My Path=$(pwd()). Coveralls=$(Coveralls.process_folder())"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
   # push coverage results to Codecov
   - julia -e 'using Coverage; Codecov.submit(Codecov.process_folder())'
   # Documentation
