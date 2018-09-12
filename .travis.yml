@@ -52,4 +52,4 @@ after_success:
   # Documentation
   - julia -e 'using Pkg; Pkg.add("Documenter")'
   #- julia -e 'using Pkg; cd(Pkg.dir("SOM")); include(joinpath("docs", "make.jl"))'
-  - julia -e 'using Pkg; include(joinpath("docs", "make.jl")'
+  - julia -e 'using Pkg; include(joinpath("docs", "make.jl"))'
