@@ -19,11 +19,12 @@ binary libraries.
 
 ## Installation
 
-Because SOM.jl is a registered package, it can be installed from the Julia REPL with:
+Because SOM.jl is a registered package, it can be installed for
+Julia v0.7 or later with the package manager as
 
 ````Julia
-Julia> Pkg.add("SOM")
+pkg> add SOM
 ````
-
+The current version is tested with Julia v0.7 and v1.0.
 
 Please refer to the [documentation](https://lisci-lab.github.io/SOM.jl/stable) for details!
