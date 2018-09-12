@@ -23,17 +23,17 @@
 #
 #if haskey(ENV, "LD_LIBRARY_PATH") && contains(ENV["LD_LIBRARY_PATH"], "Conda")
 
-ENV["PYTHON"]=""
+# ENV["PYTHON"]=""
 
-using Pkg
-Pkg.add("Conda")
-Pkg.update()
-using Conda
-Conda.update()
-Conda.add("matplotlib")
-Pkg.add("PyCall")
-Pkg.build("PyCall")
-Pkg.add("PyPlot");
+# using Pkg
+# Pkg.add("Conda")
+# Pkg.update()
+# using Conda
+# Conda.update()
+# Conda.add("matplotlib")
+# Pkg.add("PyCall")
+# Pkg.build("PyCall")
+# Pkg.add("PyPlot");
 
 using SOM
 using Test
