@@ -28,15 +28,15 @@ include("kernels.jl")
 include("soms.jl")
 include("api.jl")
 
-global MPL_INSTALLED = true
+global MPL_INSTALLED = false
 try
     include("plotPyPlot.jl")
-    include("plotSpheres.jl")
+#    include("plotSpheres.jl")
+    global MPL_INSTALLED = true
 catch e
     println("Error loading PyPlot $e")
     println(" ")
     println(SOM_ERRORS[:ERR_MPL])
-
     global MPL_INSTALLED = false
 end
 

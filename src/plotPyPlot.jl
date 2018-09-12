@@ -353,6 +353,8 @@ function drawPopulation(som::Som, population, title, paper, colourMap, device, f
     paperSize = getPaperSizes(paper)
     global fig = PyPlot.figure(figsize=paperSize)
     global █ = fig[:add_subplot](1,1,1)
+
+    println("DrawPopulation()")
     drawBackGround(som)
     drawTitle(title)
 
