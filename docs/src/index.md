@@ -38,7 +38,7 @@ For installation please refer to the README @github:
 
 ### Matplotlib issues
 
-Common installation problems arise from a known incompatibility between Matplotlib and Julia. Issue seems to be less common for Julia versions v0.7 or later.
+Common installation problems arise from a known incompatibility between Matplotlib and Julia. The issue seems to be less common for Julia versions v0.7 or later.
 However, if the error message contains a line comparable to:
 
 ```
