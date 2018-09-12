@@ -158,7 +158,7 @@ function drawFreqLegend(colours)
     # create proxy patches for legend:
     #
     classes = sort(collect(keys(colours)))
-    proxys = [patches.Patch(color=colours[c], label=string(c)) for c in classes]
+    proxys = [patches[:Patch](color=colours[c], label=string(c)) for c in classes]
     PyPlot.legend(handles = proxys,
                   bbox_to_anchor=(1.05, 0.1), loc=3, borderaxespad=0.,
                   frameon=false)
@@ -179,7 +179,7 @@ function drawSquare(x, y, siz, lwd, fill::Bool, linCol, fillCol)
               x+δ y-δ]
               points = points .* ρ
 
-    poly = patches.Polygon(points, closed = true,
+    poly = patches[:Polygon](points, closed = true,
                                    fill = fill, facecolor = fillCol,
                                    linewidth = lwd, edgecolor = linCol)
     █[:add_artist](poly)
@@ -205,7 +205,7 @@ function drawHexagon(x, y, siz, lwd, fill::Bool, linCol, fillCol)
               x    y-h]
     points = points .* ρ
 
-    poly = patches.Polygon(points, closed = true,
+    poly = patches[:Polygon](points, closed = true,
                                    fill = fill, facecolor = fillCol,
                                    linewidth = lwd, edgecolor = linCol)
     █[:add_artist](poly)
@@ -279,13 +279,13 @@ function drawPieChart(x, y, freqs, colours, lwd, d)
 
         pieStart = pieEnd
         pieEnd = pieStart + freqs[1,c] * 360
-        wedge = patches.Wedge((x*ρ,y*ρ), r*ρ, pieStart, pieEnd,
+        wedge = patches[:Wedge]((x*ρ,y*ρ), r*ρ, pieStart, pieEnd,
                               fill = true, facecolor = colours[c],
                               linewidth = 0, edgecolor = "none")
         █[:add_artist](wedge)
     end
 
-    circle = patches.Circle((x*ρ,y*ρ), radius = r*ρ,
+    circle = patches[:Circle]((x*ρ,y*ρ), radius = r*ρ,
                             fill = false,
                             linewidth = lwd, edgecolor = "0.5")
     █[:add_artist](circle)
