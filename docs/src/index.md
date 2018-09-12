@@ -36,7 +36,10 @@ For installation please refer to the README @github:
 <https://github.com/andreasdominik/SOM.jl>
 
 
-Common installation problems arise from a known incompatibility between Matplotlib and Julia. If the error message contains a line comparable to:
+### Matplotlib issues
+
+Common installation problems arise from a known incompatibility between Matplotlib and Julia. Issue seems to be less common for Julia versions v0.7 or later.
+However, if the error message contains a line comparable to:
 
 ```
 ...
@@ -69,6 +72,7 @@ Temporarily this can be achieved by starting Julia as
 export LD_LIBRARY_PATH=$HOME/.julia/v0.6/Conda/deps/usr/lib; julia
 ````
 
+with the path replaced by the location of the missing library file.
 To specify the path permanently, the following line can be added to the file
 ```.bashrc``` in the home directory:
 
