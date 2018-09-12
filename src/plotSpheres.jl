@@ -66,7 +66,7 @@ function drawSphereColour(som::Som, population, detail, colourMap)
     # make vector of colours, one for each code
     # use population vector
     #
-    codeCols = Array{Any,1}(som.nCodes)
+    codeCols = Array{Any,1}(undef, som.nCodes)
     for i in 1:som.nCodes
         colNum = sigmoidScale( population[i], perc85)
         col = colNum > 0 ? cmap(colNum) : (1.0, 1.0, 1.0, 1.0)
@@ -94,7 +94,7 @@ function drawSphereClasses(som::Som, frequencies, detail, colours)
 
     freqs = frequencies[:,5:end]
     classNames = names(freqs)
-    codeCols = Array{Any,1}(som.nCodes)
+    codeCols = Array{Any,1}(undef, som.nCodes)
 
     for i in 1:som.nCodes
 
