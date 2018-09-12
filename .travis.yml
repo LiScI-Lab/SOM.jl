@@ -45,10 +45,11 @@ script:
   # - julia -e 'Pkg.clone(pwd()); Pkg.build("SOM"); Pkg.test("SOM"; coverage=true)'
 after_success:
   # push coverage results to Coveralls
-  - julia -e 'using Pkg; import SOM; cd(dirname(pathof(SOM))); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
+  #- julia -e 'using Pkg; import SOM; cd(dirname(pathof(SOM))); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
+  - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
   # push coverage results to Codecov
-  - julia -e 'using Pkg; import SOM; cd(dirname(pathof(SOM))); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
+  - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
   # Documentation
   - julia -e 'using Pkg; Pkg.add("Documenter")'
   #- julia -e 'using Pkg; cd(Pkg.dir("SOM")); include(joinpath("docs", "make.jl"))'
-  - julia -e 'using Pkg; import SOM; include(joinpath(dirname(pathof(SOM)), "docs", "make.jl"))'
+  - julia -e 'using Pkg; include(joinpath("docs", "make.jl")'
