@@ -14,10 +14,10 @@ function buildSphere(detail, r)
     ϕ = collect(range(0, stop = π, length = detail))
 
     # a .* b.' ist the tensor-product (deprecated)
-    # better with Tensors-Pkg \otimes
-    x = cos.(α) ⊗ sin.(ϕ)
-    y = sin.(α) ⊗ sin.(ϕ)
-    z = ones(length(α)) ⊗ cos.(ϕ)
+    # better with TensorToolbox-Pkg ttt(a,b)
+    x = ttt(cos.(α), sin.(ϕ))
+    y = ttt(sin.(α), sin.(ϕ))
+    z = ttt(ones(length(α)), cos.(ϕ))
 
     x = x .* r
     y = y .* r

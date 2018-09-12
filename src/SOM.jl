@@ -15,7 +15,7 @@ using Distances
 using ProgressMeter
 using StatsBase
 using Distributions
-using Tensors
+using TensorToolbox
 using LinearAlgebra
 
 
