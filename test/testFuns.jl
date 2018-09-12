@@ -48,7 +48,7 @@ function testFreqs(train, wClasses, classes)
 
     f = classFrequencies(som, wClasses, classes)
 
-    res = sort( convert(Array{String}, names(f)[5:end]))
+    res = sort( [String(x) for x in names(f)[5:end]])
     ori = sort(unique(iris[:Species]))
 
     return res == ori
