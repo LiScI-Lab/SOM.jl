@@ -2,7 +2,6 @@ julia 0.6
 DataFrames
 Distances
 Distributions
-LinearAlgebra
 ProgressMeter
 StatsBase
 PyCall
