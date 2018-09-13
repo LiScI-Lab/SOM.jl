@@ -310,12 +310,6 @@ version = "0.7.0"
 deps = ["Libdl", "LinearAlgebra", "SparseArrays"]
 uuid = "4607b0f0-06f3-5cda-b6b1-a6196a1729e9"
 
-[[TensorToolbox]]
-deps = ["LinearAlgebra", "Test"]
-git-tree-sha1 = "37545f8b1c25db59e17139c54496b5e00857984f"
-uuid = "9c690861-8ade-587a-897e-15364bc6f718"
-version = "0.3.0"
-
 [[Test]]
 deps = ["Distributed", "InteractiveUtils", "Logging", "Random"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
