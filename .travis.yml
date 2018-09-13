@@ -4,7 +4,6 @@ os:
   - linux
 #  - osx
 julia:
-  - 0.6
   - 0.7
   - 1.0
 #  - nightly
@@ -15,6 +14,7 @@ git:
 
 before_install:
   # Update Julia packages metadata.
+  # only for new package manager (>= 0.7)
   - julia -e 'using Pkg; Pkg.add("Test"); Pkg.add("LinearAlgebra"); Pkg.update()'
   # Use PyPlot's Automated Matplotlib installation through Conda.
   # Work around (part 1/2) matplotlib backend error leading to "matplotlib.pyplot could not be found by pyimport": can't just set env PYTHON="".

@@ -17,7 +17,12 @@ using StatsBase
 using Distributions
 using TensorToolbox
 using LinearAlgebra
-
+# if VERSION < v"0.7.0-DEV.5183"
+#     # nothing: dotproduct is in Base
+# else
+#     # import LinearAlgebra Package
+#     using LinearAlgebra
+# end
 
 include("errors.jl")
 
