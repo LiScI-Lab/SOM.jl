@@ -316,6 +316,10 @@ git-tree-sha1 = "37545f8b1c25db59e17139c54496b5e00857984f"
 uuid = "9c690861-8ade-587a-897e-15364bc6f718"
 version = "0.3.0"
 
+[[Test]]
+deps = ["Distributed", "InteractiveUtils", "Logging", "Random"]
+uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
 [[TimeZones]]
 deps = ["Compat", "EzXML", "Mocking", "Nullables", "Pkg"]
 git-tree-sha1 = "aa592cc6012a3452ae74a83e5cf95a04b5b032c2"
