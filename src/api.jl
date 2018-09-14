@@ -225,7 +225,7 @@ end
 Plot the population of neurons as colours.
 
 # Arguments:
-- `som`: the som of type `Som`; som is the only mandatory argument
+- `som`: the som of type `Som`
 - `frequencies`: DataFrame of frequencies as outputed by classFrequencies()
 - `title`: main title of plot
 - `paper`: plot size; currentlx supported: `:a4, :a4r, :letter, :letterr`
