@@ -213,7 +213,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Training",
     "title": "SOM.gaussianKernel",
     "category": "function",
-    "text": "gaussianKernel(x::Float64, r::Float64)::Float64\n\nReturn Gaussian(x) for μ=0.0 and σ = r/3. (a value of σ = r/3 makes the training results comparable between different kernels for sample values or r).\n\n\n\n\n\n"
+    "text": "gaussianKernel(x::Float64, r::Float64)::Float64\n\nReturn Gaussian(x) for μ=0.0 and σ = r/3. (a value of σ = r/3 makes the training results comparable between different kernels for same values of r).\n\n\n\n\n\n"
 },
 
 {
@@ -245,7 +245,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Visualisation",
     "title": "SOM.plotClasses",
     "category": "function",
-    "text": "plotClasses(som::Som, frequencies;\n            title = \"Class Frequencies of Self-Organising Map\",\n            paper = :a4r,\n            colors = \"brg\",\n            detail = 45,\n            device = :display, fileName = \"somplot\")\n\nPlot the population of neurons as colours.\n\nArguments:\n\nsom: the som of type Som; som is the only mandatory argument\nfrequencies: DataFrame of frequencies as outputed by classFrequencies()\ntitle: main title of plot\npaper: plot size; currentlx supported: :a4, :a4r, :letter, :letterr\ncolors: MatPlotLib colourmap (Python-style as string \"gray\" or             Julia-style as Symbol :gray) or dictionary with             classes as keys and colours as vals;             keys can be provides as Strings or Symbols; colours must be             valid coulour definitions (such as RGB, names, etc).             Default: brg\ndetail: only relevant for 3D-plotting of spherical SOMs: higher           values result in smoother display of the 3D-sphere\ndevice: one of :display, :png, :svg, :pdf or any file-type supported           by MatPlotLib; default is :display\nfileName: name of image file. File extention overrides the setting of             device.\n\n\n\n\n\n"
+    "text": "plotClasses(som::Som, frequencies;\n            title = \"Class Frequencies of Self-Organising Map\",\n            paper = :a4r,\n            colors = \"brg\",\n            detail = 45,\n            device = :display, fileName = \"somplot\")\n\nPlot the population of neurons as colours.\n\nArguments:\n\nsom: the som of type Som\nfrequencies: DataFrame of frequencies as outputed by classFrequencies()\ntitle: main title of plot\npaper: plot size; currentlx supported: :a4, :a4r, :letter, :letterr\ncolors: MatPlotLib colourmap (Python-style as string \"gray\" or             Julia-style as Symbol :gray) or dictionary with             classes as keys and colours as vals;             keys can be provides as Strings or Symbols; colours must be             valid coulour definitions (such as RGB, names, etc).             Default: brg\ndetail: only relevant for 3D-plotting of spherical SOMs: higher           values result in smoother display of the 3D-sphere\ndevice: one of :display, :png, :svg, :pdf or any file-type supported           by MatPlotLib; default is :display\nfileName: name of image file. File extention overrides the setting of             device.\n\n\n\n\n\n"
 },
 
 {
