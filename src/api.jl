@@ -143,7 +143,7 @@ function classFrequencies(som::Som, data, classes)
     end
 
     x = deepcopy(data)
-    delete!(x, classes)
+    deletecols!(x, classes)
     classes = data[classes]
     vis = visual(som.codes, x)
 
@@ -261,7 +261,7 @@ function plotClasses(som::Som, frequencies;
         colors = string(colors)
     end
     if isa(colors, String)
-        numClasses = ncol(frequencies) - 4
+        numClasses = size(frequencies)[2] - 4
         classes = sort(names(frequencies)[5:end])
         cmap = get_cmap(colors)
         coloursRGB = cmap.(range(0.0, stop = 1.0, length = numClasses))

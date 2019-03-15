@@ -78,33 +78,33 @@ function drawBackGround(som)
     if som.topol == :hexagonal
         x = (-0.75, som.xdim+0.5)
         y = (-0.75, (som.ydim-1)*0.866+0.75)
-        █[:set_xlim](x)
-        █[:set_ylim](y)
+        █.set_xlim(x)
+        █.set_ylim(y)
     elseif som.topol == :spherical
         minx, miny, minz = minimum(som.grid, dims = 1)
         maxx, maxy, maxz = maximum(som.grid, dims = 1)
         x = (minx - 0.5, maxx+0.5)
         y = (miny - 0.5, maxy+0.5)
         z = (minz - 0.5, maxz+0.5)
-        █[:set_xlim](x)
-        █[:set_ylim](y)
-        █[:set_zlim](z)
+        █.set_xlim(x)
+        █.set_ylim(y)
+        █.set_zlim(z)
     else
         x = (-0.75, som.xdim+0.5)
         y = (-0.75, som.ydim-1+0.75)
-        █[:set_xlim](x)
-        █[:set_ylim](y)
+        █.set_xlim(x)
+        █.set_ylim(y)
     end
 
-    █[:axis]("off")
-    █[:set_aspect]("equal")
-    fig[:patch][:set_facecolor]("white")
+    █.axis("off")
+    █.set_aspect("equal")
+    fig.patch.set_facecolor("white")
 end
 
 function drawTitle(title)
 
     title = PyPlot.title(title)
-    title[:set_position]([0.5, 1.05])
+    title.set_position([0.5, 1.05])
     # family = "sans-serif",
     # size = 15
 end
@@ -123,22 +123,22 @@ function drawColorBar(som, population, colourMap)
 
     # Generate fake ScalarMappable for colorbar:
     #
-    sm = cm[:ScalarMappable](cmap=colourMap)
-    sm[:set_array]([])
+    sm = cm.ScalarMappable(cmap=colourMap)
+    sm.set_array([])
 
     # # make new axws for colorbar (for better positioning, punt colourbar
     # # into extra axes):
     # #
-    # cbAxes = fig[:add_axes]([0.9, 0.1, 0.03, 0.8])
-    # cbAxes[:axis]("off")
+    # cbAxes = fig.add_axes([0.9, 0.1, 0.03, 0.8])
+    # cbAxes.axis("off")
     # cbar = PyPlot.colorbar(sm, cax = cbAxes)
     # # cbar = PyPlot.colorbar(sm)
-    # cbar[:set_label]("Population of neurons")
+    # cbar.set_label("Population of neurons")
 
-    divider = ag1[:make_axes_locatable](█)
-    cax = divider[:append_axes]("right", size=0.25, pad=0.05)
+    divider = ag1.make_axes_locatable(█)
+    cax = divider.append_axes("right", size=0.25, pad=0.05)
     cbar = PyPlot.colorbar(sm, cax=cax)
-    #cax[:axis]("off")
+    #cax.axis("off")
 
     # tick positions depend on absolute numbers of
     ticks = [1, Int(round(maxPop*0.25)), Int(round(maxPop*0.5)),
@@ -146,10 +146,10 @@ function drawColorBar(som, population, colourMap)
     tickLabels = ticks
     tickPos = sigmoidScale.(ticks, perc85)
 
-    cbar[:set_ticks](tickPos)
-    cbar[:set_ticklabels](ticks)
-#    cbar[:set_ticklabels]([8, 4, 1], update_ticks = true)
-    cbar[:update_ticks]()
+    cbar.set_ticks(tickPos)
+    cbar.set_ticklabels(ticks)
+#    cbar.set_ticklabels([8, 4, 1], update_ticks = true)
+    cbar.update_ticks()
 end
 
 
@@ -158,7 +158,7 @@ function drawFreqLegend(colours)
     # create proxy patches for legend:
     #
     classes = sort(collect(keys(colours)))
-    proxys = [patches[:Patch](color=colours[c], label=string(c)) for c in classes]
+    proxys = [patches.Patch(color=colours[c], label=string(c)) for c in classes]
     PyPlot.legend(handles = proxys,
                   bbox_to_anchor=(1.05, 0.1), loc=3, borderaxespad=0.,
                   frameon=false)
@@ -179,10 +179,10 @@ function drawSquare(x, y, siz, lwd, fill::Bool, linCol, fillCol)
               x+δ y-δ]
               points = points .* ρ
 
-    poly = patches[:Polygon](points, closed = true,
+    poly = patches.Polygon(points, closed = true,
                                    fill = fill, facecolor = fillCol,
                                    linewidth = lwd, edgecolor = linCol)
-    █[:add_artist](poly)
+    █.add_artist(poly)
 end
 
 
@@ -205,10 +205,10 @@ function drawHexagon(x, y, siz, lwd, fill::Bool, linCol, fillCol)
               x    y-h]
     points = points .* ρ
 
-    poly = patches[:Polygon](points, closed = true,
+    poly = patches.Polygon(points, closed = true,
                                    fill = fill, facecolor = fillCol,
                                    linewidth = lwd, edgecolor = linCol)
-    █[:add_artist](poly)
+    █.add_artist(poly)
 end
 
 
@@ -278,17 +278,17 @@ function drawPieChart(x, y, freqs, colours, lwd, d)
     for c in sort(classes)
 
         pieStart = pieEnd
-        pieEnd = pieStart + freqs[1,c] * 360
-        wedge = patches[:Wedge]((x*ρ,y*ρ), r*ρ, pieStart, pieEnd,
+        pieEnd = pieStart + freqs[c] * 360
+        wedge = patches.Wedge((x*ρ,y*ρ), r*ρ, pieStart, pieEnd,
                               fill = true, facecolor = colours[c],
                               linewidth = 0, edgecolor = "none")
-        █[:add_artist](wedge)
+        █.add_artist(wedge)
     end
 
-    circle = patches[:Circle]((x*ρ,y*ρ), radius = r*ρ,
+    circle = patches.Circle((x*ρ,y*ρ), radius = r*ρ,
                             fill = false,
                             linewidth = lwd, edgecolor = "0.5")
-    █[:add_artist](circle)
+    █.add_artist(circle)
 
 end
 
@@ -296,7 +296,7 @@ function drawPieCharts(som::Som, frequencies::DataFrame, colours)
 
     # set 85%-percentile to 1.5 for scale pieChart with tanh:
     #
-    perc85 = percentile(frequencies[:Population], 85)
+    perc85 = percentile(frequencies.Population, 85)
 
     # loop neurons:
     #
@@ -342,7 +342,7 @@ function drawPopulation(som::Som, population, title, paper, colourMap, device, f
 
     paperSize = getPaperSizes(paper)
     global fig = PyPlot.figure(figsize=paperSize)
-    global █ = fig[:add_subplot](1,1,1)
+    global █ = fig.add_subplot(1,1,1)
 
     println("DrawPopulation()")
     drawBackGround(som)
@@ -360,7 +360,7 @@ function drawFrequencies(som::Som, frequencies, title, paper,
 
     paperSize = getPaperSizes(paper)
     global fig = PyPlot.figure(figsize=paperSize)
-    global █ = fig[:add_subplot](1,1,1)
+    global █ = fig.add_subplot(1,1,1)
     drawBackGround(som)
     drawTitle(title)
 
@@ -377,11 +377,11 @@ function drawSpherePopulation(som::Som, population, detail, title, paper,
 
     paperSize = getPaperSizes(paper)
     global fig = PyPlot.figure(figsize=paperSize)
-    global █ = fig[:add_subplot](1,1,1, projection="3d")
+    global █ = fig.add_subplot(1,1,1, projection="3d")
     drawBackGround(som)
-    # █[:axis]("off")
-    # █[:set_aspect]("equal")
-    # fig[:patch][:set_facecolor]("white")
+    # █.axis("off")
+    # █.set_aspect("equal")
+    # fig.patch.set_facecolor("white")
     drawTitle(title)
 
     drawSphereColour(som, population, detail,colourMap)
@@ -396,10 +396,10 @@ function drawSphereFreqs(som::Som, frequencies, detail, title, paper,
 
     paperSize = getPaperSizes(paper)
     global fig = PyPlot.figure(figsize=paperSize)
-    global █ = fig[:add_subplot](1,1,1, projection="3d")
-    █[:axis]("off")
-    █[:set_aspect]("equal")
-    fig[:patch][:set_facecolor]("white")
+    global █ = fig.add_subplot(1,1,1, projection="3d")
+    █.axis("off")
+    █.set_aspect("equal")
+    fig.patch.set_facecolor("white")
     drawTitle(title)
 
     drawSphereClasses(som, frequencies, detail, colours)

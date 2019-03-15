@@ -154,11 +154,11 @@ end
 function convertTrainingData(data)::Array{Float64,2}
 
     if typeof(data) == DataFrame
-        train = convert(Array{Float64}, data)
+        train = convert(Matrix{Float64}, data)
 
-    elseif typeof(data) != Array{Float64,2}
+    elseif typeof(data) != Matrix{Float64}
         try
-            train = convert(Array{Float64}, data)
+            train = convert(Matrix{Float64}, data)
         catch ex
             Base.showerror(STDERR, ex, backtrace())
             error("Unable to convert training data to Array{Float64,2}!")

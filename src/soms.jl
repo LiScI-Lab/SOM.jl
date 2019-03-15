@@ -80,7 +80,7 @@ function visual(codes, x)
 
     vis = zeros(Int, nrow(x))
     for i in 1:nrow(x)
-        vis[i] = findWinner(codes, vec(convert(Array, x[i,:])))
+        vis[i] = findWinner(codes, [x[i, col] for col in 1:size(x, 2)])
     end
 
     return(vis)
@@ -138,7 +138,7 @@ function makeClassFreqs(som, vis, classes)
     #
     for i in 1:nrow(cfs)
 
-        counts = convert(Array, cfs[i, 5:end])
+        counts = [cfs[i, col] for col in 5:size(cfs, 2)]
         total = cfs[i,:Population]
         if total == 0
             freqs = counts * 0.0
