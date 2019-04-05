@@ -16,7 +16,7 @@ before_install:
   # Update Julia packages metadata.
   # only for new package manager (>= 0.7)
   #- julia -e 'using Pkg; Pkg.add("Test"); Pkg.add("LinearAlgebra"); ; Pkg.add("RDatasets"); Pkg.update()'
-  - julia -e 'using Pkg; Pkg.activate("."); Pkg.instatiate(); Pkg.add("Test")'
+  - julia -e 'using Pkg; Pkg.activate("."); Pkg.instantiate(); Pkg.add("Test")'
   # Use PyPlot's Automated Matplotlib installation through Conda.
   # Work around (part 1/2) matplotlib backend error leading to "matplotlib.pyplot could not be found by pyimport": can't just set env PYTHON="".
   - julia -e 'ENV["PYTHON"]=""; using Pkg; Pkg.add("Conda"); using Conda; Conda.update(); Conda.add("matplotlib"); Pkg.add("PyCall"); Pkg.build("PyCall"); Pkg.add("PyPlot");'
