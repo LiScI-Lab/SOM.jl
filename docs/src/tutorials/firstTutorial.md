@@ -6,7 +6,7 @@ by taking a 3-step approach:
 1) initialise the SOM by defining topology, dimensions and random initial
    codebook vectors
 2) train the SOM in one or more rounds with different training parameters
-3) map data into the Som and get visualisations.
+3) map data into the SOM and get visualisations.
 
 In the following example the functions are called with a minimum set of
 parameters. For a description of all possible arguments see the
