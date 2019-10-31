@@ -160,7 +160,7 @@ function convertTrainingData(data)::Array{Float64,2}
         try
             train = convert(Matrix{Float64}, data)
         catch ex
-            Base.showerror(STDERR, ex, backtrace())
+            Base.showerror(stderr, ex, backtrace())
             error("Unable to convert training data to Array{Float64,2}!")
         end
     else
@@ -171,4 +171,4 @@ function convertTrainingData(data)::Array{Float64,2}
 end
 
 
-prettyPrintArray(arr) = println("$(show(IOContext(STDOUT, limit=true), "text/plain", arr))")
+prettyPrintArray(arr) = println("$(show(IOContext(stdout, limit=true), "text/plain", arr))")
