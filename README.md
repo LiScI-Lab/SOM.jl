@@ -26,6 +26,6 @@ Julia v0.7 or later with the package manager as
 pkg> add SOM
 ````
 
-The current version 0.3.0 is tested with Julia v1.0.3 and v1.1.0 (Use version 0.2.0 with Julia v0.7 and v1.0 because of changes in the PyPlot (i.e. matplotlib) package).
+The current version 0.4.0 is tested with Julia v1.0.3 and 1.2.0 (use version 0.2.0 with Julia v0.7 and v1.0 because of changes in the PyPlot (i.e. matplotlib) package).
 
 Please refer to the [documentation](https://lisci-lab.github.io/SOM.jl/stable) for details!
