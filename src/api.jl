@@ -151,6 +151,13 @@ function classFrequencies(som::Som, data, classes)
     x = deepcopy(data)
     deletecols!(x, classes)
     classes = data[classes]
+
+    # normalise training data:
+    #
+    if som.norm != :none
+        x = normTrainData(x, som.normParams)
+    end
+
     vis = visual(som.codes, x)
 
     df = makeClassFreqs(som, vis, classes)
