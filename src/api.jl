@@ -109,6 +109,12 @@ function mapToSOM(som::Som, data)
         error(SOM_ERRORS[:ERR_COL_NUM])
     end
 
+    # normalise training data:
+    #
+    if som.norm != :none
+        data = normTrainData(data, som.normParams)
+    end
+
     vis = visual(som.codes, data)
     x = [som.indices[i,:X] for i in vis]
     y = [som.indices[i,:Y] for i in vis]

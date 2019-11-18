@@ -174,6 +174,7 @@ function trainAll(som::Som, train::Array{Float64,2},
                 rDecay, ηDecay)
 
     # normalise training data:
+    #
     if som.norm != :none
         train = normTrainData(train, som.normParams)
     end
