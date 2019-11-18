@@ -83,6 +83,16 @@ LD_LIBRARY_PATH="$HOME/.julia/v0.6/Conda/deps/usr/lib:$LD_LIBRARY_PATH"
 For training of self-organising maps issues with Matplotlib installation can be ignored; the SOMs will work without Matplotlib. However, Matplotlib visualisations cannot be plotted without Matplotlib.
 
 
+#### 3-D-Plots
+
+3-D-plotting of spherical SOMs seems to be broken in the latest
+versions of PyPlot.
+Therefor 3-Dplotting of spheres is not recommended until a new
+Plot.jl-based plotting interface is implemneted (is on the to-do-list!).
+
+
+
+
 ## Quick Start
 
 ```@contents
