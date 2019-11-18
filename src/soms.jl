@@ -116,13 +116,13 @@ function makeClassFreqs(som, vis, classes)
     classNum = nrow(classLabels)
 
     cfs = DataFrame(index = 1:som.nCodes)
-    cfs[:X] = som.indices[:X]
-    cfs[:Y] = som.indices[:Y]
+    cfs[!,:X] = som.indices.X
+    cfs[!,:Y] = som.indices.Y
 
-    cfs[:Population] = zeros(Int, som.nCodes)
+    cfs.Population = zeros(Int, som.nCodes)
 
     for class in classLabels
-        cfs[Symbol(class)] = zeros(Float64, som.nCodes)
+        cfs[!,Symbol(class)] = zeros(Float64, som.nCodes)
     end
 
     # loop vis and count:

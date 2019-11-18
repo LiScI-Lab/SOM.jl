@@ -66,7 +66,7 @@ include("testFuns.jl")
 
 # test convertTrainingData:
 #
-@test testTrain(convert(Array{Float64}, train), :rectangular)
+@test testTrain(convert(Matrix{Float64}, train), :rectangular)
 
 # test kernels:
 #

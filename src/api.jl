@@ -149,8 +149,8 @@ function classFrequencies(som::Som, data, classes)
     end
 
     x = deepcopy(data)
-    deletecols!(x, classes)
-    classes = data[classes]
+    select!(x, Not(classes))
+    classes = data[:,classes]
 
     # normalise training data:
     #
@@ -215,7 +215,7 @@ function plotDensity(som::Som; predict = nothing,
     if predict == nothing
         population = som.population
     else
-        population = makePopulation(som.nCodes, predict[:index])
+        population = makePopulation(som.nCodes, predict.index)
     end
 
     if typeof(colormap) == Symbol

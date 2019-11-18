@@ -92,18 +92,23 @@ end
 
 
 """
-    normTrainData(train::DataFrame, normParams::DataFrame)
+    normTrainData(x, normParams)
 
 Normalise every column of training data with the params.
 
 # Arguments
-- `train`: DataFrame with training Data
+- `x`: DataFrame or Matrix with training Data
 - `normParams`: Shift and scale parameters for each attribute column.
 """
 function normTrainData(x, normParams)
 
     for i in 1:ncol(x)
-        x[:,i] = (x[:,i] .- normParams[1,i]) ./ normParams[2,i]
+        scaled = (x[:,i] .- normParams[1,i]) ./ normParams[2,i]
+        if x isa DataFrame
+            x[!,i] = scaled
+        else
+            x[:,i] = scaled
+        end
     end
 
     return x
