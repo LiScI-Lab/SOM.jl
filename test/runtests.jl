@@ -91,7 +91,7 @@ if MPL_INSTALLED
 
     @test testClassesPlot(train, iris, :rectangular)
     @test testClassesPlot(train, iris, :hexagonal)
-    @test testClassesPlot(train, iris, :spherical)
+    # @test testClassesPlot(train, iris, :spherical)
 
     # plot to file:
     #
