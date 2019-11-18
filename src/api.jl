@@ -3,7 +3,7 @@
 #
 
 """
-    initSOM(train, xdim, ydim = xdim;  norm = :zscore, topol = :hexagonal,
+    initSOM(train, xdim, ydim = xdim;  norm = :none, topol = :hexagonal,
             toroidal = false)
 
 Initialises a SOM.
@@ -19,7 +19,7 @@ Initialises a SOM.
 - `toroidal`: optional flag; if true, the SOM is toroidal.
 """
 function initSOM( train, xdim, ydim = xdim;
-             norm = :zscore, topol = :hexagonal, toroidal = false)
+             norm = :none, topol = :hexagonal, toroidal = false)
 
     if typeof(train) == DataFrame
         colNames = [String(x) for x in names(train)]
