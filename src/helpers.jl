@@ -111,7 +111,7 @@ end
 
 
 """
-    normTrainData(train::DataFrame, norm::Symbol)
+    normDefine(train::DataFrame, norm::Symbol)
 
 Normalise every column of training data.
 
@@ -119,7 +119,7 @@ Normalise every column of training data.
 - `train`: DataFrame with training Data
 - `norm`: type of normalisation; one of `minmax, zscore, none`
 """
-function normTrainData(train::Array{Float64,2}, norm::Symbol)
+function normDefine(train::Array{Float64,2}, norm::Symbol)
 
     normParams = zeros(2, ncol(train))
 

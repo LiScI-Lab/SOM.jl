@@ -235,7 +235,7 @@ function initAll( train::Array{Float64,2}, colNames::Array{String,1},
                 topology::Symbol, toroidal::Bool)
 
     # normalise training data:
-    train, normParams = normTrainData(train, norm)
+    train, normParams = normDefine(train, norm)
     codes = initCodes(nCodes, train, colNames)
 
     if topology == :rectangular
