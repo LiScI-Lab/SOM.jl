@@ -15,7 +15,7 @@ using Distances
 using ProgressMeter
 using StatsBase
 using Distributions
-using TensorToolbox
+#using TensorToolbox
 using LinearAlgebra
 # if VERSION < v"0.7.0-DEV.5183"
 #     # nothing: dotproduct is in Base
