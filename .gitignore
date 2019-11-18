@@ -6,3 +6,4 @@ docs/serve/
 docs/site/
 register.txt
 testerr.txt
+gen_project.jl
