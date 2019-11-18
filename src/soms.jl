@@ -158,9 +158,9 @@ end
 
 
 """
-    function somAll(train::Array{Float64}, xdim, ydim,
-                topology, len, η, kernelFun, r,
-                norm, toroidal, rDecay, ηDecay)
+    function trainAll(om::SOM, rain::Array{Float64},
+                len, η, kernelFun, r,
+                rDecay, ηDecay)
 
 Connects the high-level-API functions with
 the backend.
@@ -174,12 +174,12 @@ function trainAll(som::Som, train::Array{Float64,2},
                 rDecay, ηDecay)
 
     # normalise training data:
-    if norm != :none
+    if som.norm != :none
         train = normTrainData(train, som.normParams)
     end
 
     # set default radius:
-    if r == 0.0
+    if r < 0.1
         if som.topol != :spherical
             r = √(som.xdim^2 + som.ydim^2) / 2
         else
