@@ -100,7 +100,7 @@ Normalise every column of training data with the params.
 - `train`: DataFrame with training Data
 - `normParams`: Shift and scale parameters for each attribute column.
 """
-function normTrainData(x::Array{Float64,2}, normParams)
+function normTrainData(x, normParams)
 
     for i in 1:ncol(x)
         x[:,i] = (x[:,i] .- normParams[1,i]) ./ normParams[2,i]
