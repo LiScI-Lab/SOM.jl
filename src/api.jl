@@ -192,6 +192,10 @@ Plot the population of neurons as colours.
             by MatPlotLib; default is `:display`
 - `fileName`: name of image file. File extention overrides the setting of
               `device`.
+
+# Remark:
+3-d-plotting of spherical SOMs with MatPlotLib is experimental and
+not yet tested!
 """
 function plotDensity(som::Som; predict = nothing,
                      title = "Density of Self-Organising Map",
@@ -254,6 +258,10 @@ Plot the population of neurons as colours.
             by MatPlotLib; default is `:display`
 - `fileName`: name of image file. File extention overrides the setting of
               `device`.
+
+# Remark:
+3-d-plotting of spherical SOMs with MatPlotLib is experimental and
+not yet tested!
 """
 function plotClasses(som::Som, frequencies;
                      title = "Class Frequencies of Self-Organising Map",
