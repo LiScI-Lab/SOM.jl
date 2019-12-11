@@ -1,0 +1,24 @@
+  0.391666 seconds (4.87 M allocations: 516.815 MiB, 51.31% gc time)
+  0.186380 seconds (4.87 M allocations: 516.815 MiB, 22.69% gc time)
+  0.019503 seconds (550.00 k allocations: 55.389 MiB, 21.31% gc time)
+  0.179847 seconds (4.87 M allocations: 516.815 MiB, 19.91% gc time)
+  0.182623 seconds (4.87 M allocations: 516.815 MiB, 20.46% gc time)
+  0.181016 seconds (4.87 M allocations: 516.815 MiB, 19.89% gc time)
+  0.181628 seconds (4.87 M allocations: 516.815 MiB, 19.35% gc time)
+  0.182981 seconds (4.87 M allocations: 516.815 MiB, 21.11% gc time)
+  0.180674 seconds (4.87 M allocations: 516.815 MiB, 19.62% gc time)
+  0.164451 seconds (4.87 M allocations: 516.815 MiB, 23.93% gc time)
+  0.184263 seconds (4.87 M allocations: 516.815 MiB, 22.23% gc time)
+  0.187081 seconds (4.87 M allocations: 516.815 MiB, 22.90% gc time)
+  0.201822 seconds (4.87 M allocations: 516.815 MiB, 27.69% gc time)
+DrawPopulation()
+Writing plot to file density.png
+  0.185552 seconds (4.87 M allocations: 516.815 MiB, 21.50% gc time)
+DrawPopulation()
+Writing plot to file density.png
+  0.190490 seconds (4.87 M allocations: 516.815 MiB, 22.59% gc time)
+Writing plot to file classes.png
+  0.195461 seconds (4.87 M allocations: 516.815 MiB, 25.27% gc time)
+Writing plot to file classes.png
+  0.183421 seconds (4.87 M allocations: 516.815 MiB, 20.53% gc time)
+Writing plot to file classesfile.svg
