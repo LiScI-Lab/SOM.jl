@@ -80,7 +80,7 @@ function findWinner(cod, sampl)
 
     for i in 1:n
 
-        d = euclidean(sampl, cod[i,:])
+        d = sqeuclidean(sampl, cod[i,:])
         if (d < dist)
             dist = d
             winner = i
