@@ -77,7 +77,7 @@ Return the index of the winner neuron for each training pattern
 in x (row-wise).
 """
 
-function visual_brute_force(codes, x)
+function visualBruteForce(codes, x)
 
     vis = zeros(Int, nrow(x))
     @time for i in 1:nrow(x)
@@ -89,7 +89,7 @@ end
 
 function visual(codes, x)
 
-    kd_tree = build_kd_tree(codes)
+    kd_tree = buildKDTree(codes)
     vis = zeros(Int, nrow(x))
 
     @time for i in 1:nrow(x)
