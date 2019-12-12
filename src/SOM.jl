@@ -15,6 +15,7 @@ using Distances
 using ProgressMeter
 using StatsBase
 using Distributions
+using NearestNeighbors
 #using TensorToolbox
 using LinearAlgebra
 # if VERSION < v"0.7.0-DEV.5183"
