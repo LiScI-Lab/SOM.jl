@@ -43,7 +43,6 @@ function doSom(x::Array{Float64}, codes::Array{Float64},
     numDat = nrow(x)
     numCodes = nrow(codes)
 
-    kd_tree = get_kd_tree(codes)
 
     # Training:
     # 1) select random sample
@@ -54,8 +53,7 @@ function doSom(x::Array{Float64}, codes::Array{Float64},
     @time for s in 1:len
 
         sampl = rowSample(x)
-        # winner = findWinner(codes, sampl)
-        winner = findWinnerKD(kd_tree,sampl)
+        winner = findWinner(codes, sampl)
 
         for i in 1:numCodes
             # v = view(codes, i, :)
