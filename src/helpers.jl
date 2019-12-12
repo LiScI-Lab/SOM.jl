@@ -1,5 +1,3 @@
-using NearestNeighbors
-
 import DataFrames: nrow, ncol
 
 """
@@ -93,8 +91,8 @@ function findWinner(cod, sampl)
 end
 
 function findWinnerKD(kd_tree, sampl)
-  idxs, _ = knn(kd_tree, sampl, 1)
-  idxs[1]
+    idxs, _ = knn(kd_tree, sampl, 1)
+    idxs[1]
 end
 
 function build_kd_tree(codes)

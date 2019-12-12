@@ -99,8 +99,6 @@ function visual(codes, x)
     return(vis)
 end
 
-
-
 """
     makePopulation(nCodes, vis)
 
