@@ -96,8 +96,7 @@ function findWinnerKD(kd_tree, sampl)
 end
 
 function build_kd_tree(codes)
-    codes_transpose = permutedims(codes,(2,1))
-    KDTree(codes_transpose)
+    permutedims(codes,(2,1)) |> KDTree
 end
 
 """
