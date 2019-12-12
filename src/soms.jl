@@ -43,6 +43,7 @@ function doSom(x::Array{Float64}, codes::Array{Float64},
     numDat = nrow(x)
     numCodes = nrow(codes)
 
+    # avg_monitoring_distance = 0
 
     # Training:
     # 1) select random sample
@@ -54,6 +55,9 @@ function doSom(x::Array{Float64}, codes::Array{Float64},
 
         sampl = rowSample(x)
         winner = findWinner(codes, sampl)
+
+        # avg_monitoring_distance += sqeuclidean(codes[winner,:],sampl)
+        # println(avg_monitoring_distance/s)
 
         for i in 1:numCodes
             # v = view(codes, i, :)
@@ -77,15 +81,29 @@ end
 Return the index of the winner neuron for each training pattern
 in x (row-wise).
 """
-function visual(codes, x)
+
+function visual_brute_force(codes, x)
 
     vis = zeros(Int, nrow(x))
-    for i in 1:nrow(x)
+    @time for i in 1:nrow(x)
         vis[i] = findWinner(codes, [x[i, col] for col in 1:size(x, 2)])
     end
 
     return(vis)
 end
+
+function visual(codes, x)
+
+    kd_tree = build_kd_tree(codes)
+    vis = zeros(Int, nrow(x))
+
+    @time for i in 1:nrow(x)
+        vis[i] = findWinnerKD(kd_tree, [x[i, col] for col in 1:size(x, 2)])
+    end
+
+    return(vis)
+end
+
 
 
 """
