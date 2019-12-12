@@ -43,8 +43,6 @@ function doSom(x::Array{Float64}, codes::Array{Float64},
     numDat = nrow(x)
     numCodes = nrow(codes)
 
-    # avg_monitoring_distance = 0
-
     # Training:
     # 1) select random sample
     # 2) find winner
@@ -55,9 +53,6 @@ function doSom(x::Array{Float64}, codes::Array{Float64},
 
         sampl = rowSample(x)
         winner = findWinner(codes, sampl)
-
-        # avg_monitoring_distance += sqeuclidean(codes[winner,:],sampl)
-        # println(avg_monitoring_distance/s)
 
         for i in 1:numCodes
             # v = view(codes, i, :)
