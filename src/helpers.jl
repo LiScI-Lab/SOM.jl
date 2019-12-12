@@ -90,7 +90,7 @@ function findWinner(cod, sampl)
     return winner
 end
 
-function findWinnerKD(kd_tree, sampl)
+function findWinner(kd_tree::KDTree, sampl)
     idxs, _ = knn(kd_tree, sampl, 1)
     idxs[1]
 end

@@ -88,15 +88,8 @@ function visualBruteForce(codes, x)
 end
 
 function visual(codes, x)
-
     kd_tree = buildKDTree(codes)
-    vis = zeros(Int, nrow(x))
-
-    @time for i in 1:nrow(x)
-        vis[i] = findWinnerKD(kd_tree, [x[i, col] for col in 1:size(x, 2)])
-    end
-
-    return(vis)
+    visualBruteForce(kd_tree, x)
 end
 
 """
