@@ -16,7 +16,6 @@ end
 
 
 
-
 function testVisual(train, topol)
 
     xdim = 8
@@ -36,6 +35,49 @@ function testVisual(train, topol)
 
     return ntr == npopul
 end
+
+
+function testVisualGeneric()
+
+    nonce = (function()
+        count = 0.0
+        function()
+            count += 1
+        end
+    end)()
+
+    for i in 1:10
+
+        # tests on random data
+        dimensions = rand(1:10)
+        ncodes = rand(1:10)
+        nrows = rand(1:10)
+        codes = rand(ncodes,dimensions)
+        samples = rand(nrows,dimensions)
+
+        if visual(codes,samples) != visualGeneric(codes,samples)
+            return false
+        end
+
+        # tests on sequenced data
+        dimensions = i
+        ncodes = i
+        nrows = i
+        codes = zeros(ncodes,dimensions)
+        codes = map(_->(nonce()),codes)
+        samples = zeros(nrows,dimensions)
+        samples = map(_->(nonce()),samples)
+
+        if visual(codes,samples) != visualGeneric(codes,samples)
+            return false
+        end
+
+    end
+
+    return true
+
+end
+
 
 
 function testFreqs(train, wClasses, classes)

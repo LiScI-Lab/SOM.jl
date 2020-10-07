@@ -90,6 +90,14 @@ function findWinner(cod, sampl)
     return winner
 end
 
+function findWinner(kd_tree::KDTree, sampl)
+    idxs, _ = knn(kd_tree, sampl, 1)
+    idxs[1]
+end
+
+function buildKDTree(codes)
+    permutedims(codes,(2,1)) |> KDTree
+end
 
 """
     normTrainData(x, normParams)
